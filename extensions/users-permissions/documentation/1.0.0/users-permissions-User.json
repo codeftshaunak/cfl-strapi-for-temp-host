@@ -1,5 +1,76 @@
 {
   "paths": {
+    "/auth/register-confirmation": {
+      "post": {
+        "deprecated": false,
+        "description": "Validate a user account",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "UsersPermissions - User"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users-permissions/search/{id}": {
       "get": {
         "deprecated": false,
@@ -1188,7 +1259,8 @@
         "required": [
           "id",
           "username",
-          "email"
+          "email",
+          "phone"
         ],
         "properties": {
           "id": {
@@ -1250,13 +1322,121 @@
                 "type": "string"
               }
             }
+          },
+          "phone": {
+            "type": "string"
+          },
+          "phoneToken": {
+            "type": "integer"
+          },
+          "emailToken": {
+            "type": "integer"
+          },
+          "onboarded": {
+            "type": "boolean",
+            "default": false
+          },
+          "onboardedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "numSearches": {
+            "type": "integer"
+          },
+          "lastSearchAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "city": {
+            "type": "object"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "pronouns": {
+            "type": "string"
+          },
+          "profilePicture": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 280
           }
         }
       },
       "NewUsersPermissionsUser": {
         "required": [
           "username",
-          "email"
+          "email",
+          "phone"
         ],
         "properties": {
           "username": {
@@ -1291,6 +1471,46 @@
           },
           "role": {
             "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "phoneToken": {
+            "type": "integer"
+          },
+          "emailToken": {
+            "type": "integer"
+          },
+          "onboarded": {
+            "type": "boolean",
+            "default": false
+          },
+          "onboardedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "numSearches": {
+            "type": "integer"
+          },
+          "lastSearchAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "city": {
+            "type": "object"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "pronouns": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 280
           },
           "created_by": {
             "type": "string"

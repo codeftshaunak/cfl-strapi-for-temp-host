@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/auth/register-confirmation",
+      "handler": "Auth.registerConfirmation",
+      "config": {
+        "policies": [],
+        "prefix": "",
+        "description": "Validate a user account",
+        "tag": {
+          "plugin": "users-permissions",
+          "name": "User"
+        }
+      }
+    }
+  ]
+}

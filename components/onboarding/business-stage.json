@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_onboarding_business_stages",
+  "info": {
+    "name": "businessStage",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

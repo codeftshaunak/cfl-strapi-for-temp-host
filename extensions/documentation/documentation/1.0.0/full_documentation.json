@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/25/2021 2:44:52 AM"
+    "x-generation-date": "10/25/2021 5:33:03 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -556,20 +556,19 @@
         ]
       }
     },
-    "/onboarding-roles": {
+    "/onboarding": {
       "get": {
         "deprecated": false,
-        "description": "Find all the onboarding-roles's records",
+        "description": "Find all the onboarding's records",
         "responses": {
           "200": {
-            "description": "Retrieve onboarding-roles document(s)",
+            "description": "Retrieve onboarding document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Onboarding"
                   }
                 }
               }
@@ -608,7 +607,7 @@
         },
         "summary": "",
         "tags": [
-          "Onboarding-roles"
+          "Onboarding"
         ],
         "parameters": [
           {
@@ -751,18 +750,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single onboarding-roles record",
+        "description": "Update a single onboarding record",
         "responses": {
           "200": {
-            "description": "Retrieve onboarding-roles document(s)",
+            "description": "Retrieve onboarding document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Onboarding"
                 }
               }
             }
@@ -800,7 +795,7 @@
         },
         "summary": "",
         "tags": [
-          "Onboarding-roles"
+          "Onboarding"
         ],
         "requestBody": {
           "description": "",
@@ -808,7 +803,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewOnboarding-roles"
+                "$ref": "#/components/schemas/NewOnboarding"
               }
             }
           }
@@ -817,10 +812,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single onboarding-roles record",
+        "description": "Delete a single onboarding record",
         "responses": {
           "200": {
-            "description": "deletes a single onboarding-roles based on the ID supplied",
+            "description": "deletes a single onboarding based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -863,7 +858,7 @@
         },
         "summary": "",
         "tags": [
-          "Onboarding-roles"
+          "Onboarding"
         ],
         "parameters": []
       }
@@ -3218,7 +3213,7 @@
           }
         }
       },
-      "Onboarding-roles": {
+      "Onboarding": {
         "required": [
           "id"
         ],
@@ -3226,15 +3221,179 @@
           "id": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "lookingFor": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "businessStages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
-      "NewOnboarding-roles": {
+      "NewOnboarding": {
         "properties": {
-          "name": {
-            "type": "string"
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "lookingFor": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "businessStages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "created_by": {
             "type": "string"
@@ -3382,6 +3541,21 @@
                 },
                 "summary": {
                   "type": "string"
+                },
+                "profileRole": {
+                  "type": "string"
+                },
+                "lookingFor": {
+                  "type": "string"
+                },
+                "businessStage": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "object"
+                },
+                "interests": {
+                  "type": "object"
                 },
                 "created_by": {
                   "type": "string"
@@ -3603,6 +3777,21 @@
           "summary": {
             "type": "string",
             "maxLength": 280
+          },
+          "profileRole": {
+            "type": "string"
+          },
+          "lookingFor": {
+            "type": "string"
+          },
+          "businessStage": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "object"
+          },
+          "interests": {
+            "type": "object"
           }
         }
       },
@@ -3686,6 +3875,21 @@
             "type": "string",
             "maxLength": 280
           },
+          "profileRole": {
+            "type": "string"
+          },
+          "lookingFor": {
+            "type": "string"
+          },
+          "businessStage": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "object"
+          },
+          "interests": {
+            "type": "object"
+          },
           "created_by": {
             "type": "string"
           },
@@ -3721,6 +3925,9 @@
   "tags": [
     {
       "name": "Cities"
+    },
+    {
+      "name": "Onboarding"
     },
     {
       "name": "Email - Email"

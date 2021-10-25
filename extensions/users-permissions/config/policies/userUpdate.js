@@ -14,7 +14,17 @@ module.exports = async (ctx, next) => {
   }
 
   // Extract the fields regular users should be able to edit
-  const { firstName, lastName, pronouns, city } = ctx.request.body;
+  const {
+    firstName,
+    lastName,
+    pronouns,
+    city,
+    profileRole,
+    lookingFor,
+    businessStage,
+    skills,
+    interests,
+  } = ctx.request.body;
 
   // Provide custom validation policy here
   //   if (firstName && firstName.trim() === "") {
@@ -27,7 +37,17 @@ module.exports = async (ctx, next) => {
     lastName,
     pronouns,
     city,
+    profileRole,
+    lookingFor,
+    businessStage,
+    skills,
+    interests,
   };
+
+  if (interests) {
+    updateData["onboarded"] = true;
+    updateData["onboardedAt"] = new Date();
+  }
 
   // remove properties from the update object that are undefined (not submitted by the user in the PUT request)
   Object.keys(updateData).forEach(

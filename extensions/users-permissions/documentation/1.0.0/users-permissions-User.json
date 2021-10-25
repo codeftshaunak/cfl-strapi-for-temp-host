@@ -1429,6 +1429,21 @@
           "summary": {
             "type": "string",
             "maxLength": 280
+          },
+          "profileRole": {
+            "type": "string"
+          },
+          "lookingFor": {
+            "type": "string"
+          },
+          "businessStage": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "object"
+          },
+          "interests": {
+            "type": "object"
           }
         }
       },
@@ -1511,6 +1526,21 @@
           "summary": {
             "type": "string",
             "maxLength": 280
+          },
+          "profileRole": {
+            "type": "string"
+          },
+          "lookingFor": {
+            "type": "string"
+          },
+          "businessStage": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "object"
+          },
+          "interests": {
+            "type": "object"
           },
           "created_by": {
             "type": "string"

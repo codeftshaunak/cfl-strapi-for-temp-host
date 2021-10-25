@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "onboarding",
+  "info": {
+    "name": "onboarding",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "roles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.roles"
+    },
+    "lookingFor": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.looking-for"
+    },
+    "businessStages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.business-stage"
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.skills"
+    },
+    "interests": {
+      "type": "component",
+      "repeatable": true,
+      "component": "onboarding.interests"
+    }
+  }
+}

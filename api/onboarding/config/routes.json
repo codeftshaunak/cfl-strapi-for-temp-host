@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/onboarding",
+      "handler": "onboarding.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/onboarding",
+      "handler": "onboarding.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/onboarding",
+      "handler": "onboarding.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

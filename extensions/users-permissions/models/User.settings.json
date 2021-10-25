@@ -109,6 +109,21 @@
     "summary": {
       "type": "text",
       "maxLength": 280
+    },
+    "profileRole": {
+      "type": "string"
+    },
+    "lookingFor": {
+      "type": "string"
+    },
+    "businessStage": {
+      "type": "string"
+    },
+    "skills": {
+      "type": "json"
+    },
+    "interests": {
+      "type": "json"
     }
   }
 }

@@ -1323,100 +1323,62 @@
               }
             }
           },
-          "phone": {
-            "type": "string"
-          },
-          "phoneToken": {
-            "type": "integer"
-          },
-          "emailToken": {
-            "type": "integer"
-          },
           "onboarded": {
             "type": "boolean",
             "default": false
           },
-          "onboardedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "numSearches": {
-            "type": "integer"
-          },
-          "lastSearchAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "city": {
-            "type": "object"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "pronouns": {
-            "type": "string"
-          },
-          "profilePicture": {
+          "profile": {
             "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
+              "id"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "user": {
                 "type": "string"
               },
-              "alternativeText": {
+              "profilePicture": {
                 "type": "string"
               },
-              "caption": {
+              "slug": {
                 "type": "string"
               },
-              "width": {
-                "type": "integer"
+              "city": {
+                "type": "string"
               },
-              "height": {
-                "type": "integer"
+              "firstName": {
+                "type": "string"
               },
-              "formats": {
+              "lastName": {
+                "type": "string"
+              },
+              "tagline": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "pronouns": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "lookingFor": {
+                "type": "string"
+              },
+              "startupStage": {
+                "type": "string"
+              },
+              "skills": {
                 "type": "object"
               },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
+              "interests": {
                 "type": "object"
               },
-              "related": {
-                "type": "string"
+              "public": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -1426,24 +1388,9 @@
               }
             }
           },
-          "summary": {
+          "lastLogin": {
             "type": "string",
-            "maxLength": 280
-          },
-          "profileRole": {
-            "type": "string"
-          },
-          "lookingFor": {
-            "type": "string"
-          },
-          "businessStage": {
-            "type": "string"
-          },
-          "skills": {
-            "type": "object"
-          },
-          "interests": {
-            "type": "object"
+            "format": "date-time"
           }
         }
       },
@@ -1504,43 +1451,12 @@
             "type": "string",
             "format": "date-time"
           },
-          "numSearches": {
-            "type": "integer"
+          "profile": {
+            "type": "string"
           },
-          "lastSearchAt": {
+          "lastLogin": {
             "type": "string",
             "format": "date-time"
-          },
-          "city": {
-            "type": "object"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "pronouns": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string",
-            "maxLength": 280
-          },
-          "profileRole": {
-            "type": "string"
-          },
-          "lookingFor": {
-            "type": "string"
-          },
-          "businessStage": {
-            "type": "string"
-          },
-          "skills": {
-            "type": "object"
-          },
-          "interests": {
-            "type": "object"
           },
           "created_by": {
             "type": "string"

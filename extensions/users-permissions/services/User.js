@@ -4,6 +4,12 @@ const { env } = require("strapi-utils");
 const smsClient = require("twilio")(env("TWILIO_ID"), env("TWILIO_TOKEN"));
 
 module.exports = {
+  fetchAuthenticatedUser(id) {
+    return strapi
+      .query("user", "users-permissions")
+      .findOne({ id }, ["role", "profile"]);
+  },
+
   async sendEmailToken(user) {
     const emailToken = Math.floor(Math.random() * 90000) + 10000;
 

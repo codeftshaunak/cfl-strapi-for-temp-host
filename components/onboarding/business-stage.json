@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_onboarding_business_stages",
+  "collectionName": "components_onboarding_startup_stages",
   "info": {
-    "name": "businessStage",
+    "name": "startupStage",
     "icon": "address-card",
     "description": ""
   },

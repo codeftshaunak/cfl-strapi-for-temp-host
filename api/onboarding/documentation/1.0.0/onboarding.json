@@ -352,7 +352,7 @@
               }
             }
           },
-          "businessStages": {
+          "startupStages": {
             "type": "array",
             "items": {
               "type": "object",
@@ -402,6 +402,18 @@
                 }
               }
             }
+          },
+          "rolesCount": {
+            "type": "integer"
+          },
+          "lookingForCount": {
+            "type": "integer"
+          },
+          "skillsCount": {
+            "type": "integer"
+          },
+          "interestsCount": {
+            "type": "integer"
           }
         }
       },
@@ -441,7 +453,7 @@
               }
             }
           },
-          "businessStages": {
+          "startupStages": {
             "type": "array",
             "items": {
               "type": "object",
@@ -491,6 +503,18 @@
                 }
               }
             }
+          },
+          "rolesCount": {
+            "type": "integer"
+          },
+          "lookingForCount": {
+            "type": "integer"
+          },
+          "skillsCount": {
+            "type": "integer"
+          },
+          "interestsCount": {
+            "type": "integer"
           },
           "created_by": {
             "type": "string"

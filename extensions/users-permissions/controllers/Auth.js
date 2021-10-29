@@ -13,7 +13,7 @@ const formatError = (error) => [
 ];
 
 module.exports = {
-  // TODO: implement login conditions
+  // TODO: last login done, rest: implement login conditions
   async callback(ctx) {
     const provider = ctx.params.provider || "local";
     const params = ctx.request.body;
@@ -126,6 +126,12 @@ module.exports = {
           })
         );
       } else {
+        await strapi.query("user", "users-permissions").update(
+          { id: user.id },
+          {
+            lastLogin: new Date(),
+          }
+        );
         ctx.send({
           jwt: strapi.plugins["users-permissions"].services.jwt.issue({
             id: user.id,
@@ -161,6 +167,12 @@ module.exports = {
         return ctx.badRequest(null, error === "array" ? error[0] : error);
       }
 
+      await strapi.query("user", "users-permissions").update(
+        { id: user.id },
+        {
+          lastLogin: new Date(),
+        }
+      );
       ctx.send({
         jwt: strapi.plugins["users-permissions"].services.jwt.issue({
           id: user.id,

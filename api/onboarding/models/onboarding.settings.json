@@ -22,7 +22,7 @@
       "repeatable": true,
       "component": "onboarding.looking-for"
     },
-    "businessStages": {
+    "startupStages": {
       "type": "component",
       "repeatable": true,
       "component": "onboarding.business-stage"
@@ -36,6 +36,18 @@
       "type": "component",
       "repeatable": true,
       "component": "onboarding.interests"
+    },
+    "rolesCount": {
+      "type": "biginteger"
+    },
+    "lookingForCount": {
+      "type": "biginteger"
+    },
+    "skillsCount": {
+      "type": "biginteger"
+    },
+    "interestsCount": {
+      "type": "biginteger"
     }
   }
 }

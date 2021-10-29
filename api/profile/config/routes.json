@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/profiles",
+      "handler": "profile.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/profiles/me",
+      "handler": "profile.findMe",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/profiles/count",
+      "handler": "profile.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/profiles/:id",
+      "handler": "profile.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/profiles/me",
+      "handler": "profile.createMe",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/profiles/me",
+      "handler": "profile.updateMe",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/profiles/me",
+      "handler": "profile.deleteMe",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

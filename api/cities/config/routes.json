@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/cities",
-      "handler": "cities.find",
+      "handler": "city.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/cities/count",
-      "handler": "cities.count",
+      "handler": "city.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/cities/:id",
-      "handler": "cities.findOne",
+      "handler": "city.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/cities",
-      "handler": "cities.create",
+      "handler": "city.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/cities/:id",
-      "handler": "cities.update",
+      "handler": "city.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/cities/:id",
-      "handler": "cities.delete",
+      "handler": "city.delete",
       "config": {
         "policies": []
       }

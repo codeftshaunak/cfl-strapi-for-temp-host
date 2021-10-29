@@ -6,6 +6,9 @@
     "description": ""
   },
   "options": {
+    "privateAttributes": [
+      "username"
+    ],
     "draftAndPublish": false,
     "timestamps": true
   },
@@ -63,67 +66,31 @@
       "type": "string",
       "regex": "^\\+((?:9[679]|8[035789]|6[789]|5[90]|42|3[578]|2[1-689])|9[0-58]|8[1246]|6[0-6]|5[1-8]|4[013-9]|3[0-469]|2[70]|7|1)(?:\\W*\\d){0,13}\\d$",
       "required": true,
-      "unique": true
+      "unique": true,
+      "private": true
     },
     "phoneToken": {
-      "type": "integer"
+      "type": "integer",
+      "private": true
     },
     "emailToken": {
-      "type": "integer"
+      "type": "integer",
+      "private": true
     },
     "onboarded": {
       "type": "boolean",
       "default": false
     },
     "onboardedAt": {
+      "type": "datetime",
+      "private": true
+    },
+    "profile": {
+      "via": "user",
+      "model": "profile"
+    },
+    "lastLogin": {
       "type": "datetime"
-    },
-    "numSearches": {
-      "type": "integer"
-    },
-    "lastSearchAt": {
-      "type": "datetime"
-    },
-    "city": {
-      "type": "json"
-    },
-    "firstName": {
-      "type": "string"
-    },
-    "lastName": {
-      "type": "string"
-    },
-    "pronouns": {
-      "type": "string"
-    },
-    "profilePicture": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
-    },
-    "summary": {
-      "type": "text",
-      "maxLength": 280
-    },
-    "profileRole": {
-      "type": "string"
-    },
-    "lookingFor": {
-      "type": "string"
-    },
-    "businessStage": {
-      "type": "string"
-    },
-    "skills": {
-      "type": "json"
-    },
-    "interests": {
-      "type": "json"
     }
   }
 }

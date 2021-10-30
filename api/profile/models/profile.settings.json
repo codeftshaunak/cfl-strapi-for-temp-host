@@ -66,6 +66,10 @@
     "public": {
       "type": "boolean",
       "default": false
+    },
+    "premium": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

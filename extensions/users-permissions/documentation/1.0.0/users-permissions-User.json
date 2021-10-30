@@ -1380,6 +1380,9 @@
               "public": {
                 "type": "boolean"
               },
+              "premium": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },

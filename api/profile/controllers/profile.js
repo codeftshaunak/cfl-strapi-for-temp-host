@@ -19,6 +19,52 @@ module.exports = {
     );
   },
 
+  async search(ctx) {
+    let entities;
+    const params = {
+      public: true,
+    };
+
+    // city: "56cc14c588b042411c0bd010"
+    // premium: false
+    // role: (2) ['Advisor', 'Intern']
+    // skills: []
+    // startupStage: []
+    const data = ctx.query;
+    console.log("profile.js data", data);
+
+    if (data.city) {
+      // const city = await strapi.services.city.findOne({ id: data.city });
+      // const cities = await strapi.query("city").model.find({
+      //   coordinates: {
+      //     $near: {
+      //       $geometry: city.coordinates,
+      //       $maxDistance: 100,
+      //     },
+      //   },
+      // });
+      params["city"] = data.city;
+    }
+    if (data.premium == "true") {
+      params["premium"] = true;
+    }
+    if (data.role && data.role.length > 0) {
+      params["role"] = { $in: data.role };
+    }
+    if (data.skills && data.skills.length > 0) {
+      params["skills"] = { $in: data.skills };
+    }
+    if (data.startupStage && data.startupStage.length > 0) {
+      params["startupStage"] = { $in: data.startupStage };
+    }
+
+    entities = await strapi.query("profile").model.find(params);
+
+    return entities.map((entity) =>
+      sanitizeEntity(entity, { model: strapi.models.profile })
+    );
+  },
+
   async createMe(ctx) {
     let entity;
     //get authanticated user details

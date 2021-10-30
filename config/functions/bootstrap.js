@@ -133,7 +133,7 @@ module.exports = async () => {
   //   "617b75ce1047eb39f731a074",
   //   "617b75cd1047eb39f731a073",
   // ];
-  // for (let index = 0; index < 30; index++) {
+  // for (let index = 0; index < 24; index++) {
   //   const email = faker.internet.email().toLowerCase();
   //   const user = await strapi.query("user", "users-permissions").create({
   //     username: email,
@@ -157,7 +157,7 @@ module.exports = async () => {
   //     skills: _.sampleSize(_SKILLS, _.random(1, 5)),
   //     interests: _.sampleSize(_INTERESTS, _.random(1, 4)),
   //     profilePicture: _.sample(_PROFILEPICTURES),
-  //     city: "56cc14c488b042411c0b66d0",
+  //     city: "56cc14c588b042411c0bd010",
   //   });
   // }
 };

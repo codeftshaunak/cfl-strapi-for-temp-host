@@ -193,6 +193,63 @@
         ]
       }
     },
+    "/profiles/search": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Profile"
+        ],
+        "parameters": []
+      }
+    },
     "/profiles/me": {
       "get": {
         "deprecated": false,
@@ -733,6 +790,9 @@
               "countryCode": {
                 "type": "string"
               },
+              "coordinates": {
+                "type": "object"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -772,6 +832,10 @@
             "type": "object"
           },
           "public": {
+            "type": "boolean",
+            "default": false
+          },
+          "premium": {
             "type": "boolean",
             "default": false
           }
@@ -819,6 +883,10 @@
             "type": "object"
           },
           "public": {
+            "type": "boolean",
+            "default": false
+          },
+          "premium": {
             "type": "boolean",
             "default": false
           },

@@ -26,6 +26,11 @@
     },
     "countryCode": {
       "type": "string"
+    },
+    "coordinates": {
+      "type": "json",
+      "index": "2dsphere",
+      "private": false
     }
   }
 }

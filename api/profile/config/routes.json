@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/profiles/search",
+      "handler": "profile.search",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/profiles/me",
       "handler": "profile.findMe",
       "config": {

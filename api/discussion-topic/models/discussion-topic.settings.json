@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discussion_topics",
+  "info": {
+    "name": "discussionTopic"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "discussions": {
+      "via": "topics",
+      "collection": "discussion"
+    }
+  }
+}

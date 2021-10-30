@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discussions",
+  "info": {
+    "name": "discussion",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "discussions"
+    },
+    "replies": {
+      "via": "discussion",
+      "model": "discussion-reply"
+    },
+    "topics": {
+      "collection": "discussion-topic",
+      "via": "discussions",
+      "dominant": true
+    }
+  }
+}

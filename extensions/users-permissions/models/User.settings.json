@@ -91,6 +91,14 @@
     },
     "lastLogin": {
       "type": "datetime"
+    },
+    "discussions": {
+      "via": "user",
+      "collection": "discussion"
+    },
+    "discussion_replies": {
+      "via": "user",
+      "collection": "discussion-reply"
     }
   }
 }

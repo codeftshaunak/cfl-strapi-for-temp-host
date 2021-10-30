@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discussion_replies",
+  "info": {
+    "name": "discussionReply"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "body": {
+      "type": "richtext"
+    },
+    "discussion": {
+      "via": "replies",
+      "model": "discussion"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "discussion_replies"
+    }
+  }
+}

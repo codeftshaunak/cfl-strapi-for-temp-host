@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/profiles": {
+    "/discussion-topics": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,9 +10,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Profile"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Discussion-topic"
         ],
         "parameters": [
           {
@@ -191,120 +192,6 @@
             "deprecated": false
           }
         ]
-      }
-    },
-    "/profiles/search": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Profile"
-        ],
-        "parameters": []
-      }
-    },
-    "/profiles/me": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Profile"
-        ],
-        "parameters": []
       },
       "post": {
         "deprecated": false,
@@ -357,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Discussion-topic"
         ],
         "requestBody": {
           "description": "",
@@ -365,15 +252,136 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/NewDiscussion-topic"
               }
             }
           }
         }
+      }
+    },
+    "/discussion-topics/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Discussion-topic"
+        ],
+        "parameters": []
+      }
+    },
+    "/discussion-topics/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Discussion-topic"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "put": {
         "deprecated": false,
@@ -426,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Discussion-topic"
         ],
         "requestBody": {
           "description": "",
@@ -434,16 +442,23 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/NewDiscussion-topic"
               }
             }
           }
         },
-        "parameters": []
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "delete": {
         "deprecated": false,
@@ -493,117 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
-        ],
-        "parameters": []
-      }
-    },
-    "/profiles/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "count": {
-                      "type": "integer"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Profile"
-        ],
-        "parameters": []
-      }
-    },
-    "/profiles/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Profile"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Profile"
+          "Discussion-topic"
         ],
         "parameters": [
           {
@@ -622,7 +527,7 @@
   },
   "components": {
     "schemas": {
-      "Profile": {
+      "Discussion-topic": {
         "required": [
           "id"
         ],
@@ -630,277 +535,76 @@
           "id": {
             "type": "string"
           },
-          "user": {
-            "required": [
-              "id",
-              "username",
-              "email",
-              "phone"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "phone": {
-                "type": "string"
-              },
-              "phoneToken": {
-                "type": "integer"
-              },
-              "emailToken": {
-                "type": "integer"
-              },
-              "onboarded": {
-                "type": "boolean"
-              },
-              "onboardedAt": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "lastLogin": {
-                "type": "string"
-              },
-              "discussions": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "discussion_replies": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "profilePicture": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "name": {
+            "type": "string"
           },
           "slug": {
             "type": "string"
           },
-          "city": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "region": {
-                "type": "string"
-              },
-              "regionCode": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "countryCode": {
-                "type": "string"
-              },
-              "coordinates": {
-                "type": "object"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "description": {
+            "type": "string"
+          },
+          "discussions": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "replies": {
+                  "type": "string"
+                },
+                "topics": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "tagline": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "pronouns": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string"
-          },
-          "lookingFor": {
-            "type": "string"
-          },
-          "startupStage": {
-            "type": "string"
-          },
-          "skills": {
-            "type": "object"
-          },
-          "interests": {
-            "type": "object"
-          },
-          "public": {
-            "type": "boolean",
-            "default": false
-          },
-          "premium": {
-            "type": "boolean",
-            "default": false
           }
         }
       },
-      "NewProfile": {
+      "NewDiscussion-topic": {
         "properties": {
-          "user": {
+          "name": {
             "type": "string"
           },
           "slug": {
             "type": "string"
           },
-          "city": {
+          "description": {
             "type": "string"
           },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "tagline": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "pronouns": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string"
-          },
-          "lookingFor": {
-            "type": "string"
-          },
-          "startupStage": {
-            "type": "string"
-          },
-          "skills": {
-            "type": "object"
-          },
-          "interests": {
-            "type": "object"
-          },
-          "public": {
-            "type": "boolean",
-            "default": false
-          },
-          "premium": {
-            "type": "boolean",
-            "default": false
+          "discussions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"
@@ -912,9 +616,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Profile"
-    }
-  ]
+  "tags": []
 }

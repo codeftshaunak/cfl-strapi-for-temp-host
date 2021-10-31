@@ -555,9 +555,6 @@
               "slug": {
                 "type": "string"
               },
-              "user": {
-                "type": "string"
-              },
               "replies": {
                 "type": "string"
               },
@@ -567,8 +564,17 @@
                   "type": "string"
                 }
               },
-              "published_at": {
+              "profile": {
                 "type": "string"
+              },
+              "repliesCount": {
+                "type": "integer"
+              },
+              "followCount": {
+                "type": "integer"
+              },
+              "score": {
+                "type": "integer"
               },
               "created_by": {
                 "type": "string"
@@ -578,64 +584,61 @@
               }
             }
           },
-          "user": {
+          "profile": {
             "required": [
-              "id",
-              "username",
-              "email",
-              "phone"
+              "id"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "username": {
+              "user": {
                 "type": "string"
               },
-              "email": {
+              "profilePicture": {
                 "type": "string"
               },
-              "provider": {
+              "slug": {
                 "type": "string"
               },
-              "password": {
+              "city": {
                 "type": "string"
               },
-              "resetPasswordToken": {
+              "firstName": {
                 "type": "string"
               },
-              "confirmationToken": {
+              "lastName": {
                 "type": "string"
               },
-              "confirmed": {
-                "type": "boolean"
+              "tagline": {
+                "type": "string"
               },
-              "blocked": {
-                "type": "boolean"
+              "summary": {
+                "type": "string"
+              },
+              "pronouns": {
+                "type": "string"
               },
               "role": {
                 "type": "string"
               },
-              "phone": {
+              "lookingFor": {
                 "type": "string"
               },
-              "phoneToken": {
-                "type": "integer"
+              "startupStage": {
+                "type": "string"
               },
-              "emailToken": {
-                "type": "integer"
+              "skills": {
+                "type": "object"
               },
-              "onboarded": {
+              "interests": {
+                "type": "object"
+              },
+              "public": {
                 "type": "boolean"
               },
-              "onboardedAt": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "lastLogin": {
-                "type": "string"
+              "premium": {
+                "type": "boolean"
               },
               "discussions": {
                 "type": "array",
@@ -657,9 +660,8 @@
               }
             }
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "score": {
+            "type": "integer"
           }
         }
       },
@@ -671,12 +673,11 @@
           "discussion": {
             "type": "string"
           },
-          "user": {
+          "profile": {
             "type": "string"
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "score": {
+            "type": "integer"
           },
           "created_by": {
             "type": "string"

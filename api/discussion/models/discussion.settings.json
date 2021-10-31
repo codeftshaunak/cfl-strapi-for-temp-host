@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -19,21 +19,32 @@
       "type": "richtext"
     },
     "slug": {
-      "type": "string"
-    },
-    "user": {
-      "plugin": "users-permissions",
-      "model": "user",
-      "via": "discussions"
+      "type": "string",
+      "unique": true
     },
     "replies": {
       "via": "discussion",
-      "model": "discussion-reply"
+      "model": "discussion-reply",
+      "autoPopulate": false
     },
     "topics": {
-      "collection": "discussion-topic",
       "via": "discussions",
-      "dominant": true
+      "collection": "discussion-topic",
+      "dominant": true,
+      "autoPopulate": false
+    },
+    "profile": {
+      "model": "profile",
+      "via": "discussions"
+    },
+    "repliesCount": {
+      "type": "integer"
+    },
+    "followCount": {
+      "type": "integer"
+    },
+    "score": {
+      "type": "integer"
     }
   }
 }

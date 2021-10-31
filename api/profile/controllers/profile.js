@@ -20,6 +20,13 @@ module.exports = {
     );
   },
 
+  async findOne(ctx) {
+    const { slug } = ctx.params;
+
+    const entity = await strapi.services.profile.findOne({ slug });
+    return sanitizeEntity(entity, { model: strapi.models.profile });
+  },
+
   async search(ctx) {
     let entities;
 

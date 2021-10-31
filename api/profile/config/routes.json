@@ -34,7 +34,7 @@
     },
     {
       "method": "GET",
-      "path": "/profiles/:id",
+      "path": "/profiles/:slug",
       "handler": "profile.findOne",
       "config": {
         "policies": []

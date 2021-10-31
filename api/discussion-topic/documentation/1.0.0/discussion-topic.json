@@ -563,9 +563,6 @@
                 "slug": {
                   "type": "string"
                 },
-                "user": {
-                  "type": "string"
-                },
                 "replies": {
                   "type": "string"
                 },
@@ -575,8 +572,17 @@
                     "type": "string"
                   }
                 },
-                "published_at": {
+                "profile": {
                   "type": "string"
+                },
+                "repliesCount": {
+                  "type": "integer"
+                },
+                "followCount": {
+                  "type": "integer"
+                },
+                "score": {
+                  "type": "integer"
                 },
                 "created_by": {
                   "type": "string"
@@ -586,6 +592,10 @@
                 }
               }
             }
+          },
+          "trending": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -605,6 +615,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "trending": {
+            "type": "boolean",
+            "default": false
           },
           "created_by": {
             "type": "string"

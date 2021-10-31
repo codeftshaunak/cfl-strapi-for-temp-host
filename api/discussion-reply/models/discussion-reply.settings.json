@@ -2,12 +2,13 @@
   "kind": "collectionType",
   "collectionName": "discussion_replies",
   "info": {
-    "name": "discussionReply"
+    "name": "discussionReply",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -16,12 +17,15 @@
     },
     "discussion": {
       "via": "replies",
-      "model": "discussion"
+      "model": "discussion",
+      "autoPopulate": false
     },
-    "user": {
-      "plugin": "users-permissions",
-      "model": "user",
+    "profile": {
+      "model": "profile",
       "via": "discussion_replies"
+    },
+    "score": {
+      "type": "integer"
     }
   }
 }

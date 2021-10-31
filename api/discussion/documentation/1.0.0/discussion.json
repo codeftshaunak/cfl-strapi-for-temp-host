@@ -311,7 +311,7 @@
         "parameters": []
       }
     },
-    "/discussions/{id}": {
+    "/discussions/{slug}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -363,7 +363,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -373,7 +373,9 @@
             }
           }
         ]
-      },
+      }
+    },
+    "/discussions/{id}": {
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -531,85 +533,6 @@
           "slug": {
             "type": "string"
           },
-          "user": {
-            "required": [
-              "id",
-              "username",
-              "email",
-              "phone"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "phone": {
-                "type": "string"
-              },
-              "phoneToken": {
-                "type": "integer"
-              },
-              "emailToken": {
-                "type": "integer"
-              },
-              "onboarded": {
-                "type": "boolean"
-              },
-              "onboardedAt": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "lastLogin": {
-                "type": "string"
-              },
-              "discussions": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "discussion_replies": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "replies": {
             "required": [
               "id"
@@ -624,11 +547,11 @@
               "discussion": {
                 "type": "string"
               },
-              "user": {
+              "profile": {
                 "type": "string"
               },
-              "published_at": {
-                "type": "string"
+              "score": {
+                "type": "integer"
               },
               "created_by": {
                 "type": "string"
@@ -663,6 +586,9 @@
                     "type": "string"
                   }
                 },
+                "trending": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -672,9 +598,90 @@
               }
             }
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "profile": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "profilePicture": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "tagline": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "pronouns": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "lookingFor": {
+                "type": "string"
+              },
+              "startupStage": {
+                "type": "string"
+              },
+              "skills": {
+                "type": "object"
+              },
+              "interests": {
+                "type": "object"
+              },
+              "public": {
+                "type": "boolean"
+              },
+              "premium": {
+                "type": "boolean"
+              },
+              "discussions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "discussion_replies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "repliesCount": {
+            "type": "integer"
+          },
+          "followCount": {
+            "type": "integer"
+          },
+          "score": {
+            "type": "integer"
           }
         }
       },
@@ -689,9 +696,6 @@
           "slug": {
             "type": "string"
           },
-          "user": {
-            "type": "string"
-          },
           "replies": {
             "type": "string"
           },
@@ -701,9 +705,17 @@
               "type": "string"
             }
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "profile": {
+            "type": "string"
+          },
+          "repliesCount": {
+            "type": "integer"
+          },
+          "followCount": {
+            "type": "integer"
+          },
+          "score": {
+            "type": "integer"
           },
           "created_by": {
             "type": "string"

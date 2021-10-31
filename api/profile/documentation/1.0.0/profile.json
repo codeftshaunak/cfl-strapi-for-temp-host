@@ -555,7 +555,7 @@
         "parameters": []
       }
     },
-    "/profiles/{id}": {
+    "/profiles/{slug}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -607,7 +607,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -688,18 +688,6 @@
               },
               "lastLogin": {
                 "type": "string"
-              },
-              "discussions": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "discussion_replies": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
               },
               "created_by": {
                 "type": "string"
@@ -850,6 +838,86 @@
           "premium": {
             "type": "boolean",
             "default": false
+          },
+          "discussions": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "replies": {
+                  "type": "string"
+                },
+                "topics": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "profile": {
+                  "type": "string"
+                },
+                "repliesCount": {
+                  "type": "integer"
+                },
+                "followCount": {
+                  "type": "integer"
+                },
+                "score": {
+                  "type": "integer"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "discussion_replies": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "discussion": {
+                  "type": "string"
+                },
+                "profile": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "integer"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -901,6 +969,18 @@
           "premium": {
             "type": "boolean",
             "default": false
+          },
+          "discussions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "discussion_replies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

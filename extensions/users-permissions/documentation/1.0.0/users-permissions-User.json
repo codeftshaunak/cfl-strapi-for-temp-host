@@ -1383,6 +1383,18 @@
               "premium": {
                 "type": "boolean"
               },
+              "discussions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "discussion_replies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -1394,80 +1406,6 @@
           "lastLogin": {
             "type": "string",
             "format": "date-time"
-          },
-          "discussions": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "replies": {
-                  "type": "string"
-                },
-                "topics": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "discussion_replies": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "discussion": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
           }
         }
       },
@@ -1534,18 +1472,6 @@
           "lastLogin": {
             "type": "string",
             "format": "date-time"
-          },
-          "discussions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "discussion_replies": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "created_by": {
             "type": "string"

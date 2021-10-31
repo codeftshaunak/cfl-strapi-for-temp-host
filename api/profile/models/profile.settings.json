@@ -8,7 +8,8 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": false
+    "draftAndPublish": false,
+    "privateAttributes": ["createdAt", "updatedAt"]
   },
   "pluginOptions": {},
   "attributes": {
@@ -20,9 +21,7 @@
     "profilePicture": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
+      "allowedTypes": ["images"],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
@@ -70,6 +69,14 @@
     "premium": {
       "type": "boolean",
       "default": false
+    },
+    "discussions": {
+      "via": "profile",
+      "collection": "discussion"
+    },
+    "discussion_replies": {
+      "via": "profile",
+      "collection": "discussion-reply"
     }
   }
 }

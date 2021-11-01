@@ -918,6 +918,56 @@
                 }
               }
             }
+          },
+          "connections": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "profiles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "accepted",
+                    "ignored",
+                    "passed",
+                    "withdrawn",
+                    "deleted",
+                    "pending_received",
+                    "not_existing_connection"
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                },
+                "authorProfile": {
+                  "type": "string"
+                },
+                "messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -977,6 +1027,12 @@
             }
           },
           "discussion_replies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "connections": {
             "type": "array",
             "items": {
               "type": "string"

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "connections",
+  "info": {
+    "name": "connection",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "profiles": {
+      "collection": "profile"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "accepted",
+        "ignored",
+        "passed",
+        "withdrawn",
+        "deleted",
+        "pending_received",
+        "not_existing_connection"
+      ]
+    },
+    "message": {
+      "type": "text"
+    },
+    "authorProfile": {
+      "model": "profile",
+      "via": "connections"
+    },
+    "messages": {
+      "via": "connection",
+      "collection": "message"
+    }
+  }
+}

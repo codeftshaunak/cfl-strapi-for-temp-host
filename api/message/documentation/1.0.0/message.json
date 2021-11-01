@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/discussion-replies": {
+    "/messages": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,10 +10,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Message"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Message"
         ],
         "parameters": [
           {
@@ -202,11 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Message"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Message"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDiscussion-reply"
+                "$ref": "#/components/schemas/NewMessage"
               }
             }
           }
         }
       }
     },
-    "/discussion-replies/count": {
+    "/messages/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -270,8 +265,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Message"
         ],
         "parameters": []
       }
     },
-    "/discussion-replies/{id}": {
+    "/messages/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -326,11 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Message"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Message"
         ],
         "parameters": [
           {
@@ -392,11 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Message"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Message"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDiscussion-reply"
+                "$ref": "#/components/schemas/NewMessage"
               }
             }
           }
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Message"
         ],
         "parameters": [
           {
@@ -527,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Discussion-reply": {
+      "Message": {
         "required": [
           "id"
         ],
@@ -535,10 +522,7 @@
           "id": {
             "type": "string"
           },
-          "body": {
-            "type": "string"
-          },
-          "discussion": {
+          "connection": {
             "required": [
               "id"
             ],
@@ -546,35 +530,36 @@
               "id": {
                 "type": "string"
               },
-              "title": {
-                "type": "string"
-              },
-              "body": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "replies": {
-                "type": "string"
-              },
-              "topics": {
+              "profiles": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               },
-              "profile": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "accepted",
+                  "ignored",
+                  "passed",
+                  "withdrawn",
+                  "deleted",
+                  "pending_received",
+                  "not_existing_connection"
+                ]
+              },
+              "message": {
                 "type": "string"
               },
-              "repliesCount": {
-                "type": "integer"
+              "authorProfile": {
+                "type": "string"
               },
-              "followCount": {
-                "type": "integer"
-              },
-              "score": {
-                "type": "integer"
+              "messages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -584,7 +569,7 @@
               }
             }
           },
-          "profile": {
+          "authorProfile": {
             "required": [
               "id"
             ],
@@ -666,24 +651,21 @@
               }
             }
           },
-          "score": {
-            "type": "integer"
+          "body": {
+            "type": "string"
           }
         }
       },
-      "NewDiscussion-reply": {
+      "NewMessage": {
         "properties": {
+          "connection": {
+            "type": "string"
+          },
+          "authorProfile": {
+            "type": "string"
+          },
           "body": {
             "type": "string"
-          },
-          "discussion": {
-            "type": "string"
-          },
-          "profile": {
-            "type": "string"
-          },
-          "score": {
-            "type": "integer"
           },
           "created_by": {
             "type": "string"
@@ -695,5 +677,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Message"
+    }
+  ]
 }

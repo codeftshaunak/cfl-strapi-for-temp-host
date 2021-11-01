@@ -1395,6 +1395,12 @@
                   "type": "string"
                 }
               },
+              "connections": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },

@@ -39,7 +39,6 @@ module.exports = {
       ..._.pick(ctx.query, ["_sort", "_limit", "_start"]),
       public: true,
     };
-    console.log("params", params);
 
     if (ctx.query.city) {
       // const city = await strapi.services.city.findOne({ id: ctx.query.city });

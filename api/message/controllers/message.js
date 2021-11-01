@@ -5,9 +5,11 @@
  * to customize this controller
  */
 
+const { sanitizeEntity } = require("strapi-utils");
+
 module.exports = {
   async create(ctx) {
-    let entity;
+    let entity, connection;
 
     const user = ctx.state.user;
     if (!user) {
@@ -16,20 +18,30 @@ module.exports = {
     if (!user.profile) {
       return ctx.badRequest("No profile found.");
     }
-    if (!data.to) {
+    if (!ctx.request.body.to) {
       return ctx.badRequest("Invalid receiver.");
     }
-    const connection = await strapi.services.connection.findOne({
-      profiles: { $all: [user.profile, data.to] },
+    connection = await strapi.services.connection.findOne({
+      status: "accepted",
+      profiles: { $all: [user.profile, ctx.request.body.to] },
     });
     if (!connection) {
-      return ctx.unauthorized("Not allowed");
+      if (user.role.type !== "premium") {
+        return ctx.unauthorized("Not allowed");
+      } else {
+        connection = await strapi.services.connection.create({
+          status: "accepted",
+          profiles: [user.profile.id, ctx.request.body.to],
+          authorProfile: user.profile.id,
+        });
+      }
     }
-    const data = ctx.request.body;
-    data["connection"] = connection.id;
-    data["authorProfile"] = user.profile;
-    entity = await strapi.services.profile.create(data);
+    entity = await strapi.services.message.create({
+      connection: connection.id,
+      authorProfile: user.profile,
+      body: ctx.request.body.body,
+    });
 
-    return sanitizeEntity(entity, { model: strapi.models.profile });
+    return sanitizeEntity(entity, { model: strapi.models.message });
   },
 };

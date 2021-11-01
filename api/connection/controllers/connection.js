@@ -5,8 +5,7 @@
  * to customize this controller
  */
 
-const _ = require("lodash");
-const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
+const { sanitizeEntity } = require("strapi-utils");
 
 module.exports = {
   async connect(ctx) {
@@ -23,6 +22,22 @@ module.exports = {
     data["status"] = "pending";
     entity = await strapi.services.connection.create(data);
 
+    return sanitizeEntity(entity, { model: strapi.models.connection });
+  },
+
+  async findOne(ctx) {
+    const { id } = ctx.params;
+    //get authenticated user details
+    const user = ctx.state.user;
+    if (!user) {
+      return ctx.unauthorized("No authorization header was found.");
+    }
+    if (!user.profile) {
+      return ctx.unauthorized("No profile created.");
+    }
+    const query = { id, profiles: user.profile.id };
+
+    const entity = await strapi.services.connection.findOne(query);
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },
 

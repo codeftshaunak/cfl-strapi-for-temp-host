@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscriptions",
+  "info": {
+    "name": "subscription"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "via": "subscription",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "customerId": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

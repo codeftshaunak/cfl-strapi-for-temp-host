@@ -90,6 +90,10 @@
     },
     "lastLogin": {
       "type": "datetime"
+    },
+    "subscription": {
+      "via": "user",
+      "model": "subscription"
     }
   }
 }

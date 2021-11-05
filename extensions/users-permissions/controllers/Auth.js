@@ -3,6 +3,7 @@
 /* eslint-disable no-useless-escape */
 const _ = require("lodash");
 const { sanitizeEntity } = require("strapi-utils");
+const crypto = require("crypto");
 
 const emailRegExp =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -108,7 +109,7 @@ module.exports = {
           formatError({
             id: "Auth.form.error.password.local",
             message:
-              "This user never set a local password, please login with the provider used during account creation.",
+              "Looks like your account needs a security upgrade, please reset your password to continue.",
           })
         );
       }
@@ -397,7 +398,6 @@ module.exports = {
     }
   },
 
-  // TODO: implement
   async registerConfirmation(ctx, next, returnUser) {
     const { identifier, emailToken, phoneToken } = _.assign(ctx.request.body);
 
@@ -429,6 +429,92 @@ module.exports = {
         model: strapi.query("user", "users-permissions").model,
       }),
     });
+  },
+
+  async forgotPassword(ctx) {
+    let { email } = ctx.request.body;
+
+    // Check if the provided email is valid or not.
+    const isEmail = emailRegExp.test(email);
+
+    if (isEmail) {
+      email = email.toLowerCase();
+    } else {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.format",
+          message: "Please provide a valid email address.",
+        })
+      );
+    }
+
+    const pluginStore = await strapi.store({
+      environment: "",
+      type: "plugin",
+      name: "users-permissions",
+    });
+
+    // Find the user by email.
+    const user = await strapi
+      .query("user", "users-permissions")
+      .findOne({ email: email.toLowerCase() });
+
+    // User not found.
+    if (!user) {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.user.not-exist",
+          message: "This email does not exist.",
+        })
+      );
+    }
+
+    // User blocked
+    if (user.blocked) {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.user.blocked",
+          message: "This user is disabled.",
+        })
+      );
+    }
+
+    // Generate random token.
+    const resetPasswordToken = crypto.randomBytes(64).toString("hex");
+
+    try {
+      await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
+        {
+          to: user.email,
+        },
+        {
+          templateId: user.password ? 2 : 3,
+          sourceCodeToTemplateId: user.password ? 2 : 3,
+        },
+        {
+          token: resetPasswordToken,
+          url: `${process.env.FE_URL}reset?code=${resetPasswordToken}`,
+        }
+      );
+    } catch (err) {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "failed.reset.email",
+          message: err.message,
+        })
+      );
+    }
+
+    // Update the user.
+    await strapi
+      .query("user", "users-permissions")
+      .update({ id: user.id }, { resetPasswordToken });
+
+    ctx.send({ ok: true });
   },
 
   // TODO: resend email token

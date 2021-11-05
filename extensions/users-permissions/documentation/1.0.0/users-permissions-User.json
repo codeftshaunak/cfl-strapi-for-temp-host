@@ -1412,6 +1412,28 @@
           "lastLogin": {
             "type": "string",
             "format": "date-time"
+          },
+          "subscription": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "customerId": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -1478,6 +1500,9 @@
           "lastLogin": {
             "type": "string",
             "format": "date-time"
+          },
+          "subscription": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

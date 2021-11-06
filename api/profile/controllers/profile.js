@@ -29,6 +29,7 @@ module.exports = {
 
   async search(ctx) {
     let entities;
+    const user = ctx.state.user;
 
     // city: "56cc14c588b042411c0bd010"
     // premium: false
@@ -40,6 +41,9 @@ module.exports = {
       public: true,
     };
 
+    if (user) {
+      params["user"] = { $ne: user.id };
+    }
     if (ctx.query.city) {
       // const city = await strapi.services.city.findOne({ id: ctx.query.city });
       // const cities = await strapi.query("city").model.find({
@@ -50,6 +54,10 @@ module.exports = {
       //     },
       //   },
       // });
+      // const countCity = strapi.services.profile.countSearch({city: ctx.query.city});
+      // if(countCity > 0){
+      //   params["city"] = ctx.query.city;
+      // }
       params["city"] = ctx.query.city;
     }
     if (ctx.query.premium == "true") {

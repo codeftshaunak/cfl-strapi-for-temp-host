@@ -496,7 +496,7 @@ module.exports = {
         },
         {
           token: resetPasswordToken,
-          url: `${process.env.FE_URL}reset?code=${resetPasswordToken}`,
+          url: `${process.env.FE_URL}/reset?code=${resetPasswordToken}`,
         }
       );
     } catch (err) {

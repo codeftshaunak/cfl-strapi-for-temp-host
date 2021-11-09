@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/discussion-replies/:id/vote",
+      "handler": "discussion-reply.vote",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/discussion-replies/:id",
       "handler": "discussion-reply.update",

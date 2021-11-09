@@ -24,8 +24,8 @@
     },
     "discussions": {
       "via": "topics",
-      "collection": "discussion",
-      "autoPopulate": false
+      "autoPopulate": false,
+      "collection": "discussion"
     },
     "trending": {
       "type": "boolean",

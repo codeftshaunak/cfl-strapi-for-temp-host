@@ -3,16 +3,16 @@
     "/cities": {
       "get": {
         "deprecated": false,
-        "description": "Find all the cities's records",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve cities document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Cities"
+                    "$ref": "#/components/schemas/City"
                   }
                 }
               }
@@ -50,7 +50,9 @@
           }
         },
         "summary": "",
-        "tags": ["Cities"],
+        "tags": [
+          "City"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -192,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new cities record",
+        "description": "Create a new record",
         "responses": {
           "200": {
-            "description": "Retrieve cities document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Cities"
+                  "$ref": "#/components/schemas/City"
                 }
               }
             }
@@ -236,14 +238,16 @@
           }
         },
         "summary": "",
-        "tags": ["Cities"],
+        "tags": [
+          "City"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCities"
+                "$ref": "#/components/schemas/NewCity"
               }
             }
           }
@@ -253,10 +257,10 @@
     "/cities/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of cities documents",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve cities document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
@@ -301,21 +305,23 @@
           }
         },
         "summary": "",
-        "tags": ["Cities"],
+        "tags": [
+          "City"
+        ],
         "parameters": []
       }
     },
     "/cities/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one cities record",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve cities document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Cities"
+                  "$ref": "#/components/schemas/City"
                 }
               }
             }
@@ -352,7 +358,9 @@
           }
         },
         "summary": "",
-        "tags": ["Cities"],
+        "tags": [
+          "City"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -368,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single cities record",
+        "description": "Update a record",
         "responses": {
           "200": {
-            "description": "Retrieve cities document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Cities"
+                  "$ref": "#/components/schemas/City"
                 }
               }
             }
@@ -412,14 +420,16 @@
           }
         },
         "summary": "",
-        "tags": ["Cities"],
+        "tags": [
+          "City"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCities"
+                "$ref": "#/components/schemas/NewCity"
               }
             }
           }
@@ -439,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single cities record",
+        "description": "Delete a record",
         "responses": {
           "200": {
-            "description": "deletes a single cities based on the ID supplied",
+            "description": "deletes a single record based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -484,7 +494,9 @@
           }
         },
         "summary": "",
-        "tags": ["Cities"],
+        "tags": [
+          "City"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -502,8 +514,10 @@
   },
   "components": {
     "schemas": {
-      "Cities": {
-        "required": ["id"],
+      "City": {
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -522,10 +536,13 @@
           },
           "countryCode": {
             "type": "string"
+          },
+          "coordinates": {
+            "type": "object"
           }
         }
       },
-      "NewCities": {
+      "NewCity": {
         "properties": {
           "name": {
             "type": "string"
@@ -542,6 +559,9 @@
           "countryCode": {
             "type": "string"
           },
+          "coordinates": {
+            "type": "object"
+          },
           "created_by": {
             "type": "string"
           },
@@ -554,7 +574,7 @@
   },
   "tags": [
     {
-      "name": "Cities"
+      "name": "City"
     }
   ]
 }

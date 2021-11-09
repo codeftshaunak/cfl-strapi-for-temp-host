@@ -24,14 +24,14 @@
     },
     "replies": {
       "via": "discussion",
-      "model": "discussion-reply",
-      "autoPopulate": false
+      "autoPopulate": false,
+      "model": "discussion-reply"
     },
     "topics": {
+      "autoPopulate": false,
       "via": "discussions",
       "collection": "discussion-topic",
-      "dominant": true,
-      "autoPopulate": false
+      "dominant": true
     },
     "profile": {
       "model": "profile",
@@ -45,6 +45,14 @@
     },
     "score": {
       "type": "integer"
+    },
+    "upvotes": {
+      "collection": "profile",
+      "autoPopulate": false
+    },
+    "downvotes": {
+      "collection": "profile",
+      "autoPopulate": false
     }
   }
 }

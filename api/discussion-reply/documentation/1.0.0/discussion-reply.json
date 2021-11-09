@@ -523,6 +523,77 @@
           }
         ]
       }
+    },
+    "/discussion-replies/{id}/vote": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Discussion-reply"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -575,6 +646,18 @@
               },
               "score": {
                 "type": "integer"
+              },
+              "upvotes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "downvotes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -668,6 +751,176 @@
           },
           "score": {
             "type": "integer"
+          },
+          "upvotes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "profilePicture": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "pronouns": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "lookingFor": {
+                  "type": "string"
+                },
+                "startupStage": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "object"
+                },
+                "interests": {
+                  "type": "object"
+                },
+                "public": {
+                  "type": "boolean"
+                },
+                "premium": {
+                  "type": "boolean"
+                },
+                "discussions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discussion_replies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "connections": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "downvotes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "profilePicture": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "pronouns": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "lookingFor": {
+                  "type": "string"
+                },
+                "startupStage": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "object"
+                },
+                "interests": {
+                  "type": "object"
+                },
+                "public": {
+                  "type": "boolean"
+                },
+                "premium": {
+                  "type": "boolean"
+                },
+                "discussions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discussion_replies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "connections": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -684,6 +937,18 @@
           },
           "score": {
             "type": "integer"
+          },
+          "upvotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "downvotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

@@ -584,6 +584,18 @@
                 "score": {
                   "type": "integer"
                 },
+                "upvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "downvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },

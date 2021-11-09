@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/07/2021 9:25:31 PM"
+    "x-generation-date": "11/09/2021 8:23:03 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -57,12 +57,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Cities"
-                  },
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                    "$ref": "#/components/schemas/City"
                   }
                 }
               }
@@ -101,7 +96,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "City"
         ],
         "parameters": [
           {
@@ -251,12 +246,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Cities",
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/City"
                 }
               }
             }
@@ -294,7 +284,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "City"
         ],
         "requestBody": {
           "description": "",
@@ -302,7 +292,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewUnclassified"
+                "$ref": "#/components/schemas/NewCity"
               }
             }
           }
@@ -322,9 +312,6 @@
                   "properties": {
                     "count": {
                       "type": "integer"
-                    },
-                    "foo": {
-                      "type": "string"
                     }
                   }
                 }
@@ -364,7 +351,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "City"
         ],
         "parameters": []
       }
@@ -379,12 +366,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Cities",
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/City"
                 }
               }
             }
@@ -422,7 +404,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "City"
         ],
         "parameters": [
           {
@@ -446,12 +428,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Cities",
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/City"
                 }
               }
             }
@@ -489,7 +466,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "City"
         ],
         "requestBody": {
           "description": "",
@@ -497,7 +474,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewUnclassified"
+                "$ref": "#/components/schemas/NewCity"
               }
             }
           }
@@ -563,7 +540,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "City"
         ],
         "parameters": [
           {
@@ -1908,6 +1885,77 @@
         ]
       }
     },
+    "/discussion-replies/{id}/vote": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Discussion-reply"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/discussion-topics": {
       "get": {
         "deprecated": false,
@@ -2743,6 +2791,74 @@
         "parameters": []
       }
     },
+    "/discussions/topic/{slug}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Discussion"
+        ],
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/discussions/{slug}": {
       "get": {
         "deprecated": false,
@@ -2805,6 +2921,77 @@
             }
           }
         ]
+      }
+    },
+    "/discussions/{id}/vote": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Discussion"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/discussions/{id}": {
@@ -7335,7 +7522,7 @@
   },
   "components": {
     "schemas": {
-      "Cities": {
+      "City": {
         "required": [
           "id"
         ],
@@ -7357,10 +7544,13 @@
           },
           "countryCode": {
             "type": "string"
+          },
+          "coordinates": {
+            "type": "object"
           }
         }
       },
-      "NewCities": {
+      "NewCity": {
         "properties": {
           "name": {
             "type": "string"
@@ -7376,6 +7566,9 @@
           },
           "countryCode": {
             "type": "string"
+          },
+          "coordinates": {
+            "type": "object"
           },
           "created_by": {
             "type": "string"
@@ -7696,6 +7889,18 @@
               "score": {
                 "type": "integer"
               },
+              "upvotes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "downvotes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -7788,6 +7993,176 @@
           },
           "score": {
             "type": "integer"
+          },
+          "upvotes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "profilePicture": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "pronouns": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "lookingFor": {
+                  "type": "string"
+                },
+                "startupStage": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "object"
+                },
+                "interests": {
+                  "type": "object"
+                },
+                "public": {
+                  "type": "boolean"
+                },
+                "premium": {
+                  "type": "boolean"
+                },
+                "discussions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discussion_replies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "connections": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "downvotes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "profilePicture": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "pronouns": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "lookingFor": {
+                  "type": "string"
+                },
+                "startupStage": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "object"
+                },
+                "interests": {
+                  "type": "object"
+                },
+                "public": {
+                  "type": "boolean"
+                },
+                "premium": {
+                  "type": "boolean"
+                },
+                "discussions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discussion_replies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "connections": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -7804,6 +8179,18 @@
           },
           "score": {
             "type": "integer"
+          },
+          "upvotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "downvotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"
@@ -7869,6 +8256,18 @@
                 },
                 "score": {
                   "type": "integer"
+                },
+                "upvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "downvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -7950,6 +8349,18 @@
               },
               "score": {
                 "type": "integer"
+              },
+              "upvotes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "downvotes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -8086,6 +8497,176 @@
           },
           "score": {
             "type": "integer"
+          },
+          "upvotes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "profilePicture": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "pronouns": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "lookingFor": {
+                  "type": "string"
+                },
+                "startupStage": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "object"
+                },
+                "interests": {
+                  "type": "object"
+                },
+                "public": {
+                  "type": "boolean"
+                },
+                "premium": {
+                  "type": "boolean"
+                },
+                "discussions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discussion_replies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "connections": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "downvotes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "profilePicture": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "tagline": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "pronouns": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "lookingFor": {
+                  "type": "string"
+                },
+                "startupStage": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "object"
+                },
+                "interests": {
+                  "type": "object"
+                },
+                "public": {
+                  "type": "boolean"
+                },
+                "premium": {
+                  "type": "boolean"
+                },
+                "discussions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "discussion_replies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "connections": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -8120,6 +8701,18 @@
           },
           "score": {
             "type": "integer"
+          },
+          "upvotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "downvotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"
@@ -8764,6 +9357,18 @@
                 "score": {
                   "type": "integer"
                 },
+                "upvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "downvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -8794,6 +9399,18 @@
                 },
                 "score": {
                   "type": "integer"
+                },
+                "upvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "downvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -9483,10 +10100,7 @@
   },
   "tags": [
     {
-      "name": "Cities"
-    },
-    {
-      "name": "Unclassified"
+      "name": "City"
     },
     {
       "name": "Connection"

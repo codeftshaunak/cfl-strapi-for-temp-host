@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "messages",
+  "info": {
+    "name": "message",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "connection": {
+      "model": "connection",
+      "via": "messages"
+    },
+    "authorProfile": {
+      "model": "profile"
+    },
+    "body": {
+      "type": "text"
+    }
+  }
+}

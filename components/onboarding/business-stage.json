@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_onboarding_startup_stages",
+  "info": {
+    "name": "startupStage",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

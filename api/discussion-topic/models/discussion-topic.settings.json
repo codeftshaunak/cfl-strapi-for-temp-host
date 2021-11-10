@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discussion_topics",
+  "info": {
+    "name": "discussionTopic",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "unique": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "discussions": {
+      "via": "topics",
+      "autoPopulate": false,
+      "collection": "discussion"
+    },
+    "trending": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

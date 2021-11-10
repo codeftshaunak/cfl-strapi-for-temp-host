@@ -1,0 +1,91 @@
+{
+  "kind": "collectionType",
+  "collectionName": "profiles",
+  "info": {
+    "name": "profile",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false,
+    "privateAttributes": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "via": "profile",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "profilePicture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "slug": {
+      "type": "string"
+    },
+    "city": {
+      "model": "city"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "text"
+    },
+    "pronouns": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "lookingFor": {
+      "type": "string"
+    },
+    "startupStage": {
+      "type": "string"
+    },
+    "skills": {
+      "type": "json"
+    },
+    "interests": {
+      "type": "json"
+    },
+    "public": {
+      "type": "boolean",
+      "default": false
+    },
+    "premium": {
+      "type": "boolean",
+      "default": false
+    },
+    "discussions": {
+      "via": "profile",
+      "collection": "discussion"
+    },
+    "discussion_replies": {
+      "via": "profile",
+      "collection": "discussion-reply"
+    },
+    "connections": {
+      "via": "authorProfile",
+      "collection": "connection"
+    }
+  }
+}

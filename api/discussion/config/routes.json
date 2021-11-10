@@ -1,0 +1,68 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/discussions",
+      "handler": "discussion.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/discussions/count",
+      "handler": "discussion.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/discussions/topic/:slug",
+      "handler": "discussion.findTopic",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/discussions/:slug",
+      "handler": "discussion.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/discussions",
+      "handler": "discussion.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/discussions/:id/vote",
+      "handler": "discussion.vote",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/discussions/:id",
+      "handler": "discussion.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/discussions/:id",
+      "handler": "discussion.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

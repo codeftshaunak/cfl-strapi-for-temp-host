@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_onboarding_looking_fors",
+  "info": {
+    "name": "lookingFor",
+    "icon": "search"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

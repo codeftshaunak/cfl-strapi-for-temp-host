@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_onboarding_skills",
+  "info": {
+    "name": "skill",
+    "icon": "skiing-nordic",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

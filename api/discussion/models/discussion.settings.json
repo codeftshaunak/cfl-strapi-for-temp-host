@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discussions",
+  "info": {
+    "name": "discussion",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "string",
+      "unique": true
+    },
+    "replies": {
+      "via": "discussion",
+      "autoPopulate": false,
+      "model": "discussion-reply"
+    },
+    "topics": {
+      "autoPopulate": false,
+      "via": "discussions",
+      "collection": "discussion-topic",
+      "dominant": true
+    },
+    "profile": {
+      "model": "profile",
+      "via": "discussions"
+    },
+    "repliesCount": {
+      "type": "integer"
+    },
+    "followCount": {
+      "type": "integer"
+    },
+    "score": {
+      "type": "integer"
+    },
+    "upvotes": {
+      "collection": "profile",
+      "autoPopulate": false
+    },
+    "downvotes": {
+      "collection": "profile",
+      "autoPopulate": false
+    }
+  }
+}

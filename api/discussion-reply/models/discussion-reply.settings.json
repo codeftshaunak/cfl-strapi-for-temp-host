@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discussion_replies",
+  "info": {
+    "name": "discussionReply",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "body": {
+      "type": "richtext"
+    },
+    "discussion": {
+      "autoPopulate": false,
+      "via": "replies",
+      "model": "discussion"
+    },
+    "profile": {
+      "model": "profile",
+      "via": "discussion_replies"
+    },
+    "score": {
+      "type": "integer"
+    },
+    "upvotes": {
+      "collection": "profile",
+      "autoPopulate": false
+    },
+    "downvotes": {
+      "collection": "profile",
+      "autoPopulate": false
+    }
+  }
+}

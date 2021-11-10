@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_onboarding_roles",
+  "info": {
+    "name": "role",
+    "icon": "user-tag",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

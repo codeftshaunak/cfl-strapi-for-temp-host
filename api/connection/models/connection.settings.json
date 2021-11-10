@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "profiles": {
-      "collection": "profile"
+      "collection": "profile",
+      "index": 1
     },
     "status": {
       "type": "enumeration",
@@ -26,7 +27,8 @@
         "deleted",
         "pending_received",
         "not_existing_connection"
-      ]
+      ],
+      "index": 1
     },
     "message": {
       "type": "text"

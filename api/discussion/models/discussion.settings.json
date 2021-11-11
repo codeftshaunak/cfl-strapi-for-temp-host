@@ -20,7 +20,8 @@
     },
     "slug": {
       "type": "string",
-      "unique": true
+      "unique": true,
+      "index": 1
     },
     "replies": {
       "via": "discussion",

@@ -17,7 +17,8 @@
     },
     "slug": {
       "type": "string",
-      "unique": true
+      "unique": true,
+      "index": 1
     },
     "description": {
       "type": "string"

@@ -35,7 +35,8 @@
     },
     "authorProfile": {
       "model": "profile",
-      "via": "connections"
+      "via": "connections",
+      "index": 1
     },
     "messages": {
       "via": "connection",

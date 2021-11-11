@@ -18,7 +18,8 @@
     "discussion": {
       "autoPopulate": false,
       "via": "replies",
-      "model": "discussion"
+      "model": "discussion",
+      "index": 1
     },
     "profile": {
       "model": "profile",

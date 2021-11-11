@@ -13,8 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "profiles": {
-      "collection": "profile",
-      "index": 1
+      "collection": "profile"
     },
     "status": {
       "type": "enumeration",

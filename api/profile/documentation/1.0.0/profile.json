@@ -894,6 +894,9 @@
                     "type": "string"
                   }
                 },
+                "pinned": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },

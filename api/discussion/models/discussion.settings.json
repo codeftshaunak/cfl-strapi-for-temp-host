@@ -24,8 +24,8 @@
       "index": 1
     },
     "replies": {
-      "via": "discussion",
       "autoPopulate": false,
+      "via": "discussion",
       "model": "discussion-reply"
     },
     "topics": {
@@ -48,12 +48,15 @@
       "type": "integer"
     },
     "upvotes": {
-      "collection": "profile",
-      "autoPopulate": false
+      "autoPopulate": false,
+      "collection": "profile"
     },
     "downvotes": {
-      "collection": "profile",
-      "autoPopulate": false
+      "autoPopulate": false,
+      "collection": "profile"
+    },
+    "pinned": {
+      "type": "boolean"
     }
   }
 }

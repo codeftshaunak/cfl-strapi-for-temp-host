@@ -1009,6 +1009,9 @@
                 }
               }
             }
+          },
+          "pinned": {
+            "type": "boolean"
           }
         }
       },
@@ -1055,6 +1058,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "pinned": {
+            "type": "boolean"
           },
           "created_by": {
             "type": "string"

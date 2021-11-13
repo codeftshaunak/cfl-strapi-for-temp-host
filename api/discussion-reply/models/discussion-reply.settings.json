@@ -16,10 +16,9 @@
       "type": "richtext"
     },
     "discussion": {
-      "autoPopulate": false,
       "via": "replies",
-      "model": "discussion",
-      "index": 1
+      "autoPopulate": false,
+      "model": "discussion"
     },
     "profile": {
       "model": "profile",

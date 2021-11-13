@@ -10,14 +10,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2020-08-27",
 });
 const { sanitizeEntity } = require("strapi-utils");
-
-async function buffer(readable) {
-  const chunks = [];
-  for await (const chunk of readable) {
-    chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
-  }
-  return Buffer.concat(chunks);
-}
+const unparsed = require("koa-body/unparsed");
 
 const relevantEvents = new Set([
   "product.created",
@@ -62,7 +55,7 @@ module.exports = {
   },
 
   async webhook(ctx) {
-    const buf = await buffer(ctx.request);
+    const unparsedBody = ctx.request.body[unparsed];
     const sig = ctx.request.headers["stripe-signature"];
     const webhookSecret =
       process.env.STRIPE_WEBHOOK_SECRET_LIVE ??
@@ -70,39 +63,37 @@ module.exports = {
     let event;
 
     try {
-      event = stripe.webhooks.constructEvent(buf, sig, webhookSecret);
+      event = stripe.webhooks.constructEvent(unparsedBody, sig, webhookSecret);
     } catch (err) {
-      console.log(`❌ Error message: ${err.message}`);
-      return res.status(400).send(`Webhook Error: ${err.message}`);
+      return ctx.badRequest(`Webhook Error: ${err.message}`);
     }
 
     if (relevantEvents.has(event.type)) {
       try {
         switch (event.type) {
-          case "product.created":
-          case "product.updated":
-            break;
-          case "price.created":
-          case "price.updated":
-            break;
           case "customer.subscription.created":
           case "customer.subscription.updated":
           case "customer.subscription.deleted":
-            await manageSubscriptionStatusChange(
+            await strapi.services.subscription.handleSubscriptionStatusChange(
               event.data.object.id,
-              event.data.object.customer,
-              event.type === "customer.subscription.created"
+              event.data.object.customer
             );
+            // await manageSubscriptionStatusChange(
+            //   event.data.object.id,
+            //   event.data.object.customer,
+            //   event.type === "customer.subscription.created"
+            // );
             break;
           case "checkout.session.completed":
             const checkoutSession = event.data.object;
             if (checkoutSession.mode === "subscription") {
               const subscriptionId = checkoutSession.subscription;
-              await manageSubscriptionStatusChange(
-                subscriptionId,
-                checkoutSession.customer,
-                true
-              );
+              console.log("manageSubscriptionStatusChange", subscriptionId);
+              // await manageSubscriptionStatusChange(
+              //   subscriptionId,
+              //   checkoutSession.customer,
+              //   true
+              // );
             }
             break;
           default:
@@ -110,9 +101,9 @@ module.exports = {
         }
       } catch (error) {
         console.log(error);
-        return res
-          .status(400)
-          .send('Webhook error: "Webhook handler failed. View logs."');
+        return ctx.badRequest(
+          'Webhook error: "Webhook handler failed. View logs."'
+        );
       }
     }
 

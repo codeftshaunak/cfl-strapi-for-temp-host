@@ -10,7 +10,7 @@ const slugify = require("slugify");
 module.exports = {
   lifecycles: {
     beforeCreate: async (data) => {
-      if (data.firstName && data.lastName) {
+      if (data.firstName && data.lastName && !data.slug) {
         data.slug = slugify(
           `${data.firstName} ${data.lastName} ${Math.random()
             .toString(36)
@@ -22,7 +22,7 @@ module.exports = {
       }
     },
     beforeUpdate: async (params, data) => {
-      if (data.firstName && data.lastName) {
+      if (data.firstName && data.lastName && !data.slug) {
         data.slug = slugify(
           `${data.firstName} ${data.lastName} ${Math.random()
             .toString(36)

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "personal_rooms",
+  "info": {
+    "name": "personalRoom",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "displayName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

@@ -13,6 +13,34 @@
           "name": "User"
         }
       }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/send-email-token",
+      "handler": "Auth.sendEmailToken",
+      "config": {
+        "policies": [],
+        "prefix": "",
+        "description": "Resend email token for user validation",
+        "tag": {
+          "plugin": "users-permissions",
+          "name": "User"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/send-sms-token",
+      "handler": "Auth.sendSmsToken",
+      "config": {
+        "policies": [],
+        "prefix": "",
+        "description": "Resend SMS token for user validation",
+        "tag": {
+          "plugin": "users-permissions",
+          "name": "User"
+        }
+      }
     }
   ]
 }

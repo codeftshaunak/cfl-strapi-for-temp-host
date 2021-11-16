@@ -557,7 +557,6 @@ module.exports = {
     ctx.send({ ok: true });
   },
 
-  // TODO: resend email token
   async sendEmailToken(ctx) {
     const params = _.assign(ctx.request.body);
 
@@ -586,15 +585,67 @@ module.exports = {
     }
 
     try {
-      await strapi.plugins[
-        "users-permissions"
-      ].services.user.sendConfirmationEmail(user);
+      await strapi.plugins["users-permissions"].services.user.sendEmailToken(
+        user
+      );
       ctx.send({
         email: user.email,
         sent: true,
       });
     } catch (err) {
-      return ctx.badRequest(null, err);
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.email.failedtoken",
+          message: "Could not send email token. Please contact support.",
+        })
+      );
+    }
+  },
+
+  async sendSmsToken(ctx) {
+    const params = _.assign(ctx.request.body);
+
+    if (!params.phone) {
+      return ctx.badRequest("missing.phone");
+    }
+
+    const isPhone = phoneRegExp.test(params.phone);
+
+    if (isPhone) {
+      params.phone = params.phone.toLowerCase();
+    } else {
+      return ctx.badRequest("wrong.phone");
+    }
+
+    const user = await strapi.query("user", "users-permissions").findOne({
+      phone: params.phone,
+    });
+
+    if (user.confirmed) {
+      return ctx.badRequest("already.confirmed");
+    }
+
+    if (user.blocked) {
+      return ctx.badRequest("blocked.user");
+    }
+
+    try {
+      await strapi.plugins["users-permissions"].services.user.sendSmsToken(
+        user
+      );
+      ctx.send({
+        phone: user.phone,
+        sent: true,
+      });
+    } catch (err) {
+      return ctx.badRequest(
+        null,
+        formatError({
+          id: "Auth.form.error.sms.failedtoken",
+          message: "Could not send SMS token. Please contact support.",
+        })
+      );
     }
   },
 };

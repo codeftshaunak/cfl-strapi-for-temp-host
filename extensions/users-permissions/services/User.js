@@ -22,7 +22,7 @@ module.exports = {
       {
         templateId: 1,
         sourceCodeToTemplateId: 1,
-        subject: `${emailToken} is your passcode for CoFoundersLab`,
+        subject: `${emailToken} is your CoFoundersLab email verification code`,
       },
       {
         token: emailToken,
@@ -38,7 +38,7 @@ module.exports = {
     await smsClient.messages.create({
       to: user.phone,
       from: env("TWILIO_PHONE"),
-      body: `Your verification code is ${phoneToken}`,
+      body: `${phoneToken} is your CoFoundersLab phone verification code`,
     });
   },
 };

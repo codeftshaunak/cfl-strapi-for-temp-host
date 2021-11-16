@@ -315,13 +315,53 @@ module.exports = {
       });
 
     if (userWithThisNumber && userWithThisNumber.provider === params.provider) {
-      return ctx.badRequest(
-        null,
-        formatError({
-          id: "Auth.form.error.phone.taken",
-          message: "A user with this phone number already exists.",
-        })
-      );
+      if (
+        userWithThisNumber.email === params.email &&
+        userWithThisNumber.confirmed === false
+      ) {
+        const sanitizedUser = sanitizeEntity(userWithThisNumber, {
+          model: strapi.query("user", "users-permissions").model,
+        });
+
+        try {
+          await strapi.plugins[
+            "users-permissions"
+          ].services.user.sendEmailToken(userWithThisNumber);
+        } catch (err) {
+          return ctx.badRequest(
+            null,
+            formatError({
+              id: "Auth.form.error.email.failedtoken",
+              message: "Could not send email token. Please contact support.",
+            })
+          );
+        }
+
+        try {
+          await strapi.plugins["users-permissions"].services.user.sendSmsToken(
+            userWithThisNumber
+          );
+        } catch (err) {
+          return ctx.badRequest(
+            null,
+            formatError({
+              id: "Auth.form.error.sms.failedtoken",
+              message: "Could not send SMS token. Please contact support.",
+            })
+          );
+        }
+
+        return ctx.send({ user: sanitizedUser });
+      } else {
+        return ctx.badRequest(
+          null,
+          formatError({
+            id: "Auth.form.error.phone.taken",
+            message:
+              "A user with this phone number already exists. Try using the same email and password to retry activation or login if the account is already activated.",
+          })
+        );
+      }
     }
 
     const user = await strapi.query("user", "users-permissions").findOne({
@@ -366,7 +406,7 @@ module.exports = {
           null,
           formatError({
             id: "Auth.form.error.email.failedtoken",
-            message: "Could not send email token",
+            message: "Could not send email token. Please contact support.",
           })
         );
       }
@@ -380,7 +420,7 @@ module.exports = {
           null,
           formatError({
             id: "Auth.form.error.sms.failedtoken",
-            message: "Could not send SMS token",
+            message: "Could not send SMS token. Please contact support.",
           })
         );
       }

@@ -97,7 +97,6 @@ module.exports = {
         },
       };
     }
-    console.log({ params });
 
     return params;
   },

@@ -48,8 +48,6 @@ module.exports = {
       .sort(sort)
       .skip(parseInt(_start))
       .limit(parseInt(_limit));
-    console.log(parseInt(_start));
-    console.log(parseInt(_limit));
 
     return entities.map((entity) =>
       sanitizeEntity(entity, { model: strapi.models.profile })

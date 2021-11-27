@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "announcements",
+  "info": {
+    "name": "Announcement"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Message": {
+      "type": "string"
+    },
+    "MessageMobile": {
+      "type": "string"
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "ButtonUrl": {
+      "type": "string"
+    },
+    "Show": {
+      "type": "boolean"
+    }
+  }
+}

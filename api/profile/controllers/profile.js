@@ -15,15 +15,23 @@ module.exports = {
     params["public"] = true;
     entities = await strapi.services.profile.find(params);
 
-    return entities.map((entity) =>
-      sanitizeEntity(entity, { model: strapi.models.profile })
-    );
+    return entities.map((entity) => {
+      delete entity.user;
+      delete entity.discussions;
+      delete entity.discussion_replies;
+      delete entity.connections;
+      return sanitizeEntity(entity, { model: strapi.models.profile });
+    });
   },
 
   async findOne(ctx) {
     const { slug } = ctx.params;
 
     const entity = await strapi.services.profile.findOne({ slug });
+    delete entity.user;
+    delete entity.discussions;
+    delete entity.discussion_replies;
+    delete entity.connections;
     return sanitizeEntity(entity, { model: strapi.models.profile });
   },
 
@@ -126,7 +134,7 @@ module.exports = {
     }
 
     // update onboarded param on user if all necessary data is completed
-    if (strapi.services.profile.okForOnboarding(entity)) {
+    if (!user.onboarded && strapi.services.profile.okForOnboarding(entity)) {
       await strapi.services.profile.update(
         { id: user.profile },
         { public: true }

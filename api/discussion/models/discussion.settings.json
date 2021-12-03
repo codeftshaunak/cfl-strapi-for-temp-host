@@ -20,12 +20,14 @@
     },
     "slug": {
       "type": "string",
-      "unique": true
+      "unique": true,
+      "index": 1
     },
     "replies": {
-      "via": "discussion",
       "autoPopulate": false,
-      "model": "discussion-reply"
+      "via": "discussion",
+      "model": "discussion-reply",
+      "collection": "discussion-reply"
     },
     "topics": {
       "autoPopulate": false,
@@ -47,12 +49,15 @@
       "type": "integer"
     },
     "upvotes": {
-      "collection": "profile",
-      "autoPopulate": false
+      "autoPopulate": false,
+      "collection": "profile"
     },
     "downvotes": {
-      "collection": "profile",
-      "autoPopulate": false
+      "autoPopulate": false,
+      "collection": "profile"
+    },
+    "pinned": {
+      "type": "boolean"
     }
   }
 }

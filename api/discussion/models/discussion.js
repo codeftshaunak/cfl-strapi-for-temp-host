@@ -10,7 +10,7 @@ const slugify = require("slugify");
 module.exports = {
   lifecycles: {
     beforeCreate: async (data) => {
-      if (data.title) {
+      if (data.title && !data.slug) {
         data.slug = slugify(
           `${data.title} ${Math.random().toString(36).slice(2)}`,
           {
@@ -26,7 +26,7 @@ module.exports = {
       }
     },
     beforeUpdate: async (params, data) => {
-      if (data.title) {
+      if (data.title && !data.slug) {
         data.slug = slugify(
           `${data.title} ${Math.random().toString(36).slice(2)}`,
           {

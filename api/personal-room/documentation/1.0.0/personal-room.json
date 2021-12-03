@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/discussion-replies": {
+    "/personal-rooms": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Personal-room"
         ],
         "parameters": [
           {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Personal-room"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDiscussion-reply"
+                "$ref": "#/components/schemas/NewPersonal-room"
               }
             }
           }
         }
       }
     },
-    "/discussion-replies/count": {
+    "/personal-rooms/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Personal-room"
         ],
         "parameters": []
       }
     },
-    "/discussion-replies/{id}": {
+    "/personal-rooms/{slug}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -368,11 +368,11 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Personal-room"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -382,7 +382,9 @@
             }
           }
         ]
-      },
+      }
+    },
+    "/personal-rooms/{id}": {
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -434,7 +436,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Personal-room"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +444,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDiscussion-reply"
+                "$ref": "#/components/schemas/NewPersonal-room"
               }
             }
           }
@@ -508,7 +510,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Personal-room"
         ],
         "parameters": [
           {
@@ -523,82 +525,11 @@
           }
         ]
       }
-    },
-    "/discussion-replies/{id}/vote": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Discussion-reply"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "Discussion-reply": {
+      "Personal-room": {
         "required": [
           "id"
         ],
@@ -606,355 +537,94 @@
           "id": {
             "type": "string"
           },
-          "body": {
+          "displayName": {
             "type": "string"
           },
-          "discussion": {
+          "slug": {
+            "type": "string"
+          },
+          "user": {
             "required": [
-              "id"
+              "id",
+              "username",
+              "email",
+              "phone"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "title": {
+              "username": {
                 "type": "string"
               },
-              "body": {
+              "email": {
                 "type": "string"
               },
-              "slug": {
+              "provider": {
                 "type": "string"
               },
-              "replies": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "topics": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "profile": {
+              "password": {
                 "type": "string"
               },
-              "repliesCount": {
-                "type": "integer"
+              "resetPasswordToken": {
+                "type": "string"
               },
-              "followCount": {
-                "type": "integer"
+              "confirmationToken": {
+                "type": "string"
               },
-              "score": {
-                "type": "integer"
-              },
-              "upvotes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "downvotes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "pinned": {
+              "confirmed": {
                 "type": "boolean"
               },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "profile": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "user": {
-                "type": "string"
-              },
-              "profilePicture": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "city": {
-                "type": "string"
-              },
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "tagline": {
-                "type": "string"
-              },
-              "summary": {
-                "type": "string"
-              },
-              "pronouns": {
-                "type": "string"
+              "blocked": {
+                "type": "boolean"
               },
               "role": {
                 "type": "string"
               },
-              "lookingFor": {
+              "phone": {
                 "type": "string"
               },
-              "startupStage": {
+              "phoneToken": {
+                "type": "integer"
+              },
+              "emailToken": {
+                "type": "integer"
+              },
+              "onboarded": {
+                "type": "boolean"
+              },
+              "onboardedAt": {
                 "type": "string"
               },
-              "skills": {
-                "type": "object"
+              "profile": {
+                "type": "string"
               },
-              "interests": {
-                "type": "object"
+              "lastLogin": {
+                "type": "string"
               },
-              "public": {
-                "type": "boolean"
-              },
-              "premium": {
-                "type": "boolean"
-              },
-              "discussions": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "discussion_replies": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "connections": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "subscription": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
               },
               "updated_by": {
                 "type": "string"
-              }
-            }
-          },
-          "score": {
-            "type": "integer"
-          },
-          "upvotes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "profilePicture": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "city": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "tagline": {
-                  "type": "string"
-                },
-                "summary": {
-                  "type": "string"
-                },
-                "pronouns": {
-                  "type": "string"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "lookingFor": {
-                  "type": "string"
-                },
-                "startupStage": {
-                  "type": "string"
-                },
-                "skills": {
-                  "type": "object"
-                },
-                "interests": {
-                  "type": "object"
-                },
-                "public": {
-                  "type": "boolean"
-                },
-                "premium": {
-                  "type": "boolean"
-                },
-                "discussions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "discussion_replies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "connections": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "downvotes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "profilePicture": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "city": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "tagline": {
-                  "type": "string"
-                },
-                "summary": {
-                  "type": "string"
-                },
-                "pronouns": {
-                  "type": "string"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "lookingFor": {
-                  "type": "string"
-                },
-                "startupStage": {
-                  "type": "string"
-                },
-                "skills": {
-                  "type": "object"
-                },
-                "interests": {
-                  "type": "object"
-                },
-                "public": {
-                  "type": "boolean"
-                },
-                "premium": {
-                  "type": "boolean"
-                },
-                "discussions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "discussion_replies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "connections": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
               }
             }
           }
         }
       },
-      "NewDiscussion-reply": {
+      "NewPersonal-room": {
         "properties": {
-          "body": {
+          "displayName": {
             "type": "string"
           },
-          "discussion": {
+          "slug": {
             "type": "string"
           },
-          "profile": {
+          "user": {
             "type": "string"
-          },
-          "score": {
-            "type": "integer"
-          },
-          "upvotes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "downvotes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "created_by": {
             "type": "string"

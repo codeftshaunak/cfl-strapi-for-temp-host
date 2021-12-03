@@ -1,19 +1,18 @@
 {
   "paths": {
-    "/discussion-topics": {
+    "/announcement": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the announcement's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve announcement document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Announcement"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-topic"
+          "Announcement"
         ],
         "parameters": [
           {
@@ -193,210 +192,16 @@
           }
         ]
       },
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Discussion-topic"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewDiscussion-topic"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/discussion-topics/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Discussion-topic"
-        ],
-        "parameters": []
-      }
-    },
-    "/discussion-topics/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Discussion-topic"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single announcement record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve announcement document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Announcement"
                 }
               }
             }
@@ -434,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-topic"
+          "Announcement"
         ],
         "requestBody": {
           "description": "",
@@ -442,30 +247,19 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDiscussion-topic"
+                "$ref": "#/components/schemas/NewAnnouncement"
               }
             }
           }
         },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
+        "parameters": []
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single announcement record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single announcement based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -508,26 +302,15 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-topic"
+          "Announcement"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
+        "parameters": []
       }
     }
   },
   "components": {
     "schemas": {
-      "Discussion-topic": {
+      "Announcement": {
         "required": [
           "id"
         ],
@@ -535,108 +318,39 @@
           "id": {
             "type": "string"
           },
-          "name": {
+          "Message": {
             "type": "string"
           },
-          "slug": {
+          "MessageMobile": {
             "type": "string"
           },
-          "description": {
+          "ButtonText": {
             "type": "string"
           },
-          "discussions": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "replies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "topics": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "profile": {
-                  "type": "string"
-                },
-                "repliesCount": {
-                  "type": "integer"
-                },
-                "followCount": {
-                  "type": "integer"
-                },
-                "score": {
-                  "type": "integer"
-                },
-                "upvotes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "downvotes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "pinned": {
-                  "type": "boolean"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
+          "ButtonUrl": {
+            "type": "string"
           },
-          "trending": {
-            "type": "boolean",
-            "default": false
+          "Show": {
+            "type": "boolean"
           }
         }
       },
-      "NewDiscussion-topic": {
+      "NewAnnouncement": {
         "properties": {
-          "name": {
+          "Message": {
             "type": "string"
           },
-          "slug": {
+          "MessageMobile": {
             "type": "string"
           },
-          "description": {
+          "ButtonText": {
             "type": "string"
           },
-          "discussions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "ButtonUrl": {
+            "type": "string"
           },
-          "trending": {
-            "type": "boolean",
-            "default": false
+          "Show": {
+            "type": "boolean"
           },
           "created_by": {
             "type": "string"
@@ -648,5 +362,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Announcement"
+    }
+  ]
 }

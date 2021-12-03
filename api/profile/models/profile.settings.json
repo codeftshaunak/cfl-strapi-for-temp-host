@@ -32,7 +32,8 @@
       "pluginOptions": {}
     },
     "slug": {
-      "type": "string"
+      "type": "string",
+      "index": 1
     },
     "city": {
       "model": "city"

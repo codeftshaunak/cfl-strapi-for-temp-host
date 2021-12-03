@@ -26,14 +26,16 @@
         "deleted",
         "pending_received",
         "not_existing_connection"
-      ]
+      ],
+      "index": 1
     },
     "message": {
       "type": "text"
     },
     "authorProfile": {
       "model": "profile",
-      "via": "connections"
+      "via": "connections",
+      "index": 1
     },
     "messages": {
       "via": "connection",

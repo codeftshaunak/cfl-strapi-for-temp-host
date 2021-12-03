@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/announcement",
+      "handler": "announcement.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/announcement",
+      "handler": "announcement.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/announcement",
+      "handler": "announcement.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

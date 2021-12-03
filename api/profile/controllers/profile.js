@@ -15,70 +15,60 @@ module.exports = {
     params["public"] = true;
     entities = await strapi.services.profile.find(params);
 
-    return entities.map((entity) =>
-      sanitizeEntity(entity, { model: strapi.models.profile })
-    );
+    return entities.map((entity) => {
+      delete entity.user;
+      delete entity.discussions;
+      delete entity.discussion_replies;
+      delete entity.connections;
+      return sanitizeEntity(entity, { model: strapi.models.profile });
+    });
   },
 
   async findOne(ctx) {
     const { slug } = ctx.params;
 
     const entity = await strapi.services.profile.findOne({ slug });
+    delete entity.user;
+    delete entity.discussions;
+    delete entity.discussion_replies;
+    delete entity.connections;
     return sanitizeEntity(entity, { model: strapi.models.profile });
   },
 
   async search(ctx) {
     let entities;
-    const user = ctx.state.user;
 
-    // city: "56cc14c588b042411c0bd010"
-    // premium: false
-    // role: (2) ['Advisor', 'Intern']
-    // skills: []
-    // startupStage: []
-    const params = {
-      ..._.pick(ctx.query, ["_sort", "_limit", "_start"]),
-      public: true,
-    };
+    const params = strapi.services.profile.buildSearchParams(
+      ctx.state.user,
+      ctx.query
+    );
 
-    if (user) {
-      params["user"] = { $ne: user.id };
-    }
-    if (ctx.query.city) {
-      // const city = await strapi.services.city.findOne({ id: ctx.query.city });
-      // const cities = await strapi.query("city").model.find({
-      //   coordinates: {
-      //     $near: {
-      //       $geometry: city.coordinates,
-      //       $maxDistance: 100,
-      //     },
-      //   },
-      // });
-      // const countCity = strapi.services.profile.countSearch({city: ctx.query.city});
-      // if(countCity > 0){
-      //   params["city"] = ctx.query.city;
-      // }
-      params["city"] = ctx.query.city;
-    }
-    if (ctx.query.premium == "true") {
-      params["premium"] = true;
-    }
-    if (ctx.query.role && ctx.query.role.length > 0) {
-      params["role"] = { $in: ctx.query.role };
-    }
-    if (ctx.query.skills && ctx.query.skills.length > 0) {
-      params["skills"] = { $in: ctx.query.skills };
-    }
-    if (ctx.query.startupStage && ctx.query.startupStage.length > 0) {
-      params["startupStage"] = { $in: ctx.query.startupStage };
-    }
+    // entities = await strapi.services.profile.find(params);
 
-    entities = await strapi.services.profile.find(params);
-    // entities = await strapi.query("profile").model.find(params);
+    const { _sort, _limit, _start } = ctx.query;
+    const sort = _sort.split(",").reduce((reducer, sort) => {
+      const [sortBy, sortOrder] = sort.split(":");
+      reducer[sortBy] = sortOrder === "ASC" ? 1 : -1;
+    }, {});
+    entities = await strapi
+      .query("profile")
+      .model.find(params)
+      .sort(sort)
+      .skip(parseInt(_start))
+      .limit(parseInt(_limit));
 
     return entities.map((entity) =>
       sanitizeEntity(entity, { model: strapi.models.profile })
     );
+  },
+
+  async count(ctx) {
+    const params = strapi.services.profile.buildSearchParams(
+      ctx.state.user,
+      ctx.query
+    );
+
+    return strapi.query("profile").model.count(params);
   },
 
   async createMe(ctx) {
@@ -144,7 +134,7 @@ module.exports = {
     }
 
     // update onboarded param on user if all necessary data is completed
-    if (strapi.services.profile.okForOnboarding(entity)) {
+    if (!user.onboarded && strapi.services.profile.okForOnboarding(entity)) {
       await strapi.services.profile.update(
         { id: user.profile },
         { public: true }

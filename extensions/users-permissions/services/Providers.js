@@ -13,6 +13,8 @@ const purest = require("purest")({ request });
 const purestConfig = require("@purest/providers");
 const { getAbsoluteServerUrl } = require("strapi-utils");
 const jwt = require("jsonwebtoken");
+const fs = require("fs").promises;
+const path = require("path");
 const axios = require("axios").default;
 
 /**
@@ -45,7 +47,7 @@ const connect = (provider, query) => {
       }
 
       try {
-        const users = await strapi.query("user", "users-permissions").find({
+        const user = await strapi.query("user", "users-permissions").findOne({
           email: profile.email,
         });
 
@@ -57,8 +59,6 @@ const connect = (provider, query) => {
             key: "advanced",
           })
           .get();
-
-        const user = _.find(users, { provider });
 
         if (_.isEmpty(user) && !advanced.allow_register) {
           return resolve([
@@ -72,32 +72,61 @@ const connect = (provider, query) => {
           return resolve([user, null]);
         }
 
-        if (
-          !_.isEmpty(_.find(users, (user) => user.provider !== provider)) &&
-          advanced.unique_email
-        ) {
-          return resolve([
-            null,
-            [{ messages: [{ id: "Auth.form.error.email.taken" }] }],
-            "Email is already taken.",
-          ]);
-        }
-
         // Retrieve default role.
         const defaultRole = await strapi
           .query("role", "users-permissions")
           .findOne({ type: advanced.default_role }, []);
 
         // Create the new user.
-        const params = _.assign(profile, {
-          provider: provider,
-          role: defaultRole.id,
-          confirmed: true,
-        });
-
         const createdUser = await strapi
           .query("user", "users-permissions")
-          .create(params);
+          .create({
+            provider: provider,
+            role: defaultRole.id,
+            confirmed: true,
+            email: profile.email,
+          });
+
+        const createdProfile = await strapi.query("profile").create({
+          user: createdUser.id,
+          firstName: profile.firstName,
+          lastName: profile.lastName,
+        });
+
+        // if (profile.profilePicture) {
+        //   try {
+        //     // we want the file type without the "." like: "jpg" or "png"
+        //     const ext = path.extname(profile.profilePicture).slice(1);
+        //     // name of the file like image01.jpg
+        //     const name = path.basename(profile.profilePicture);
+        //     // read contents of file into a Buffer
+        //     const buffer = await fs.readFile(profile.profilePicture);
+        //     // get the buffersize using service function from upload plugin
+        //     const fileData =
+        //       await strapi.plugins.upload.services.upload.enhanceFile(
+        //         {
+        //           path: profile.profilePicture,
+        //           name,
+        //           type: `image/${ext}`,
+        //           size: buffer.toString().length,
+        //         },
+        //         {},
+        //         {
+        //           refId: createdProfile.id,
+        //           ref: "profile",
+        //           field: "profilePicture",
+        //         }
+        //       );
+
+        //     const fileUpload =
+        //       strapi.plugins.upload.services.upload.uploadFileAndPersist(
+        //         fileData
+        //       );
+        //     console.log("fileUpload", fileUpload);
+        //   } catch (err) {
+        //     console.log("Could not upload picture", err);
+        //   }
+        // }
 
         return resolve([createdUser, null]);
       } catch (err) {
@@ -212,6 +241,9 @@ const getProfile = async (provider, query, callback) => {
           callback(null, {
             username: body.data.email,
             email: body.data.email,
+            firstName: body.data.given_name,
+            lastName: body.data.family_name,
+            profilePicture: body.data.picture,
           });
         },
         (err) => callback(err)

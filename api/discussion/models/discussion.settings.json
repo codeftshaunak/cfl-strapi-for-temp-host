@@ -26,7 +26,8 @@
     "replies": {
       "autoPopulate": false,
       "via": "discussion",
-      "model": "discussion-reply"
+      "model": "discussion-reply",
+      "collection": "discussion-reply"
     },
     "topics": {
       "autoPopulate": false,

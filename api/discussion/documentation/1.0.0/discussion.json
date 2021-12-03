@@ -673,42 +673,45 @@
             "type": "string"
           },
           "replies": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "body": {
-                "type": "string"
-              },
-              "discussion": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "score": {
-                "type": "integer"
-              },
-              "upvotes": {
-                "type": "array",
-                "items": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "discussion": {
+                  "type": "string"
+                },
+                "profile": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "integer"
+                },
+                "upvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "downvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "downvotes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
@@ -1027,7 +1030,10 @@
             "type": "string"
           },
           "replies": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "topics": {
             "type": "array",

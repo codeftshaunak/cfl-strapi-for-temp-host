@@ -627,7 +627,10 @@
                 "type": "string"
               },
               "replies": {
-                "type": "string"
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "topics": {
                 "type": "array",

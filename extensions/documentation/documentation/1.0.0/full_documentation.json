@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/27/2021 9:14:36 AM"
+    "x-generation-date": "12/03/2021 7:47:13 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8894,7 +8894,10 @@
                 "type": "string"
               },
               "replies": {
-                "type": "string"
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "topics": {
                 "type": "array",
@@ -9265,7 +9268,10 @@
                   "type": "string"
                 },
                 "replies": {
-                  "type": "string"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "topics": {
                   "type": "array",
@@ -9362,42 +9368,45 @@
             "type": "string"
           },
           "replies": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "body": {
-                "type": "string"
-              },
-              "discussion": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "score": {
-                "type": "integer"
-              },
-              "upvotes": {
-                "type": "array",
-                "items": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "discussion": {
+                  "type": "string"
+                },
+                "profile": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "integer"
+                },
+                "upvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "downvotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "downvotes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
@@ -9716,7 +9725,10 @@
             "type": "string"
           },
           "replies": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "topics": {
             "type": "array",
@@ -10479,7 +10491,10 @@
                   "type": "string"
                 },
                 "replies": {
-                  "type": "string"
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "topics": {
                   "type": "array",

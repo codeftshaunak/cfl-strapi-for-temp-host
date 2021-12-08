@@ -90,6 +90,9 @@
     },
     "countryCode": {
       "type": "string"
+    },
+    "cflTeam": {
+      "type": "boolean"
     }
   }
 }

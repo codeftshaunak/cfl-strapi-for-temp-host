@@ -750,6 +750,9 @@
               "countryCode": {
                 "type": "string"
               },
+              "cflTeam": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -840,6 +843,9 @@
                 "countryCode": {
                   "type": "string"
                 },
+                "cflTeam": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -927,6 +933,9 @@
                 },
                 "countryCode": {
                   "type": "string"
+                },
+                "cflTeam": {
+                  "type": "boolean"
                 },
                 "created_by": {
                   "type": "string"

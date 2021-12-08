@@ -1004,6 +1004,9 @@
           },
           "countryCode": {
             "type": "string"
+          },
+          "cflTeam": {
+            "type": "boolean"
           }
         }
       },
@@ -1076,6 +1079,9 @@
           },
           "countryCode": {
             "type": "string"
+          },
+          "cflTeam": {
+            "type": "boolean"
           },
           "created_by": {
             "type": "string"

@@ -17,6 +17,16 @@ module.exports = {
     }
 
     const data = ctx.request.body;
+
+    const connection = await strapi.services.connection.findOne({
+      profiles: { $all: [user.profile, data.profile] },
+    });
+    if (connection) {
+      return ctx.badRequest(
+        `You already have a connection with this person. Status: ${connection.status}`
+      );
+    }
+
     data["authorProfile"] = user.profile;
     data["profiles"] = [user.profile, data.profile];
     data["status"] = "pending";

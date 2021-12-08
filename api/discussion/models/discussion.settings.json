@@ -36,8 +36,8 @@
       "dominant": true
     },
     "profile": {
-      "model": "profile",
-      "via": "discussions"
+      "via": "discussions",
+      "model": "profile"
     },
     "repliesCount": {
       "type": "integer"

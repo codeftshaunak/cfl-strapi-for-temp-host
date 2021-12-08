@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/03/2021 7:47:13 PM"
+    "x-generation-date": "12/08/2021 1:52:17 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8687,6 +8687,9 @@
                     "type": "string"
                   }
                 },
+                "countryCode": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -8785,6 +8788,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "countryCode": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -9014,6 +9020,9 @@
                   "type": "string"
                 }
               },
+              "countryCode": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -9101,6 +9110,9 @@
                     "type": "string"
                   }
                 },
+                "countryCode": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -9185,6 +9197,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "countryCode": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -9521,6 +9536,9 @@
                   "type": "string"
                 }
               },
+              "countryCode": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -9614,6 +9632,9 @@
                     "type": "string"
                   }
                 },
+                "countryCode": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -9698,6 +9719,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "countryCode": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -9899,6 +9923,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "countryCode": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -10630,6 +10657,9 @@
                 }
               }
             }
+          },
+          "countryCode": {
+            "type": "string"
           }
         }
       },
@@ -10699,6 +10729,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "countryCode": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -11122,6 +11155,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "countryCode": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"

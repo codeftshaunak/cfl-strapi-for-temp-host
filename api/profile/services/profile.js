@@ -54,6 +54,9 @@ module.exports = {
     if (user) {
       params["user"] = { $ne: user.id };
     }
+    if (query.country) {
+      params["countryCode"] = query.country;
+    }
     if (query.city) {
       // const city = await strapi.services.city.findOne({ id: query.city });
       // const cities = await strapi.query("city").model.find({

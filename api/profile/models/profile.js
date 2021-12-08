@@ -21,7 +21,7 @@ module.exports = {
         );
       }
       if (data.city) {
-        const city = await strapi.query("city").find({ id: data.city });
+        const city = await strapi.query("city").findOne({ id: data.city });
         data.countryCode = city.countryCode;
       }
     },
@@ -37,7 +37,7 @@ module.exports = {
         );
       }
       if (data.city) {
-        const city = await strapi.query("city").find({ id: data.city });
+        const city = await strapi.query("city").findOne({ id: data.city });
         data.countryCode = city.countryCode;
       }
     },

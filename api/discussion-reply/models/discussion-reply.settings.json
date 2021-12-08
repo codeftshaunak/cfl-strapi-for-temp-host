@@ -21,9 +21,8 @@
       "model": "discussion"
     },
     "profile": {
-      "model": "profile",
       "via": "discussion_replies",
-      "index": 1
+      "model": "profile"
     },
     "score": {
       "type": "integer"

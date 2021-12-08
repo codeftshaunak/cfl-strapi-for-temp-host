@@ -87,6 +87,9 @@
     "connections": {
       "via": "authorProfile",
       "collection": "connection"
+    },
+    "countryCode": {
+      "type": "string"
     }
   }
 }

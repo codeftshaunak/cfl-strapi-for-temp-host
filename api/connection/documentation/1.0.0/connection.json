@@ -892,6 +892,9 @@
                     "type": "string"
                   }
                 },
+                "countryCode": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -990,6 +993,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "countryCode": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"

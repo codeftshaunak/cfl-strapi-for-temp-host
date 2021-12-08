@@ -20,6 +20,10 @@ module.exports = {
           }
         );
       }
+      if (data.city) {
+        const city = await strapi.query("city").find({ id: data.city });
+        data.countryCode = city.countryCode;
+      }
     },
     beforeUpdate: async (params, data) => {
       if (data.firstName && data.lastName && !data.slug) {
@@ -31,6 +35,10 @@ module.exports = {
             lower: true,
           }
         );
+      }
+      if (data.city) {
+        const city = await strapi.query("city").find({ id: data.city });
+        data.countryCode = city.countryCode;
       }
     },
   },

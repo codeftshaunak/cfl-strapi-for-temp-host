@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/08/2021 1:52:17 AM"
+    "x-generation-date": "12/08/2021 4:51:38 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8690,6 +8690,9 @@
                 "countryCode": {
                   "type": "string"
                 },
+                "cflTeam": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -8791,6 +8794,9 @@
               },
               "countryCode": {
                 "type": "string"
+              },
+              "cflTeam": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -9023,6 +9029,9 @@
               "countryCode": {
                 "type": "string"
               },
+              "cflTeam": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -9113,6 +9122,9 @@
                 "countryCode": {
                   "type": "string"
                 },
+                "cflTeam": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -9200,6 +9212,9 @@
                 },
                 "countryCode": {
                   "type": "string"
+                },
+                "cflTeam": {
+                  "type": "boolean"
                 },
                 "created_by": {
                   "type": "string"
@@ -9539,6 +9554,9 @@
               "countryCode": {
                 "type": "string"
               },
+              "cflTeam": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -9635,6 +9653,9 @@
                 "countryCode": {
                   "type": "string"
                 },
+                "cflTeam": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -9722,6 +9743,9 @@
                 },
                 "countryCode": {
                   "type": "string"
+                },
+                "cflTeam": {
+                  "type": "boolean"
                 },
                 "created_by": {
                   "type": "string"
@@ -9926,6 +9950,9 @@
               },
               "countryCode": {
                 "type": "string"
+              },
+              "cflTeam": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"
@@ -10660,6 +10687,9 @@
           },
           "countryCode": {
             "type": "string"
+          },
+          "cflTeam": {
+            "type": "boolean"
           }
         }
       },
@@ -10732,6 +10762,9 @@
           },
           "countryCode": {
             "type": "string"
+          },
+          "cflTeam": {
+            "type": "boolean"
           },
           "created_by": {
             "type": "string"
@@ -11158,6 +11191,9 @@
               },
               "countryCode": {
                 "type": "string"
+              },
+              "cflTeam": {
+                "type": "boolean"
               },
               "created_by": {
                 "type": "string"

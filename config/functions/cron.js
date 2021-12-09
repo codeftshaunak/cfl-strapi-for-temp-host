@@ -19,8 +19,22 @@ module.exports = {
   //
   // }
 
-  "*/1 * * * *": async () => {
+  "*/3 * * * *": async () => {
     console.log("I am running " + new Date(), Object.keys(strapi.config));
+
+    await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
+      {
+        to: user.email,
+      },
+      {
+        templateId: 1,
+        sourceCodeToTemplateId: 1,
+        subject: "I am running " + new Date(),
+      },
+      {
+        token: "emailToken",
+      }
+    );
     // await strapi.services.article.publish();
   },
 };

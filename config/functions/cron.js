@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Cron config that gives you an opportunity
@@ -18,4 +18,9 @@ module.exports = {
   // '0 1 * * 1': () => {
   //
   // }
+
+  "*/1 * * * *": async () => {
+    console.log("I am running " + new Date(), Object.keys(strapi.config));
+    // await strapi.services.article.publish();
+  },
 };

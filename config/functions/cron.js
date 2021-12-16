@@ -18,10 +18,9 @@ module.exports = {
   // '0 1 * * 1': () => {
   //
   // }
-
-  "*/3 * * * *": async () => {
-    console.log("I am running " + new Date(), Object.keys(strapi.config));
-    console.log(env("DYNO"));
-    // await strapi.services.article.publish();
-  },
+  // "*/3 * * * *": async () => {
+  //   console.log("I am running " + new Date(), Object.keys(strapi.config));
+  //   console.log(env("DYNO"));
+  //   // await strapi.services.article.publish();
+  // },
 };

@@ -37,7 +37,7 @@
       "path": "/profiles/:slug",
       "handler": "profile.findOne",
       "config": {
-        "policies": []
+        "policies": ["ratelimit"]
       }
     },
     {

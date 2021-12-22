@@ -12,7 +12,7 @@ module.exports = async (ctx, next) => {
       messages: [
         {
           id: "Auth.form.error.ratelimit",
-          message: "Too many attempts, please try again in a minute.",
+          message: "You're browsing too fast, please try again in a minute.",
         },
       ],
     },
@@ -23,7 +23,7 @@ module.exports = async (ctx, next) => {
       {},
       {
         interval: 1 * 60 * 1000,
-        max: 5,
+        max: 10,
         prefixKey: `${ctx.request.path}:${ctx.request.ip}`,
         message,
       }

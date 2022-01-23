@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/08/2021 10:40:40 PM"
+    "x-generation-date": "01/23/2022 12:23:40 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9204,6 +9204,9 @@
                 "cflTeam": {
                   "type": "boolean"
                 },
+                "professionalExperiences": {
+                  "type": "object"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -9308,6 +9311,9 @@
               },
               "cflTeam": {
                 "type": "boolean"
+              },
+              "professionalExperiences": {
+                "type": "object"
               },
               "created_by": {
                 "type": "string"
@@ -9611,6 +9617,9 @@
               "cflTeam": {
                 "type": "boolean"
               },
+              "professionalExperiences": {
+                "type": "object"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -9704,6 +9713,9 @@
                 "cflTeam": {
                   "type": "boolean"
                 },
+                "professionalExperiences": {
+                  "type": "object"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -9794,6 +9806,9 @@
                 },
                 "cflTeam": {
                   "type": "boolean"
+                },
+                "professionalExperiences": {
+                  "type": "object"
                 },
                 "created_by": {
                   "type": "string"
@@ -10136,6 +10151,9 @@
               "cflTeam": {
                 "type": "boolean"
               },
+              "professionalExperiences": {
+                "type": "object"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -10235,6 +10253,9 @@
                 "cflTeam": {
                   "type": "boolean"
                 },
+                "professionalExperiences": {
+                  "type": "object"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -10325,6 +10346,9 @@
                 },
                 "cflTeam": {
                   "type": "boolean"
+                },
+                "professionalExperiences": {
+                  "type": "object"
                 },
                 "created_by": {
                   "type": "string"
@@ -10532,6 +10556,9 @@
               },
               "cflTeam": {
                 "type": "boolean"
+              },
+              "professionalExperiences": {
+                "type": "object"
               },
               "created_by": {
                 "type": "string"
@@ -11269,6 +11296,9 @@
           },
           "cflTeam": {
             "type": "boolean"
+          },
+          "professionalExperiences": {
+            "type": "object"
           }
         }
       },
@@ -11344,6 +11374,9 @@
           },
           "cflTeam": {
             "type": "boolean"
+          },
+          "professionalExperiences": {
+            "type": "object"
           },
           "created_by": {
             "type": "string"
@@ -11773,6 +11806,9 @@
               },
               "cflTeam": {
                 "type": "boolean"
+              },
+              "professionalExperiences": {
+                "type": "object"
               },
               "created_by": {
                 "type": "string"

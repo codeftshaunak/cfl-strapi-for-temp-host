@@ -753,6 +753,9 @@
               "cflTeam": {
                 "type": "boolean"
               },
+              "professionalExperiences": {
+                "type": "object"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -846,6 +849,9 @@
                 "cflTeam": {
                   "type": "boolean"
                 },
+                "professionalExperiences": {
+                  "type": "object"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -936,6 +942,9 @@
                 },
                 "cflTeam": {
                   "type": "boolean"
+                },
+                "professionalExperiences": {
+                  "type": "object"
                 },
                 "created_by": {
                   "type": "string"

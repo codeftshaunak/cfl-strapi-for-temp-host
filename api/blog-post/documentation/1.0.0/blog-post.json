@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/connections": {
+    "/blog-posts": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,9 +10,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Connection"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Connection"
+          "Blog-post"
         ],
         "parameters": [
           {
@@ -201,7 +202,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Connection"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -239,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Connection"
+          "Blog-post"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewConnection"
+                "$ref": "#/components/schemas/NewBlog-post"
               }
             }
           }
         }
       }
     },
-    "/connections/me": {
+    "/blog-posts/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "Connection"
+          "Blog-post"
         ],
         "parameters": []
       }
     },
-    "/connections/count": {
+    "/blog-posts/{slug}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -322,8 +327,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -363,64 +368,11 @@
         },
         "summary": "",
         "tags": [
-          "Connection"
-        ],
-        "parameters": []
-      }
-    },
-    "/connections/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Connection"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Connection"
+          "Blog-post"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -430,7 +382,9 @@
             }
           }
         ]
-      },
+      }
+    },
+    "/blog-posts/{id}": {
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -440,7 +394,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Connection"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -478,7 +436,7 @@
         },
         "summary": "",
         "tags": [
-          "Connection"
+          "Blog-post"
         ],
         "requestBody": {
           "description": "",
@@ -486,7 +444,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewConnection"
+                "$ref": "#/components/schemas/NewBlog-post"
               }
             }
           }
@@ -552,245 +510,8 @@
         },
         "summary": "",
         "tags": [
-          "Connection"
+          "Blog-post"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/connections/connect": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Connection"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/connections/accept/{id}": {
-      "put": {
-        "deprecated": false,
-        "description": "Update a record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Connection"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/connections/ignore/{id}": {
-      "put": {
-        "deprecated": false,
-        "description": "Update a record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Connection"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
         "parameters": [
           {
             "name": "id",
@@ -808,7 +529,7 @@
   },
   "components": {
     "schemas": {
-      "Connection": {
+      "Blog-post": {
         "required": [
           "id"
         ],
@@ -816,117 +537,16 @@
           "id": {
             "type": "string"
           },
-          "profiles": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "profilePicture": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "city": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "tagline": {
-                  "type": "string"
-                },
-                "summary": {
-                  "type": "string"
-                },
-                "pronouns": {
-                  "type": "string"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "lookingFor": {
-                  "type": "string"
-                },
-                "startupStage": {
-                  "type": "string"
-                },
-                "skills": {
-                  "type": "object"
-                },
-                "interests": {
-                  "type": "object"
-                },
-                "public": {
-                  "type": "boolean"
-                },
-                "premium": {
-                  "type": "boolean"
-                },
-                "discussions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "discussion_replies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "connections": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "countryCode": {
-                  "type": "string"
-                },
-                "cflTeam": {
-                  "type": "boolean"
-                },
-                "professionalExperiences": {
-                  "type": "object"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "pending",
-              "accepted",
-              "ignored",
-              "passed",
-              "withdrawn",
-              "deleted",
-              "pending_received",
-              "not_existing_connection"
-            ]
-          },
-          "message": {
+          "title": {
             "type": "string"
           },
-          "authorProfile": {
+          "body": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "category": {
             "required": [
               "id"
             ],
@@ -934,80 +554,17 @@
               "id": {
                 "type": "string"
               },
-              "user": {
-                "type": "string"
-              },
-              "profilePicture": {
+              "title": {
                 "type": "string"
               },
               "slug": {
                 "type": "string"
               },
-              "city": {
-                "type": "string"
-              },
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "tagline": {
-                "type": "string"
-              },
-              "summary": {
-                "type": "string"
-              },
-              "pronouns": {
-                "type": "string"
-              },
-              "role": {
-                "type": "string"
-              },
-              "lookingFor": {
-                "type": "string"
-              },
-              "startupStage": {
-                "type": "string"
-              },
-              "skills": {
-                "type": "object"
-              },
-              "interests": {
-                "type": "object"
-              },
-              "public": {
-                "type": "boolean"
-              },
-              "premium": {
-                "type": "boolean"
-              },
-              "discussions": {
+              "posts": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
-              },
-              "discussion_replies": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "connections": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "countryCode": {
-                "type": "string"
-              },
-              "cflTeam": {
-                "type": "boolean"
-              },
-              "professionalExperiences": {
-                "type": "object"
               },
               "created_by": {
                 "type": "string"
@@ -1017,68 +574,96 @@
               }
             }
           },
-          "messages": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "connection": {
-                  "type": "string"
-                },
-                "authorProfile": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
+          "featuredImage": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
-      "NewConnection": {
+      "NewBlog-post": {
         "properties": {
-          "profiles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "title": {
+            "type": "string"
           },
-          "status": {
+          "body": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "published_at": {
             "type": "string",
-            "enum": [
-              "pending",
-              "accepted",
-              "ignored",
-              "passed",
-              "withdrawn",
-              "deleted",
-              "pending_received",
-              "not_existing_connection"
-            ]
-          },
-          "message": {
-            "type": "string"
-          },
-          "authorProfile": {
-            "type": "string"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"
@@ -1090,9 +675,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Connection"
-    }
-  ]
+  "tags": []
 }

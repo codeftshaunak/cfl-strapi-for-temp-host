@@ -53,7 +53,7 @@
       "path": "/discussion-replies/:id",
       "handler": "discussion-reply.delete",
       "config": {
-        "policies": []
+        "policies": ["global::isModerator"]
       }
     }
   ]

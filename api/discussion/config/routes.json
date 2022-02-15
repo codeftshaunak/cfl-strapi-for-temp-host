@@ -61,7 +61,7 @@
       "path": "/discussions/:id",
       "handler": "discussion.delete",
       "config": {
-        "policies": []
+        "policies": ["global::isModerator"]
       }
     }
   ]

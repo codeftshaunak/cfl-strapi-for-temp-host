@@ -79,6 +79,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/connections/mark-read/:id",
+      "handler": "connection.markRead",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

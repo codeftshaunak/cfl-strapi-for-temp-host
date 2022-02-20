@@ -111,4 +111,37 @@ module.exports = {
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },
+
+  async markRead(ctx) {
+    const { id } = ctx.params;
+
+    //get authenicated user details
+    const user = ctx.state.user;
+    if (!user) {
+      return ctx.unauthorized("No authorization header was found.");
+    }
+    if (!user.profile) {
+      return ctx.unauthorized("No profile created.");
+    }
+    try {
+      await strapi.query("message").model.updateMany(
+        {
+          connection: id,
+          authorProfile: { $ne: user.profile.id },
+          readAt: null,
+        },
+        {
+          read: true,
+          readAt: new Date(),
+        }
+      );
+
+      strapi.plugins.queue.services.badges.add({
+        type: "messages",
+        profileId: user.profile.id,
+      });
+    } catch (e) {}
+
+    return { ok: true };
+  },
 };

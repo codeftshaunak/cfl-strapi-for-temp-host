@@ -692,6 +692,9 @@
               "subscription": {
                 "type": "string"
               },
+              "badges": {
+                "type": "object"
+              },
               "created_by": {
                 "type": "string"
               },

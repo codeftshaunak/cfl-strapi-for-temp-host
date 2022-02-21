@@ -32,6 +32,11 @@ module.exports = {
     data["status"] = "pending";
     entity = await strapi.services.connection.create(data);
 
+    strapi.plugins.queue.services.badges.add({
+      type: "connections",
+      profileId: data.profile,
+    });
+
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },
 
@@ -88,6 +93,11 @@ module.exports = {
       }
     );
 
+    strapi.plugins.queue.services.badges.add({
+      type: "connections",
+      profileId: user.profile.id,
+    });
+
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },
 
@@ -108,6 +118,11 @@ module.exports = {
         status: "ignored",
       }
     );
+
+    strapi.plugins.queue.services.badges.add({
+      type: "connections",
+      profileId: user.profile.id,
+    });
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },

@@ -94,6 +94,9 @@
     "subscription": {
       "via": "user",
       "model": "subscription"
+    },
+    "badges": {
+      "type": "json"
     }
   }
 }

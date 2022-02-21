@@ -21,6 +21,12 @@
     },
     "body": {
       "type": "text"
+    },
+    "read": {
+      "type": "boolean"
+    },
+    "readAt": {
+      "type": "datetime"
     }
   }
 }

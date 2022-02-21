@@ -16,10 +16,10 @@ module.exports = {
       return ctx.unauthorized("No authorization header was found.");
     }
     if (!user.profile) {
-      return ctx.badRequest("No profile found.");
+      return ctx.badRequest("Not allowed.");
     }
     if (!ctx.request.body.to) {
-      return ctx.badRequest("Invalid receiver.");
+      return ctx.badRequest("Not allowed.");
     }
     connection = await strapi.services.connection.findOne({
       status: "accepted",
@@ -27,7 +27,7 @@ module.exports = {
     });
     if (!connection) {
       if (user.role.type !== "premium") {
-        return ctx.unauthorized("Not allowed");
+        return ctx.unauthorized("Not allowed.");
       } else {
         connection = await strapi.services.connection.create({
           status: "accepted",
@@ -40,6 +40,35 @@ module.exports = {
       connection: connection.id,
       authorProfile: user.profile,
       body: ctx.request.body.body,
+      read: false,
+    });
+
+    // recalculate badges for receiving user
+    strapi.plugins.queue.services.badges.add({
+      type: "messages",
+      profileId: ctx.request.body.to,
+    });
+
+    // send email notification
+    const receivingUser = await strapi
+      .query("user", "users-permissions")
+      .findOne({ profile: ctx.request.body.to });
+    strapi.plugins.queue.services.emails.add({
+      options: {
+        to: receivingUser.email,
+      },
+      template: {
+        templateId: 4,
+        sourceCodeToTemplateId: 4,
+      },
+      data: {
+        toProfile: connection.profiles.filter(
+          (p) => p.id !== user.profile.id
+        )[0],
+        fromProfile: connection.profiles.filter(
+          (p) => p.id === user.profile.id
+        )[0],
+      },
     });
 
     return sanitizeEntity(entity, { model: strapi.models.message });

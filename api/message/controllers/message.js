@@ -21,6 +21,28 @@ module.exports = {
     if (!ctx.request.body.to) {
       return ctx.badRequest("Not allowed.");
     }
+
+    // spam filters
+    if (
+      strapi.services["spam-filters"].match("url").test(ctx.request.body.body)
+    ) {
+      return ctx.badRequest("Please remove any URLs from your message.");
+    }
+    if (
+      strapi.services["spam-filters"].match("email").test(ctx.request.body.body)
+    ) {
+      return ctx.badRequest(
+        "Please remove any email adresses from your message."
+      );
+    }
+    if (
+      strapi.services["spam-filters"].match("phone").test(ctx.request.body.body)
+    ) {
+      return ctx.badRequest(
+        "Please remove any phone numbers from your message."
+      );
+    }
+
     connection = await strapi.services.connection.findOne({
       status: "accepted",
       profiles: { $all: [user.profile, ctx.request.body.to] },

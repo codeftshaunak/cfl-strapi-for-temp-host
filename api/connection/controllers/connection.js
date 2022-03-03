@@ -27,6 +27,21 @@ module.exports = {
       );
     }
 
+    // spam filters
+    if (strapi.services["spam-filters"].match("url").test(data.message)) {
+      return ctx.badRequest("Please remove any URLs from your message.");
+    }
+    if (strapi.services["spam-filters"].match("email").test(data.message)) {
+      return ctx.badRequest(
+        "Please remove any email adresses from your message."
+      );
+    }
+    if (strapi.services["spam-filters"].match("phone").test(data.message)) {
+      return ctx.badRequest(
+        "Please remove any phone numbers from your message."
+      );
+    }
+
     data["authorProfile"] = user.profile;
     data["profiles"] = [user.profile, data.profile];
     data["status"] = "pending";

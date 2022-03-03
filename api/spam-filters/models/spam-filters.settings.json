@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "spam_filters",
+  "info": {
+    "name": "SpamFilters",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Discuss": {
+      "type": "text"
+    }
+  }
+}

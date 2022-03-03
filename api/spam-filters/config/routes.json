@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/spam-filters",
+      "handler": "spam-filters.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/spam-filters",
+      "handler": "spam-filters.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/spam-filters",
+      "handler": "spam-filters.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

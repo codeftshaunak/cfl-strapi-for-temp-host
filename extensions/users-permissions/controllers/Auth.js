@@ -276,7 +276,7 @@ module.exports = {
     // Check if the provided email is valid or not.
     const isEmail = emailRegExp.test(params.email);
 
-    if (isEmail) {
+    if (isEmail && !params.email.includes("norwegischlernen")) {
       params.email = params.email.toLowerCase();
     } else {
       return ctx.badRequest(

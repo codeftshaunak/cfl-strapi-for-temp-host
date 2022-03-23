@@ -2,10 +2,25 @@
   "routes": [
     {
       "method": "POST",
+      "path": "/auth/local/register",
+      "handler": "Auth.register",
+      "config": {
+        "policies": ["plugins::users-permissions.registerlimit"],
+        "prefix": "",
+        "description": "Register a new user with the default role",
+        "tag": {
+          "plugin": "users-permissions",
+          "name": "User",
+          "actionType": "create"
+        }
+      }
+    },
+    {
+      "method": "POST",
       "path": "/auth/register-confirmation",
       "handler": "Auth.registerConfirmation",
       "config": {
-        "policies": ["plugins::users-permissions.ratelimit"],
+        "policies": ["plugins::users-permissions.registerlimit"],
         "prefix": "",
         "description": "Validate a user account",
         "tag": {
@@ -19,7 +34,7 @@
       "path": "/auth/send-email-token",
       "handler": "Auth.sendEmailToken",
       "config": {
-        "policies": ["plugins::users-permissions.ratelimit"],
+        "policies": ["plugins::users-permissions.registerlimit"],
         "prefix": "",
         "description": "Resend email token for user validation",
         "tag": {
@@ -33,7 +48,7 @@
       "path": "/auth/send-sms-token",
       "handler": "Auth.sendSmsToken",
       "config": {
-        "policies": ["plugins::users-permissions.ratelimit"],
+        "policies": ["plugins::users-permissions.registerlimit"],
         "prefix": "",
         "description": "Resend SMS token for user validation",
         "tag": {

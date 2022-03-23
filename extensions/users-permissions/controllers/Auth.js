@@ -213,6 +213,7 @@ module.exports = {
         "resetPasswordToken",
       ]),
       provider: "local",
+      ip: ctx.request.ip,
     };
 
     // Password is required.

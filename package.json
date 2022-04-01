@@ -13,6 +13,7 @@
   "dependencies": {
     "bull": "^4.5.5",
     "faker": "^5.5.3",
+    "plivo": "^4.29.1",
     "slugify": "^1.6.1",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",

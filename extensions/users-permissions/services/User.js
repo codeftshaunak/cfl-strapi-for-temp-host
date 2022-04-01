@@ -1,7 +1,8 @@
 "use strict";
 
 const { env } = require("strapi-utils");
-const smsClient = require("twilio")(env("TWILIO_ID"), env("TWILIO_TOKEN"));
+const plivo = require("plivo");
+const smsClient = new plivo.Client(env("PLIVO_ID"), env("PLIVO_TOKEN"));
 
 module.exports = {
   fetchAuthenticatedUser(id) {
@@ -36,9 +37,9 @@ module.exports = {
     await this.edit({ id: user.id }, { phoneToken });
 
     await smsClient.messages.create({
-      to: user.phone,
-      from: env("TWILIO_PHONE"),
-      body: `${phoneToken} is your CoFoundersLab phone verification code`,
+      src: env("PLIVO_PHONE"),
+      dst: user.phone,
+      text: `${phoneToken} is your CoFoundersLab phone verification code`,
     });
   },
 };

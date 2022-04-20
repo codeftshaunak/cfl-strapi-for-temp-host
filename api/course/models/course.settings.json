@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "name": "Course",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "learn",
+        "accelerator"
+      ],
+      "default": "learn",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "courseImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "modules": {
+      "via": "course",
+      "collection": "course-content"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "course-content.text",
+        "course-content.video",
+        "course-content.embed"
+      ]
+    }
+  }
+}

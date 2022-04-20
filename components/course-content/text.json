@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_course_content_texts",
+  "info": {
+    "name": "text",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "richtext"
+    }
+  }
+}

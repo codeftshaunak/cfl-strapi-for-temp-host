@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_course_content_videos",
+  "info": {
+    "name": "video",
+    "icon": "play-circle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "videoUrl": {
+      "type": "string"
+    }
+  }
+}

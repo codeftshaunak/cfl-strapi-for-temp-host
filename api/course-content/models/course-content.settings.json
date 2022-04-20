@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_contents",
+  "info": {
+    "name": "CourseContent",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "autoPopulate": true,
+      "type": "dynamiczone",
+      "components": [
+        "course-content.text",
+        "course-content.video",
+        "course-content.embed"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    },
+    "parent": {
+      "autoPopulate": false,
+      "model": "course-content",
+      "collection": "course-content"
+    },
+    "course": {
+      "autoPopulate": false,
+      "via": "modules",
+      "model": "course"
+    }
+  }
+}

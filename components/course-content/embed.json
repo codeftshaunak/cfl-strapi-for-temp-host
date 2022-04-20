@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_course_content_embeds",
+  "info": {
+    "name": "embed",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "embed": {
+      "type": "text"
+    }
+  }
+}

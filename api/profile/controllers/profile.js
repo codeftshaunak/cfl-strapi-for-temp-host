@@ -28,6 +28,9 @@ module.exports = {
     const { slug } = ctx.params;
 
     const entity = await strapi.services.profile.findOne({ slug });
+    if(!entity) {
+      return ctx.badRequest('profile not found');
+    }
     delete entity.user;
     delete entity.discussions;
     delete entity.discussion_replies;

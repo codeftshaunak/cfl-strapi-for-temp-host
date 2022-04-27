@@ -12,6 +12,9 @@ module.exports = {
     let entities;
     const { slug } = ctx.params;
     const topic = await strapi.services["discussion-topic"].findOne({ slug });
+    if(!topic) {
+      return ctx.badRequest('topic not found');
+    }
     entities = await strapi.services.discussion.find({
       ...ctx.query,
       topics: topic.id,

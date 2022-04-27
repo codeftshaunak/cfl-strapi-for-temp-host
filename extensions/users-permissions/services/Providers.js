@@ -85,6 +85,7 @@ const connect = (provider, query) => {
             role: defaultRole.id,
             confirmed: true,
             email: profile.email,
+            username: profile.email,
           });
 
         const createdProfile = await strapi.query("profile").create({

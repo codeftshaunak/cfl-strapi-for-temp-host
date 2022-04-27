@@ -64,8 +64,8 @@
     },
     "phone": {
       "type": "string",
-      "required": true,
-      "unique": true,
+      "required": false,
+      "unique": false,
       "private": true
     },
     "phoneToken": {

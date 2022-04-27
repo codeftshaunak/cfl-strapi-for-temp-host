@@ -8,6 +8,7 @@ module.exports = {
         "https://cofounderslab.com",
         "https://staging.cofounderslab.com",
         "https://api.cofounderslab.com",
+        "https://api-cfl-staging.herokuapp.com",
       ],
     },
     parser: {

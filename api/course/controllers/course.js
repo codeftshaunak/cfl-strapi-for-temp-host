@@ -10,7 +10,7 @@ const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 module.exports = {
   async findOne(ctx) {
     const { id } = ctx.params;
-throw new Error("Not implemented");
+
     const course = sanitizeEntity(
       await strapi.query("course").model.findOne({ _id: id }),
       { model: strapi.models.course }

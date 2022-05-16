@@ -80,7 +80,7 @@ module.exports = {
       params["startupStage"] = { $in: query.startupStage };
     }
     if (user.role?.type === "premium") {
-      if (query.premium === "true") {
+      if (query.premium?.includes("premium")) {
         params["premium"] = true;
       }
       if (query.role && query.role.length > 0) {

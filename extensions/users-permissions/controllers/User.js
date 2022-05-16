@@ -25,6 +25,13 @@ module.exports = {
       }
     );
 
+    await strapi.query("profile").update(
+      { user: user.id },
+      {
+        lastLogin: new Date(),
+      }
+    );
+
     ctx.body = sanitizeUser(user);
   },
 };

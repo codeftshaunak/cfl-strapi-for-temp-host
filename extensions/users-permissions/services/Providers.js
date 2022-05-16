@@ -86,12 +86,14 @@ const connect = (provider, query) => {
             confirmed: true,
             email: profile.email,
             username: profile.email,
+            lastLogin: new Date(),
           });
 
         const createdProfile = await strapi.query("profile").create({
           user: createdUser.id,
           firstName: profile.firstName,
           lastName: profile.lastName,
+          lastLogin: new Date(),
         });
 
         // if (profile.profilePicture) {

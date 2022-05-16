@@ -28,8 +28,8 @@ module.exports = {
     const { slug } = ctx.params;
 
     const entity = await strapi.services.profile.findOne({ slug });
-    if(!entity) {
-      return ctx.badRequest('profile not found');
+    if (!entity) {
+      return ctx.badRequest("profile not found");
     }
     delete entity.user;
     delete entity.discussions;
@@ -49,10 +49,13 @@ module.exports = {
     // entities = await strapi.services.profile.find(params);
 
     const { _sort, _limit, _start } = ctx.query;
-    const sort = _sort.split(",").reduce((reducer, sort) => {
+    let sort = _sort.split(",").reduce((reducer, sort) => {
       const [sortBy, sortOrder] = sort.split(":");
       reducer[sortBy] = sortOrder === "ASC" ? 1 : -1;
     }, {});
+    if (ctx.query.premium?.includes("recent")) {
+      sort = { lastLogin: -1, ...sort };
+    }
     entities = await strapi
       .query("profile")
       .model.find(params)
@@ -71,7 +74,7 @@ module.exports = {
       ctx.query
     );
 
-    return strapi.query("profile").model.count(params);
+    return strapi.query("profile").model.countDocuments(params);
   },
 
   async createMe(ctx) {
@@ -89,10 +92,12 @@ module.exports = {
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
       data["user"] = user.id;
+      data["lastLogin"] = new Date();
       entity = await strapi.services.profile.create(data, { files });
     } else {
       const data = ctx.request.body;
       data["user"] = user.id;
+      data["lastLogin"] = new Date();
       entity = await strapi.services.profile.create(data);
     }
     return sanitizeEntity(entity, { model: strapi.models.profile });

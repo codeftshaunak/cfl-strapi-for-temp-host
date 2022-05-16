@@ -133,6 +133,12 @@ module.exports = {
             lastLogin: new Date(),
           }
         );
+        await strapi.query("profile").update(
+          { user: user.id },
+          {
+            lastLogin: new Date(),
+          }
+        );
         ctx.send({
           jwt: strapi.plugins["users-permissions"].services.jwt.issue({
             id: user.id,
@@ -170,6 +176,12 @@ module.exports = {
 
       await strapi.query("user", "users-permissions").update(
         { id: user.id },
+        {
+          lastLogin: new Date(),
+        }
+      );
+      await strapi.query("profile").update(
+        { user: user.id },
         {
           lastLogin: new Date(),
         }

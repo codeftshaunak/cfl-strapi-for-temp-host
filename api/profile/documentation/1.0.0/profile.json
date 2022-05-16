@@ -1009,9 +1009,6 @@
           },
           "cflTeam": {
             "type": "boolean"
-          },
-          "professionalExperiences": {
-            "type": "object"
           }
         }
       },
@@ -1087,9 +1084,6 @@
           },
           "cflTeam": {
             "type": "boolean"
-          },
-          "professionalExperiences": {
-            "type": "object"
           },
           "created_by": {
             "type": "string"

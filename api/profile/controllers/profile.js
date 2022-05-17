@@ -52,6 +52,7 @@ module.exports = {
     let sort = _sort.split(",").reduce((reducer, sort) => {
       const [sortBy, sortOrder] = sort.split(":");
       reducer[sortBy] = sortOrder === "ASC" ? 1 : -1;
+      return reducer;
     }, {});
     if (ctx.query.premium?.includes("recent")) {
       sort = { lastLogin: -1, ...sort };

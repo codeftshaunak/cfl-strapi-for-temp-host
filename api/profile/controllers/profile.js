@@ -7,6 +7,7 @@
 
 const _ = require("lodash");
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
+const sanitizeHtml = require("sanitize-html");
 
 module.exports = {
   async find(ctx) {
@@ -128,16 +129,21 @@ module.exports = {
     if (!user.profile) {
       return ctx.badRequest("No profile found");
     }
+
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
       data["user"] = user.id;
+      data["summary"] = sanitizeHtml(ctx.request.body.summary);
       entity = await strapi.services.profile.update(
         { user: user.profile },
         data,
         { files }
       );
     } else {
-      const data = ctx.request.body;
+      const data = {
+        ...ctx.request.body,
+        summary: sanitizeHtml(ctx.request.body.summary),
+      };
       data["user"] = user.id;
       entity = await strapi.services.profile.update({ id: user.profile }, data);
     }

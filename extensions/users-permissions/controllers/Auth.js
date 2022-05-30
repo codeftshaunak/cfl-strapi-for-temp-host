@@ -127,23 +127,24 @@ module.exports = {
           })
         );
       } else {
-        await strapi.query("user", "users-permissions").update(
-          { id: user.id },
-          {
+        try {
+          strapi.query("user", "users-permissions").update(
+            { id: user.id },
+            {
+              lastLogin: new Date(),
+            }
+          );
+          strapi.query("profile").update(
+            { user: user.id },
+            {
+              lastLogin: new Date(),
+            }
+          );
+          strapi.plugins["users-permissions"].services.user.updateCRM({
+            ...user,
             lastLogin: new Date(),
-          }
-        );
-        await strapi.query("profile").update(
-          { user: user.id },
-          {
-            lastLogin: new Date(),
-          }
-        );
-
-        strapi.plugins["users-permissions"].services.user.updateCRM({
-          ...user,
-          lastLogin: new Date(),
-        });
+          });
+        } catch {}
 
         ctx.send({
           jwt: strapi.plugins["users-permissions"].services.jwt.issue({
@@ -180,23 +181,24 @@ module.exports = {
         return ctx.badRequest(null, error === "array" ? error[0] : error);
       }
 
-      await strapi.query("user", "users-permissions").update(
-        { id: user.id },
-        {
+      try {
+        strapi.query("user", "users-permissions").update(
+          { id: user.id },
+          {
+            lastLogin: new Date(),
+          }
+        );
+        strapi.query("profile").update(
+          { user: user.id },
+          {
+            lastLogin: new Date(),
+          }
+        );
+        strapi.plugins["users-permissions"].services.user.updateCRM({
+          ...user,
           lastLogin: new Date(),
-        }
-      );
-      await strapi.query("profile").update(
-        { user: user.id },
-        {
-          lastLogin: new Date(),
-        }
-      );
-
-      strapi.plugins["users-permissions"].services.user.updateCRM({
-        ...user,
-        lastLogin: new Date(),
-      });
+        });
+      } catch {}
 
       ctx.send({
         jwt: strapi.plugins["users-permissions"].services.jwt.issue({
@@ -313,81 +315,10 @@ module.exports = {
       );
     }
 
-    // Check if the provided email is valid or not.
-    const isPhone = phoneRegExp.test(params.phone);
-
-    if (isPhone) {
-      params.phone = params.phone.toLowerCase();
-    } else {
-      return ctx.badRequest(
-        null,
-        formatError({
-          id: "Auth.form.error.phone.format",
-          message: "Please provide valid phone.",
-        })
-      );
-    }
-
     params.role = role.id;
     params.password = await strapi.plugins[
       "users-permissions"
     ].services.user.hashPassword(params);
-
-    const userWithThisNumber = await strapi
-      .query("user", "users-permissions")
-      .findOne({
-        phone: params.phone,
-      });
-
-    if (userWithThisNumber && userWithThisNumber.provider === params.provider) {
-      if (
-        userWithThisNumber.email === params.email &&
-        userWithThisNumber.confirmed === false
-      ) {
-        const sanitizedUser = sanitizeEntity(userWithThisNumber, {
-          model: strapi.query("user", "users-permissions").model,
-        });
-
-        try {
-          await strapi.plugins[
-            "users-permissions"
-          ].services.user.sendEmailToken(userWithThisNumber);
-        } catch (err) {
-          return ctx.badRequest(
-            null,
-            formatError({
-              id: "Auth.form.error.email.failedtoken",
-              message: "Could not send email token. Please contact support.",
-            })
-          );
-        }
-
-        try {
-          await strapi.plugins["users-permissions"].services.user.sendSmsToken(
-            userWithThisNumber
-          );
-        } catch (err) {
-          return ctx.badRequest(
-            null,
-            formatError({
-              id: "Auth.form.error.sms.failedtoken",
-              message: "Could not send SMS token. Please contact support.",
-            })
-          );
-        }
-
-        return ctx.send({ user: sanitizedUser });
-      } else {
-        return ctx.badRequest(
-          null,
-          formatError({
-            id: "Auth.form.error.phone.taken",
-            message:
-              "A user with this phone number already exists. Try using the same email and password to retry activation or login if the account is already activated.",
-          })
-        );
-      }
-    }
 
     const user = await strapi.query("user", "users-permissions").findOne({
       email: params.email,
@@ -436,20 +367,6 @@ module.exports = {
         );
       }
 
-      try {
-        await strapi.plugins["users-permissions"].services.user.sendSmsToken(
-          user
-        );
-      } catch (err) {
-        return ctx.badRequest(
-          null,
-          formatError({
-            id: "Auth.form.error.sms.failedtoken",
-            message: "Could not send SMS token. Please contact support.",
-          })
-        );
-      }
-
       strapi.plugins["users-permissions"].services.user.updateCRM(user);
 
       return ctx.send({ user: sanitizedUser });
@@ -466,19 +383,18 @@ module.exports = {
   },
 
   async registerConfirmation(ctx, next, returnUser) {
-    const { identifier, emailToken, phoneToken } = _.assign(ctx.request.body);
+    const { identifier, emailToken } = _.assign(ctx.request.body);
 
     const { user: userService, jwt: jwtService } =
       strapi.plugins["users-permissions"].services;
 
-    if (_.isEmpty(emailToken) || _.isEmpty(phoneToken)) {
+    if (_.isEmpty(emailToken)) {
       return ctx.badRequest("token.invalid");
     }
 
     const user = await strapi.query("user", "users-permissions").model.findOne({
-      $or: [{ email: identifier }, { phone: identifier }],
+      email: identifier,
       emailToken,
-      phoneToken,
     });
 
     if (!user) {
@@ -487,7 +403,7 @@ module.exports = {
 
     await userService.edit(
       { id: user.id },
-      { confirmed: true, emailToken: null, phoneToken: null }
+      { confirmed: true, emailToken: null }
     );
 
     ctx.send({

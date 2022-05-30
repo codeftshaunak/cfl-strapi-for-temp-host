@@ -47,8 +47,11 @@ module.exports = {
 
   async updateCRM(user, profile) {
     if (!user.email) return;
-    if (!profile)
-      profile = await strapi.query("profile").findOne({ user: user.id }, []);
+    if (!profile) {
+      try {
+        profile = await strapi.query("profile").findOne({ user: user.id }, []);
+      } catch {}
+    }
 
     const userinfo = {
       attributes: {

@@ -18,19 +18,21 @@ module.exports = {
       ]);
     }
 
-    await strapi.query("user", "users-permissions").update(
-      { id: user.id },
-      {
-        lastLogin: new Date(),
-      }
-    );
+    try {
+      strapi.query("user", "users-permissions").update(
+        { id: user.id },
+        {
+          lastLogin: new Date(),
+        }
+      );
 
-    await strapi.query("profile").update(
-      { user: user.id },
-      {
-        lastLogin: new Date(),
-      }
-    );
+      strapi.query("profile").update(
+        { user: user.id },
+        {
+          lastLogin: new Date(),
+        }
+      );
+    } catch {}
 
     ctx.body = sanitizeUser(user);
   },

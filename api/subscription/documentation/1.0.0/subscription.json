@@ -728,6 +728,9 @@
               "badges": {
                 "type": "object"
               },
+              "advisor_profile": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },

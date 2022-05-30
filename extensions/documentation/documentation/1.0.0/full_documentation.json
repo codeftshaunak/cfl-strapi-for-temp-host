@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/29/2022 7:23:42 PM"
+    "x-generation-date": "05/30/2022 4:01:35 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6928,7 +6928,7 @@
         "parameters": []
       }
     },
-    "/events/{id}": {
+    "/events/{slug}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -6980,7 +6980,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -6990,7 +6990,9 @@
             }
           }
         ]
-      },
+      }
+    },
+    "/events/{id}": {
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -14761,6 +14763,9 @@
             "type": "string",
             "format": "date-time"
           },
+          "location": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -14785,6 +14790,9 @@
           "endDate": {
             "type": "string",
             "format": "date-time"
+          },
+          "location": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

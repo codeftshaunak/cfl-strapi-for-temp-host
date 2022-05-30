@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "events",
   "info": {
-    "name": "event"
+    "name": "event",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -25,6 +26,9 @@
     },
     "endDate": {
       "type": "datetime"
+    },
+    "location": {
+      "type": "string"
     }
   }
 }

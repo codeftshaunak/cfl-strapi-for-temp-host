@@ -96,6 +96,11 @@ const connect = (provider, query) => {
           lastLogin: new Date(),
         });
 
+        strapi.plugins["users-permissions"].services.user.updateCRM(
+          createdUser,
+          createdProfile
+        );
+
         // if (profile.profilePicture) {
         //   try {
         //     // we want the file type without the "." like: "jpg" or "png"

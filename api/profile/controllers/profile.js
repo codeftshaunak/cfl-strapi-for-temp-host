@@ -102,6 +102,7 @@ module.exports = {
       data["lastLogin"] = new Date();
       entity = await strapi.services.profile.create(data);
     }
+    strapi.plugins["users-permissions"].services.user.updateCRM(user, entity);
     return sanitizeEntity(entity, { model: strapi.models.profile });
   },
 
@@ -162,6 +163,7 @@ module.exports = {
         }
       );
     }
+    strapi.plugins["users-permissions"].services.user.updateCRM(user, entity);
 
     return sanitizeEntity(entity, { model: strapi.models.profile });
   },

@@ -139,6 +139,12 @@ module.exports = {
             lastLogin: new Date(),
           }
         );
+
+        strapi.plugins["users-permissions"].services.user.updateCRM({
+          ...user,
+          lastLogin: new Date(),
+        });
+
         ctx.send({
           jwt: strapi.plugins["users-permissions"].services.jwt.issue({
             id: user.id,
@@ -186,6 +192,12 @@ module.exports = {
           lastLogin: new Date(),
         }
       );
+
+      strapi.plugins["users-permissions"].services.user.updateCRM({
+        ...user,
+        lastLogin: new Date(),
+      });
+
       ctx.send({
         jwt: strapi.plugins["users-permissions"].services.jwt.issue({
           id: user.id,
@@ -437,6 +449,8 @@ module.exports = {
           })
         );
       }
+
+      strapi.plugins["users-permissions"].services.user.updateCRM(user);
 
       return ctx.send({ user: sanitizedUser });
     } catch (err) {

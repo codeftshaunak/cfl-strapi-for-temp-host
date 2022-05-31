@@ -80,6 +80,8 @@ module.exports = {
             return [4, 7];
           case "They/Them":
             return [4, 6];
+          default:
+            return [4];
         }
       })(),
       updateEnabled: true,

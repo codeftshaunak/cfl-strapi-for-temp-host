@@ -75,13 +75,13 @@ module.exports = {
       listIds: (() => {
         switch (profile?.pronouns) {
           case "She/Her":
-            return [4, 5];
+            return [11, 4, 5];
           case "He/Him":
-            return [4, 7];
+            return [11, 4, 7];
           case "They/Them":
-            return [4, 6];
+            return [11, 4, 6];
           default:
-            return [4];
+            return [11, 4];
         }
       })(),
       updateEnabled: true,

@@ -1626,6 +1626,9 @@
               "hoursConsumed": {
                 "type": "number"
               },
+              "profilePicture": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },

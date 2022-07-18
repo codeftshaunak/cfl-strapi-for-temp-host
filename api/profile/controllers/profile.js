@@ -7,6 +7,7 @@
 
 const _ = require("lodash");
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
+const sanitizeHtml = require("sanitize-html");
 
 module.exports = {
   async find(ctx) {

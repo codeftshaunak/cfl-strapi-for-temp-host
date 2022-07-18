@@ -1012,6 +1012,12 @@
           },
           "professionalExperiences": {
             "type": "object"
+          },
+          "linkedinUrl": {
+            "type": "string"
+          },
+          "twitterUrl": {
+            "type": "string"
           }
         }
       },
@@ -1090,6 +1096,12 @@
           },
           "professionalExperiences": {
             "type": "object"
+          },
+          "linkedinUrl": {
+            "type": "string"
+          },
+          "twitterUrl": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

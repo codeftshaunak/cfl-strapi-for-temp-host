@@ -96,6 +96,12 @@
     },
     "professionalExperiences": {
       "type": "json"
+    },
+    "linkedinUrl": {
+      "type": "string"
+    },
+    "twitterUrl": {
+      "type": "string"
     }
   }
 }

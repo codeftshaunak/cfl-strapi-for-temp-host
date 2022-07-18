@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/27/2022 9:56:40 PM"
+    "x-generation-date": "07/18/2022 5:07:40 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12405,6 +12405,12 @@
                 "professionalExperiences": {
                   "type": "object"
                 },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -12512,6 +12518,12 @@
               },
               "professionalExperiences": {
                 "type": "object"
+              },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -13447,6 +13459,12 @@
               "professionalExperiences": {
                 "type": "object"
               },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -13543,6 +13561,12 @@
                 "professionalExperiences": {
                   "type": "object"
                 },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -13636,6 +13660,12 @@
                 },
                 "professionalExperiences": {
                   "type": "object"
+                },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -13981,6 +14011,12 @@
               "professionalExperiences": {
                 "type": "object"
               },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -14083,6 +14119,12 @@
                 "professionalExperiences": {
                   "type": "object"
                 },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -14176,6 +14218,12 @@
                 },
                 "professionalExperiences": {
                   "type": "object"
+                },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -14386,6 +14434,12 @@
               },
               "professionalExperiences": {
                 "type": "object"
+              },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -15144,6 +15198,12 @@
           },
           "professionalExperiences": {
             "type": "object"
+          },
+          "linkedinUrl": {
+            "type": "string"
+          },
+          "twitterUrl": {
+            "type": "string"
           }
         }
       },
@@ -15222,6 +15282,12 @@
           },
           "professionalExperiences": {
             "type": "object"
+          },
+          "linkedinUrl": {
+            "type": "string"
+          },
+          "twitterUrl": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -15683,6 +15749,12 @@
               },
               "professionalExperiences": {
                 "type": "object"
+              },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"

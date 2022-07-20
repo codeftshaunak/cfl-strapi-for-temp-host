@@ -1548,9 +1548,6 @@
               "cflTeam": {
                 "type": "boolean"
               },
-              "professionalExperiences": {
-                "type": "object"
-              },
               "linkedinUrl": {
                 "type": "string"
               },
@@ -1593,6 +1590,58 @@
           },
           "badges": {
             "type": "object"
+          },
+          "advisor_profile": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "professionalBackground": {
+                "type": "string"
+              },
+              "topics": {
+                "type": "string"
+              },
+              "otherAreas": {
+                "type": "string"
+              },
+              "sessionsCompleted": {
+                "type": "integer"
+              },
+              "founderConnections": {
+                "type": "integer"
+              },
+              "hoursOffered": {
+                "type": "integer"
+              },
+              "hoursConsumed": {
+                "type": "number"
+              },
+              "profilePicture": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -1664,6 +1713,9 @@
           },
           "badges": {
             "type": "object"
+          },
+          "advisor_profile": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

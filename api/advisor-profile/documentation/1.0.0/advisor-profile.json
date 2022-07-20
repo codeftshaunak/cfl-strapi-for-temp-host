@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/discussion-replies": {
+    "/advisor-profiles": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Advisor-profile"
         ],
         "parameters": [
           {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Advisor-profile"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDiscussion-reply"
+                "$ref": "#/components/schemas/NewAdvisor-profile"
               }
             }
           }
         }
       }
     },
-    "/discussion-replies/count": {
+    "/advisor-profiles/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Advisor-profile"
         ],
         "parameters": []
       }
     },
-    "/discussion-replies/{id}": {
+    "/advisor-profiles/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Advisor-profile"
         ],
         "parameters": [
           {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Advisor-profile"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDiscussion-reply"
+                "$ref": "#/components/schemas/NewAdvisor-profile"
               }
             }
           }
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Discussion-reply"
+          "Advisor-profile"
         ],
         "parameters": [
           {
@@ -523,82 +523,11 @@
           }
         ]
       }
-    },
-    "/discussion-replies/{id}/vote": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Discussion-reply"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "Discussion-reply": {
+      "Advisor-profile": {
         "required": [
           "id"
         ],
@@ -606,157 +535,71 @@
           "id": {
             "type": "string"
           },
-          "body": {
-            "type": "string"
-          },
-          "discussion": {
+          "user": {
             "required": [
-              "id"
+              "id",
+              "username",
+              "email"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "title": {
+              "username": {
                 "type": "string"
               },
-              "body": {
+              "email": {
                 "type": "string"
               },
-              "slug": {
+              "provider": {
                 "type": "string"
               },
-              "replies": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "topics": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "profile": {
+              "password": {
                 "type": "string"
               },
-              "repliesCount": {
-                "type": "integer"
+              "resetPasswordToken": {
+                "type": "string"
               },
-              "followCount": {
-                "type": "integer"
+              "confirmationToken": {
+                "type": "string"
               },
-              "score": {
-                "type": "integer"
-              },
-              "upvotes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "downvotes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "pinned": {
+              "confirmed": {
                 "type": "boolean"
               },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "profile": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "user": {
-                "type": "string"
-              },
-              "profilePicture": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "city": {
-                "type": "string"
-              },
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "tagline": {
-                "type": "string"
-              },
-              "summary": {
-                "type": "string"
-              },
-              "pronouns": {
-                "type": "string"
+              "blocked": {
+                "type": "boolean"
               },
               "role": {
                 "type": "string"
               },
-              "lookingFor": {
+              "phone": {
                 "type": "string"
               },
-              "startupStage": {
+              "phoneToken": {
+                "type": "integer"
+              },
+              "emailToken": {
+                "type": "integer"
+              },
+              "onboarded": {
+                "type": "boolean"
+              },
+              "onboardedAt": {
                 "type": "string"
               },
-              "skills": {
+              "profile": {
+                "type": "string"
+              },
+              "lastLogin": {
+                "type": "string"
+              },
+              "subscription": {
+                "type": "string"
+              },
+              "badges": {
                 "type": "object"
               },
-              "interests": {
-                "type": "object"
-              },
-              "public": {
-                "type": "boolean"
-              },
-              "premium": {
-                "type": "boolean"
-              },
-              "discussions": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "discussion_replies": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "connections": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "countryCode": {
-                "type": "string"
-              },
-              "cflTeam": {
-                "type": "boolean"
-              },
-              "linkedinUrl": {
-                "type": "string"
-              },
-              "twitterUrl": {
+              "advisor_profile": {
                 "type": "string"
               },
               "created_by": {
@@ -767,230 +610,139 @@
               }
             }
           },
-          "score": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "professionalBackground": {
+            "type": "string"
+          },
+          "topics": {
+            "type": "string"
+          },
+          "otherAreas": {
+            "type": "string"
+          },
+          "sessionsCompleted": {
             "type": "integer"
           },
-          "upvotes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "profilePicture": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "city": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "tagline": {
-                  "type": "string"
-                },
-                "summary": {
-                  "type": "string"
-                },
-                "pronouns": {
-                  "type": "string"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "lookingFor": {
-                  "type": "string"
-                },
-                "startupStage": {
-                  "type": "string"
-                },
-                "skills": {
-                  "type": "object"
-                },
-                "interests": {
-                  "type": "object"
-                },
-                "public": {
-                  "type": "boolean"
-                },
-                "premium": {
-                  "type": "boolean"
-                },
-                "discussions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "discussion_replies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "connections": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "countryCode": {
-                  "type": "string"
-                },
-                "cflTeam": {
-                  "type": "boolean"
-                },
-                "linkedinUrl": {
-                  "type": "string"
-                },
-                "twitterUrl": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
+          "founderConnections": {
+            "type": "integer"
           },
-          "downvotes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "profilePicture": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "city": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "tagline": {
-                  "type": "string"
-                },
-                "summary": {
-                  "type": "string"
-                },
-                "pronouns": {
-                  "type": "string"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "lookingFor": {
-                  "type": "string"
-                },
-                "startupStage": {
-                  "type": "string"
-                },
-                "skills": {
-                  "type": "object"
-                },
-                "interests": {
-                  "type": "object"
-                },
-                "public": {
-                  "type": "boolean"
-                },
-                "premium": {
-                  "type": "boolean"
-                },
-                "discussions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "discussion_replies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "connections": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "countryCode": {
-                  "type": "string"
-                },
-                "cflTeam": {
-                  "type": "boolean"
-                },
-                "linkedinUrl": {
-                  "type": "string"
-                },
-                "twitterUrl": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
+          "hoursOffered": {
+            "type": "integer"
+          },
+          "hoursConsumed": {
+            "type": "number"
+          },
+          "profilePicture": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           }
         }
       },
-      "NewDiscussion-reply": {
+      "NewAdvisor-profile": {
         "properties": {
-          "body": {
+          "user": {
             "type": "string"
           },
-          "discussion": {
+          "firstName": {
             "type": "string"
           },
-          "profile": {
+          "lastName": {
             "type": "string"
           },
-          "score": {
+          "title": {
+            "type": "string"
+          },
+          "professionalBackground": {
+            "type": "string"
+          },
+          "topics": {
+            "type": "string"
+          },
+          "otherAreas": {
+            "type": "string"
+          },
+          "sessionsCompleted": {
             "type": "integer"
           },
-          "upvotes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "founderConnections": {
+            "type": "integer"
           },
-          "downvotes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "hoursOffered": {
+            "type": "integer"
+          },
+          "hoursConsumed": {
+            "type": "number"
           },
           "created_by": {
             "type": "string"

@@ -25,7 +25,7 @@ module.exports = {
 
     await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
       {
-        to: "adi@cofounderslab.com",
+        to: "admin@cofounderslab.com",
         replyTo: ctx.request.body.email,
       },
       {

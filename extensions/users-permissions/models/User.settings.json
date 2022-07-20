@@ -97,6 +97,10 @@
     },
     "badges": {
       "type": "json"
+    },
+    "advisor_profile": {
+      "via": "user",
+      "model": "advisor-profile"
     }
   }
 }

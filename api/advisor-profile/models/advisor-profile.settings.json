@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "advisor_profiles",
+  "info": {
+    "name": "advisorProfile",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "advisor_profile"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "professionalBackground": {
+      "type": "richtext"
+    },
+    "topics": {
+      "type": "richtext"
+    },
+    "otherAreas": {
+      "type": "richtext"
+    },
+    "sessionsCompleted": {
+      "type": "integer"
+    },
+    "founderConnections": {
+      "type": "integer"
+    },
+    "hoursOffered": {
+      "type": "integer"
+    },
+    "hoursConsumed": {
+      "type": "decimal"
+    },
+    "profilePicture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

@@ -94,9 +94,6 @@
     "cflTeam": {
       "type": "boolean"
     },
-    "professionalExperiences": {
-      "type": "json"
-    },
     "linkedinUrl": {
       "type": "string"
     },

@@ -134,17 +134,22 @@ module.exports = {
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
       data["user"] = user.id;
-      data["summary"] = sanitizeHtml(ctx.request.body.summary);
+      if(ctx.request.body.summary!==undefined){
+        data["summary"] = sanitizeHtml(ctx.request.body.summary);
+      }
       entity = await strapi.services.profile.update(
         { user: user.profile },
         data,
         { files }
       );
     } else {
-      const data = {
-        ...ctx.request.body,
-        summary: sanitizeHtml(ctx.request.body.summary),
-      };
+      let data = ctx.request.body;
+      if(ctx.request.body.summary!==undefined){
+        data = {
+          ...ctx.request.body,
+          summary: sanitizeHtml(ctx.request.body.summary),
+        };
+      }
       data["user"] = user.id;
       entity = await strapi.services.profile.update({ id: user.profile }, data);
     }

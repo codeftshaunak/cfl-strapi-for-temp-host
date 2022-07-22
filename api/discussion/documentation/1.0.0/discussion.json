@@ -832,6 +832,12 @@
               "cflTeam": {
                 "type": "boolean"
               },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -931,6 +937,12 @@
                 "cflTeam": {
                   "type": "boolean"
                 },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -1021,6 +1033,12 @@
                 },
                 "cflTeam": {
                   "type": "boolean"
+                },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"

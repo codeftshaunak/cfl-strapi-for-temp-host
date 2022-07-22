@@ -93,6 +93,12 @@
     },
     "cflTeam": {
       "type": "boolean"
+    },
+    "linkedinUrl": {
+      "type": "string"
+    },
+    "twitterUrl": {
+      "type": "string"
     }
   }
 }

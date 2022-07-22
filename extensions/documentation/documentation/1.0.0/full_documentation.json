@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/31/2022 7:00:25 PM"
+    "x-generation-date": "07/18/2022 5:07:40 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13664,6 +13664,12 @@
                 "cflTeam": {
                   "type": "boolean"
                 },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -13768,6 +13774,12 @@
               },
               "cflTeam": {
                 "type": "boolean"
+              },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -14700,6 +14712,12 @@
               "cflTeam": {
                 "type": "boolean"
               },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -14793,6 +14811,12 @@
                 "cflTeam": {
                   "type": "boolean"
                 },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -14883,6 +14907,12 @@
                 },
                 "cflTeam": {
                   "type": "boolean"
+                },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -15225,6 +15255,12 @@
               "cflTeam": {
                 "type": "boolean"
               },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -15324,6 +15360,12 @@
                 "cflTeam": {
                   "type": "boolean"
                 },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -15414,6 +15456,12 @@
                 },
                 "cflTeam": {
                   "type": "boolean"
+                },
+                "linkedinUrl": {
+                  "type": "string"
+                },
+                "twitterUrl": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -15689,6 +15737,12 @@
               },
               "cflTeam": {
                 "type": "boolean"
+              },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -16450,6 +16504,12 @@
           },
           "cflTeam": {
             "type": "boolean"
+          },
+          "linkedinUrl": {
+            "type": "string"
+          },
+          "twitterUrl": {
+            "type": "string"
           }
         }
       },
@@ -16525,6 +16585,12 @@
           },
           "cflTeam": {
             "type": "boolean"
+          },
+          "linkedinUrl": {
+            "type": "string"
+          },
+          "twitterUrl": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -16989,6 +17055,12 @@
               },
               "cflTeam": {
                 "type": "boolean"
+              },
+              "linkedinUrl": {
+                "type": "string"
+              },
+              "twitterUrl": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"

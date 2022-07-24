@@ -6,14 +6,15 @@
  */
 
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
+const sanitizeHtml = require("sanitize-html");
 
 module.exports = {
   async findTopic(ctx) {
     let entities;
     const { slug } = ctx.params;
     const topic = await strapi.services["discussion-topic"].findOne({ slug });
-    if(!topic) {
-      return ctx.badRequest('topic not found');
+    if (!topic) {
+      return ctx.badRequest("topic not found");
     }
     entities = await strapi.services.discussion.find({
       ...ctx.query,
@@ -74,13 +75,18 @@ module.exports = {
 
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
+      data["body"] = sanitizeHtml(ctx.request.body.body);
       entity = await strapi.services.discussion.create(
         { ...data, profile: user.profile.id },
         { files }
       );
     } else {
-      entity = await strapi.services.discussion.create({
+      const data = {
         ...ctx.request.body,
+        body: sanitizeHtml(ctx.request.body.body),
+      };
+      entity = await strapi.services.discussion.create({
+        ...data,
         profile: user.profile.id,
       });
     }

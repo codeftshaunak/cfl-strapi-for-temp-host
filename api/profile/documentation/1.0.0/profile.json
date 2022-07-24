@@ -694,6 +694,9 @@
               "badges": {
                 "type": "object"
               },
+              "advisor_profile": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -1010,9 +1013,6 @@
           "cflTeam": {
             "type": "boolean"
           },
-          "professionalExperiences": {
-            "type": "object"
-          },
           "linkedinUrl": {
             "type": "string"
           },
@@ -1093,9 +1093,6 @@
           },
           "cflTeam": {
             "type": "boolean"
-          },
-          "professionalExperiences": {
-            "type": "object"
           },
           "linkedinUrl": {
             "type": "string"

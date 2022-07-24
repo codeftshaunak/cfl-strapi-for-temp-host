@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/advisor-profiles",
+      "handler": "advisor-profile.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/advisor-profiles/count",
+      "handler": "advisor-profile.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/advisor-profiles/:id",
+      "handler": "advisor-profile.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/advisor-profiles",
+      "handler": "advisor-profile.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/advisor-profiles/:id",
+      "handler": "advisor-profile.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/advisor-profiles/:id",
+      "handler": "advisor-profile.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

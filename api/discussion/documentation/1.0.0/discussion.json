@@ -832,9 +832,6 @@
               "cflTeam": {
                 "type": "boolean"
               },
-              "professionalExperiences": {
-                "type": "object"
-              },
               "linkedinUrl": {
                 "type": "string"
               },
@@ -940,9 +937,6 @@
                 "cflTeam": {
                   "type": "boolean"
                 },
-                "professionalExperiences": {
-                  "type": "object"
-                },
                 "linkedinUrl": {
                   "type": "string"
                 },
@@ -1039,9 +1033,6 @@
                 },
                 "cflTeam": {
                   "type": "boolean"
-                },
-                "professionalExperiences": {
-                  "type": "object"
                 },
                 "linkedinUrl": {
                   "type": "string"

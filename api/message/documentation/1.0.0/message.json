@@ -655,6 +655,9 @@
               "twitterUrl": {
                 "type": "string"
               },
+              "profileBanner": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },

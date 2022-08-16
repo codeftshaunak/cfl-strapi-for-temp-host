@@ -1638,6 +1638,12 @@
               "profilePicture": {
                 "type": "string"
               },
+              "slug": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },

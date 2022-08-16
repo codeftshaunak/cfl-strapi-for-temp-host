@@ -56,6 +56,12 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "slug": {
+      "type": "string"
+    },
+    "city": {
+      "model": "city"
     }
   }
 }

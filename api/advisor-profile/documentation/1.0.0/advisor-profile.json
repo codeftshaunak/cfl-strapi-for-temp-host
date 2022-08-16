@@ -706,6 +706,43 @@
                 "type": "string"
               }
             }
+          },
+          "slug": {
+            "type": "string"
+          },
+          "city": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "regionCode": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "countryCode": {
+                "type": "string"
+              },
+              "coordinates": {
+                "type": "object"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -743,6 +780,12 @@
           },
           "hoursConsumed": {
             "type": "number"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/advisor-profiles/:id",
+      "path": "/advisor-profiles/:slug",
       "handler": "advisor-profile.findOne",
       "config": {
         "policies": []

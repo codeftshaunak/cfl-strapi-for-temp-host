@@ -1644,6 +1644,15 @@
               "city": {
                 "type": "string"
               },
+              "accessToken": {
+                "type": "string"
+              },
+              "refreshToken": {
+                "type": "string"
+              },
+              "bookingUrl": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },

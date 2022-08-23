@@ -28,6 +28,33 @@ module.exports = {
     return sanitizeEntity(advisor, { model: strapi.models["advisor-profile"] });
   },
 
+  async find(ctx) {
+    let entities;
+    const params = ctx.query;
+    //params["public"] = true;
+    // const user = ctx.state.user;
+    // if (!user) {
+    params["user"] = { $exists : true };
+    // }
+    // else{
+    //   params["user"] = { $exists : true, $not: user._id };
+    //   console.log(user);
+    // }
+
+    entities = await strapi.services["advisor-profile"].find(params);
+
+    return entities.map((entity) => {
+      return sanitizeEntity(entity, { model: strapi.models["advisor-profile"] });
+    });
+  },
+
+  async count(ctx) {
+    const params = ctx.query;
+    params["user"] = { $exists : true };
+    const count = await strapi.services["advisor-profile"].count(params);
+    return count;
+  },
+
   async update(ctx) {
     let entity;
     //get authenicated user details

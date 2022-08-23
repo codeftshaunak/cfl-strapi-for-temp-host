@@ -26,6 +26,7 @@
        }
      },
      beforeUpdate: async (params, data) => {
+      console.log('before update',data);
        if (data.firstName && data.lastName && !data.slug) {
          data.slug = slugify(
            `${data.firstName} ${data.lastName} ${Math.random()
@@ -35,6 +36,7 @@
              lower: true,
            }
          );
+         console.log('updating ',data);
        }
        if (data.city) {
          const city = await strapi.query("city").findOne({ id: data.city });

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/12/2022 1:05:45 PM"
+    "x-generation-date": "08/23/2022 10:09:20 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -361,7 +361,7 @@
         "parameters": []
       }
     },
-    "/advisor-profiles/{id}": {
+    "/advisor-profiles/{slug}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -417,7 +417,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -427,7 +427,9 @@
             }
           }
         ]
-      },
+      }
+    },
+    "/advisor-profiles/{id}": {
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -13240,6 +13242,15 @@
                 "type": "string"
               }
             }
+          },
+          "accessToken": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "bookingUrl": {
+            "type": "string"
           }
         }
       },
@@ -13282,6 +13293,15 @@
             "type": "string"
           },
           "city": {
+            "type": "string"
+          },
+          "accessToken": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "bookingUrl": {
             "type": "string"
           },
           "created_by": {
@@ -17287,6 +17307,15 @@
                 "type": "string"
               },
               "city": {
+                "type": "string"
+              },
+              "accessToken": {
+                "type": "string"
+              },
+              "refreshToken": {
+                "type": "string"
+              },
+              "bookingUrl": {
                 "type": "string"
               },
               "created_by": {

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/23/2022 10:09:20 PM"
+    "x-generation-date": "08/25/2022 2:20:03 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13251,6 +13251,12 @@
           },
           "bookingUrl": {
             "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "companyName": {
+            "type": "string"
           }
         }
       },
@@ -13302,6 +13308,12 @@
             "type": "string"
           },
           "bookingUrl": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "companyName": {
             "type": "string"
           },
           "created_by": {
@@ -17316,6 +17328,12 @@
                 "type": "string"
               },
               "bookingUrl": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              },
+              "companyName": {
                 "type": "string"
               },
               "created_by": {

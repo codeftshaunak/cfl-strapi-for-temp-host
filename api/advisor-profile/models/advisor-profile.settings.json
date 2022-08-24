@@ -71,6 +71,12 @@
     },
     "bookingUrl": {
       "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "companyName": {
+      "type": "string"
     }
   }
 }

@@ -1653,6 +1653,12 @@
               "bookingUrl": {
                 "type": "string"
               },
+              "website": {
+                "type": "string"
+              },
+              "companyName": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },

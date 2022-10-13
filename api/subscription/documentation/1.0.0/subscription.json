@@ -731,6 +731,24 @@
               "advisor_profile": {
                 "type": "string"
               },
+              "feed_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "feed_post_comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "liked_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },

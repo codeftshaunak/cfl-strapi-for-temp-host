@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/feed-posts",
+      "handler": "feed-post.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feed-posts/count",
+      "handler": "feed-post.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/feed-posts/:id",
+      "handler": "feed-post.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/feed-posts",
+      "handler": "feed-post.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/feed-posts/:id",
+      "handler": "feed-post.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/feed-posts/:id",
+      "handler": "feed-post.delete",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/feed-posts/like-by-user/:id",
+      "handler": "feed-post.likeByUser",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

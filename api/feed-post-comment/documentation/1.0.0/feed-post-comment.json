@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/profiles": {
+    "/feed-post-comments": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,9 +10,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Profile"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Feed-post-comment"
         ],
         "parameters": [
           {
@@ -191,120 +192,6 @@
             "deprecated": false
           }
         ]
-      }
-    },
-    "/profiles/search": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Profile"
-        ],
-        "parameters": []
-      }
-    },
-    "/profiles/me": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Profile"
-        ],
-        "parameters": []
       },
       "post": {
         "deprecated": false,
@@ -357,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Feed-post-comment"
         ],
         "requestBody": {
           "description": "",
@@ -365,15 +252,136 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/NewFeed-post-comment"
               }
             }
           }
         }
+      }
+    },
+    "/feed-post-comments/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Feed-post-comment"
+        ],
+        "parameters": []
+      }
+    },
+    "/feed-post-comments/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Feed-post-comment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "put": {
         "deprecated": false,
@@ -426,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Feed-post-comment"
         ],
         "requestBody": {
           "description": "",
@@ -434,16 +442,23 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/NewFeed-post-comment"
               }
             }
           }
         },
-        "parameters": []
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "delete": {
         "deprecated": false,
@@ -493,12 +508,23 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
+          "Feed-post-comment"
         ],
-        "parameters": []
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
-    "/profiles/count": {
+    "/feed-post-comments/feed-post/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -509,8 +535,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -550,64 +576,11 @@
         },
         "summary": "",
         "tags": [
-          "Profile"
-        ],
-        "parameters": []
-      }
-    },
-    "/profiles/{slug}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Profile"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Profile"
+          "Feed-post-comment"
         ],
         "parameters": [
           {
-            "name": "slug",
+            "name": "id",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -622,13 +595,59 @@
   },
   "components": {
     "schemas": {
-      "Profile": {
+      "Feed-post-comment": {
         "required": [
           "id"
         ],
         "properties": {
           "id": {
             "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "feed_post": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "liked_by_users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "media": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "user": {
             "required": [
@@ -723,467 +742,26 @@
               }
             }
           },
-          "profilePicture": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "slug": {
-            "type": "string"
-          },
-          "city": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "region": {
-                "type": "string"
-              },
-              "regionCode": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "countryCode": {
-                "type": "string"
-              },
-              "coordinates": {
-                "type": "object"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "tagline": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "pronouns": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string"
-          },
-          "lookingFor": {
-            "type": "string"
-          },
-          "startupStage": {
-            "type": "string"
-          },
-          "skills": {
-            "type": "object"
-          },
-          "interests": {
-            "type": "object"
-          },
-          "public": {
-            "type": "boolean",
-            "default": false
-          },
-          "premium": {
-            "type": "boolean",
-            "default": false
-          },
-          "discussions": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "replies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "topics": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "profile": {
-                  "type": "string"
-                },
-                "repliesCount": {
-                  "type": "integer"
-                },
-                "followCount": {
-                  "type": "integer"
-                },
-                "score": {
-                  "type": "integer"
-                },
-                "upvotes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "downvotes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "pinned": {
-                  "type": "boolean"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "discussion_replies": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "discussion": {
-                  "type": "string"
-                },
-                "profile": {
-                  "type": "string"
-                },
-                "score": {
-                  "type": "integer"
-                },
-                "upvotes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "downvotes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "connections": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "profiles": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "status": {
-                  "type": "string",
-                  "enum": [
-                    "pending",
-                    "accepted",
-                    "ignored",
-                    "passed",
-                    "withdrawn",
-                    "deleted",
-                    "pending_received",
-                    "not_existing_connection"
-                  ]
-                },
-                "message": {
-                  "type": "string"
-                },
-                "authorProfile": {
-                  "type": "string"
-                },
-                "messages": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "countryCode": {
-            "type": "string"
-          },
-          "cflTeam": {
-            "type": "boolean"
-          },
-          "linkedinUrl": {
-            "type": "string"
-          },
-          "twitterUrl": {
-            "type": "string"
-          },
-          "profileBanner": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
-      "NewProfile": {
+      "NewFeed-post-comment": {
         "properties": {
+          "text": {
+            "type": "string"
+          },
+          "feed_post": {
+            "type": "string"
+          },
           "user": {
             "type": "string"
           },
-          "slug": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "tagline": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "pronouns": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string"
-          },
-          "lookingFor": {
-            "type": "string"
-          },
-          "startupStage": {
-            "type": "string"
-          },
-          "skills": {
-            "type": "object"
-          },
-          "interests": {
-            "type": "object"
-          },
-          "public": {
-            "type": "boolean",
-            "default": false
-          },
-          "premium": {
-            "type": "boolean",
-            "default": false
-          },
-          "discussions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "discussion_replies": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "connections": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "countryCode": {
-            "type": "string"
-          },
-          "cflTeam": {
-            "type": "boolean"
-          },
-          "linkedinUrl": {
-            "type": "string"
-          },
-          "twitterUrl": {
-            "type": "string"
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"
@@ -1195,9 +773,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Profile"
-    }
-  ]
+  "tags": []
 }

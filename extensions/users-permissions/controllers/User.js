@@ -26,12 +26,12 @@ module.exports = {
         }
       );
 
-      strapi.query("profile").update(
-        { user: user.id },
-        {
-          lastLogin: new Date(),
-        }
-      );
+      // strapi.query("profile").update(
+      //   { user: user.id },
+      //   {
+      //     lastLogin: new Date(),
+      //   }
+      // );
     } catch {}
 
     ctx.body = sanitizeUser(user);

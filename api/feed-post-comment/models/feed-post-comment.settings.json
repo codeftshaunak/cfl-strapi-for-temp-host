@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feed_post_comments",
+  "info": {
+    "name": "FeedPostComment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "feed_post": {
+      "via": "comments",
+      "model": "feed-post"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "feed_post_comments"
+    }
+  }
+}

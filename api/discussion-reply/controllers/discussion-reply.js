@@ -51,6 +51,16 @@ module.exports = {
         profile: user.profile.id,
       });
     }
+
+    // await strapi.services.notification.create({
+    //   action: "discussion reply",
+    //   userSender: user,
+    //   userReceiver: entity.user._id,
+    //   references: {
+    //     postId: entity._id,
+    //   },
+    // });
+
     return sanitizeEntity(entity, { model: strapi.models["discussion-reply"] });
   },
 

@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/advisor-profiles": {
+    "/notifications": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,10 +10,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notification"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Notification"
         ],
         "parameters": [
           {
@@ -202,11 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Notification"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Notification"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAdvisor-profile"
+                "$ref": "#/components/schemas/NewNotification"
               }
             }
           }
         }
       }
     },
-    "/advisor-profiles/count": {
+    "/notifications/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -270,8 +265,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Notification"
         ],
         "parameters": []
       }
     },
-    "/advisor-profiles/{slug}": {
+    "/notifications/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -326,11 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Notification"
                 }
               }
             }
@@ -368,11 +359,11 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Notification"
         ],
         "parameters": [
           {
-            "name": "slug",
+            "name": "id",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -382,9 +373,7 @@
             }
           }
         ]
-      }
-    },
-    "/advisor-profiles/{id}": {
+      },
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -394,11 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Notification"
                 }
               }
             }
@@ -436,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Notification"
         ],
         "requestBody": {
           "description": "",
@@ -444,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAdvisor-profile"
+                "$ref": "#/components/schemas/NewNotification"
               }
             }
           }
@@ -510,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Notification"
         ],
         "parameters": [
           {
@@ -529,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Advisor-profile": {
+      "Notification": {
         "required": [
           "id"
         ],
@@ -537,7 +522,14 @@
           "id": {
             "type": "string"
           },
-          "user": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "commented",
+              "liked"
+            ]
+          },
+          "userSender": {
             "required": [
               "id",
               "username",
@@ -642,94 +634,102 @@
               }
             }
           },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "professionalBackground": {
-            "type": "string"
-          },
-          "topics": {
-            "type": "string"
-          },
-          "otherAreas": {
-            "type": "string"
-          },
-          "sessionsCompleted": {
-            "type": "integer"
-          },
-          "founderConnections": {
-            "type": "integer"
-          },
-          "hoursOffered": {
-            "type": "integer"
-          },
-          "hoursConsumed": {
-            "type": "number"
-          },
-          "profilePicture": {
+          "userReceiver": {
             "required": [
               "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
+              "username",
+              "email"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "username": {
                 "type": "string"
               },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
+              "email": {
                 "type": "string"
               },
               "provider": {
                 "type": "string"
               },
-              "provider_metadata": {
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "phoneToken": {
+                "type": "integer"
+              },
+              "emailToken": {
+                "type": "integer"
+              },
+              "onboarded": {
+                "type": "boolean"
+              },
+              "onboardedAt": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "string"
+              },
+              "lastLogin": {
+                "type": "string"
+              },
+              "subscription": {
+                "type": "string"
+              },
+              "badges": {
                 "type": "object"
               },
-              "related": {
+              "advisor_profile": {
                 "type": "string"
+              },
+              "feed_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "feed_post_comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "liked_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificationsSent": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificationsReceived": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -739,115 +739,36 @@
               }
             }
           },
-          "slug": {
-            "type": "string"
+          "references": {
+            "type": "object"
           },
-          "city": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "region": {
-                "type": "string"
-              },
-              "regionCode": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "countryCode": {
-                "type": "string"
-              },
-              "coordinates": {
-                "type": "object"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "accessToken": {
-            "type": "string"
-          },
-          "refreshToken": {
-            "type": "string"
-          },
-          "bookingUrl": {
-            "type": "string"
-          },
-          "website": {
-            "type": "string"
-          },
-          "companyName": {
-            "type": "string"
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
-      "NewAdvisor-profile": {
+      "NewNotification": {
         "properties": {
-          "user": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "commented",
+              "liked"
+            ]
+          },
+          "userSender": {
             "type": "string"
           },
-          "firstName": {
+          "userReceiver": {
             "type": "string"
           },
-          "lastName": {
-            "type": "string"
+          "references": {
+            "type": "object"
           },
-          "title": {
-            "type": "string"
-          },
-          "professionalBackground": {
-            "type": "string"
-          },
-          "topics": {
-            "type": "string"
-          },
-          "otherAreas": {
-            "type": "string"
-          },
-          "sessionsCompleted": {
-            "type": "integer"
-          },
-          "founderConnections": {
-            "type": "integer"
-          },
-          "hoursOffered": {
-            "type": "integer"
-          },
-          "hoursConsumed": {
-            "type": "number"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "accessToken": {
-            "type": "string"
-          },
-          "refreshToken": {
-            "type": "string"
-          },
-          "bookingUrl": {
-            "type": "string"
-          },
-          "website": {
-            "type": "string"
-          },
-          "companyName": {
-            "type": "string"
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"
@@ -859,5 +780,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Notification"
+    }
+  ]
 }

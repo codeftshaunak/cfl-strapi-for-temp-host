@@ -113,6 +113,14 @@
     "liked_posts": {
       "via": "liked_by_users",
       "collection": "feed-post"
+    },
+    "notificationsSent": {
+      "via": "userSender",
+      "collection": "notification"
+    },
+    "notificationsReceived": {
+      "via": "userReceiver",
+      "collection": "notification"
     }
   }
 }

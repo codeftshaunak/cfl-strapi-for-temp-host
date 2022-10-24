@@ -52,14 +52,20 @@ module.exports = {
       });
     }
 
-    // await strapi.services.notification.create({
-    //   action: "discussion reply",
-    //   userSender: user,
-    //   userReceiver: entity.user._id,
-    //   references: {
-    //     postId: entity._id,
-    //   },
-    // });
+    // creating notification
+    strapi.services.profile
+      .findById(entity.discussion.profile)
+      .then((profile) => {
+        strapi.services.notification.create({
+          action: "discussionReply",
+          userSender: user._id,
+          userReceiver: profile.user._id,
+          references: {
+            discussionId: entity.discussion._id,
+            discussionReplyId: entity._id,
+          },
+        });
+      });
 
     return sanitizeEntity(entity, { model: strapi.models["discussion-reply"] });
   },

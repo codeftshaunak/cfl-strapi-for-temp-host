@@ -1804,7 +1804,9 @@
                   "type": "string",
                   "enum": [
                     "commented",
-                    "liked"
+                    "liked",
+                    "connectionRequest",
+                    "discussionReply"
                   ]
                 },
                 "userSender": {
@@ -1815,6 +1817,9 @@
                 },
                 "references": {
                   "type": "object"
+                },
+                "isSeen": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -1842,7 +1847,9 @@
                   "type": "string",
                   "enum": [
                     "commented",
-                    "liked"
+                    "liked",
+                    "connectionRequest",
+                    "discussionReply"
                   ]
                 },
                 "userSender": {
@@ -1853,6 +1860,9 @@
                 },
                 "references": {
                   "type": "object"
+                },
+                "isSeen": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"

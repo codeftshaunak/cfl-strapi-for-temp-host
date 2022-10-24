@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/notifications/user",
+      "handler": "notification.findByUser",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/notifications/count",
       "handler": "notification.count",
       "config": {

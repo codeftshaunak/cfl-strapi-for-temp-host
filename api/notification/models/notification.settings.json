@@ -16,7 +16,9 @@
       "type": "enumeration",
       "enum": [
         "commented",
-        "liked"
+        "liked",
+        "connectionRequest",
+        "discussionReply"
       ]
     },
     "userSender": {
@@ -31,6 +33,10 @@
     },
     "references": {
       "type": "json"
+    },
+    "isSeen": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

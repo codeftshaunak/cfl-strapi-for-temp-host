@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/23/2022 10:18:18 PM"
+    "x-generation-date": "10/24/2022 5:43:04 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -9608,6 +9608,63 @@
         }
       }
     },
+    "/notifications/user": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Notification"
+        ],
+        "parameters": []
+      }
+    },
     "/notifications/count": {
       "get": {
         "deprecated": false,
@@ -18183,7 +18240,9 @@
             "type": "string",
             "enum": [
               "commented",
-              "liked"
+              "liked",
+              "connectionRequest",
+              "discussionReply"
             ]
           },
           "userSender": {
@@ -18398,6 +18457,10 @@
           },
           "references": {
             "type": "object"
+          },
+          "isSeen": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -18411,7 +18474,9 @@
             "type": "string",
             "enum": [
               "commented",
-              "liked"
+              "liked",
+              "connectionRequest",
+              "discussionReply"
             ]
           },
           "userSender": {
@@ -18422,6 +18487,10 @@
           },
           "references": {
             "type": "object"
+          },
+          "isSeen": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -20144,7 +20213,9 @@
                   "type": "string",
                   "enum": [
                     "commented",
-                    "liked"
+                    "liked",
+                    "connectionRequest",
+                    "discussionReply"
                   ]
                 },
                 "userSender": {
@@ -20155,6 +20226,9 @@
                 },
                 "references": {
                   "type": "object"
+                },
+                "isSeen": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -20182,7 +20256,9 @@
                   "type": "string",
                   "enum": [
                     "commented",
-                    "liked"
+                    "liked",
+                    "connectionRequest",
+                    "discussionReply"
                   ]
                 },
                 "userSender": {
@@ -20193,6 +20269,9 @@
                 },
                 "references": {
                   "type": "object"
+                },
+                "isSeen": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"

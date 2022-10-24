@@ -52,6 +52,16 @@ module.exports = {
       profileId: data.profile,
     });
 
+    // creating notification
+    strapi.services.profile.findById(data.profile).then((profile) => {
+      strapi.services.notification.create({
+        action: "connectionRequest",
+        userSender: user._id,
+        userReceiver: profile.user._id,
+        references: {},
+      });
+    });
+
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },
 

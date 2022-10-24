@@ -76,6 +76,17 @@ module.exports = {
         .query("feed-post")
         .update({ id }, { liked_by_users: entity.liked_by_users });
 
+      if (likedByUser) {
+        await strapi.services.notification.create({
+          action: "liked",
+          userSender: user,
+          userReceiver: entity.user._id,
+          references: {
+            postId: entity._id,
+          },
+        });
+      }
+
       return entity.liked_by_users;
     } catch (err) {
       console.log("err", err);

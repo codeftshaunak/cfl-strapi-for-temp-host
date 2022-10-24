@@ -6,6 +6,7 @@
  */
 
 const _ = require("lodash");
+const {} = require("strapi-utils");
 
 module.exports = {
   okForOnboarding(profile) {
@@ -102,5 +103,9 @@ module.exports = {
     }
 
     return params;
+  },
+
+  findById(profileId) {
+    return strapi.query("profile").findOne({ _id: profileId });
   },
 };

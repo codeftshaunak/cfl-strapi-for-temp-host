@@ -694,6 +694,18 @@
                   "type": "string"
                 }
               },
+              "notificationsSent": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificationsReceived": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -815,6 +827,18 @@
                   }
                 },
                 "liked_posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificationsSent": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificationsReceived": {
                   "type": "array",
                   "items": {
                     "type": "string"

@@ -55,6 +55,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "PUT",
+      "path": "/notifications/seen/:id",
+      "handler": "notification.updateNotificationSeen",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

@@ -23,4 +23,25 @@ module.exports = {
       .sort({ createdAt: "desc" })
       .lean();
   },
+
+  async updateNotificationSeen(ctx) {
+    const user = ctx.state.user;
+    const { id } = ctx.params;
+
+    let updatedEntity;
+    if (id) {
+      const entity = await strapi.services.notification.findOne({ id });
+
+      if (entity) {
+        updatedEntity = await strapi.services.notification.update(
+          { id },
+          { isSeen: true }
+        );
+      }
+    }
+
+    return sanitizeEntity(updatedEntity, {
+      model: strapi.models.notification,
+    });
+  },
 };

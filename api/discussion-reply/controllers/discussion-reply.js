@@ -62,6 +62,7 @@ module.exports = {
           userReceiver: profile.user._id,
           references: {
             discussionId: entity.discussion._id,
+            discussionSlug: entity.discussion.slug,
             discussionReplyId: entity._id,
           },
         });

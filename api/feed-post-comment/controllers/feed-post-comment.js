@@ -35,18 +35,19 @@ module.exports = {
 
     entity = await strapi.services["feed-post-comment"].create(body);
 
-    const post = await strapi.services["feed-post"].findById(feed_post);
+    // creating notification
+    strapi.services["feed-post"].findById(feed_post).then((post) => {
+      const { user: userReceiver } = post;
 
-    const { user: userReceiver } = post;
-
-    await strapi.services.notification.create({
-      action: "commented",
-      userSender,
-      userReceiver,
-      references: {
-        postId: feed_post,
-        commentId: entity._id,
-      },
+      strapi.services.notification.create({
+        action: "commented",
+        userSender,
+        userReceiver,
+        references: {
+          postId: feed_post,
+          commentId: entity._id,
+        },
+      });
     });
 
     return sanitizeEntity(entity, {

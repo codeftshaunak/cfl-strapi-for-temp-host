@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/notifications/unseen-notifications-count",
+      "handler": "notification.unSeenNotificationCount",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/notifications/count",
       "handler": "notification.count",
       "config": {

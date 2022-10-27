@@ -24,8 +24,16 @@ module.exports = {
       .lean();
   },
 
+  async unSeenNotificationCount(ctx) {
+    const { user } = ctx.state;
+
+    return strapi.query("notification").model.count({
+      $or: [{ isSeen: { $exists: false } }, { isSeen: false }],
+      userReceiver: user._id,
+    });
+  },
+
   async updateNotificationSeen(ctx) {
-    const user = ctx.state.user;
     const { id } = ctx.params;
 
     let updatedEntity;

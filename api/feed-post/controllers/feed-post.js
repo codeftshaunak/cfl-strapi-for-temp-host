@@ -38,6 +38,26 @@ module.exports = {
     });
   },
 
+  async findOne(ctx) {
+    let entity;
+
+    const { id } = ctx.params;
+
+    if (id) {
+      entity = strapi
+        .query("feed-post")
+        .model.findOne({ _id: id })
+        .populate({
+          path: "user",
+          populate: {
+            path: "profile",
+          },
+        });
+    }
+
+    return entity;
+  },
+
   async create(ctx) {
     const user = ctx.state.user;
     const data = ctx.request.body;

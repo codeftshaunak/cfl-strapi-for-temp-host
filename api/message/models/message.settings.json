@@ -20,7 +20,8 @@
       "model": "profile"
     },
     "body": {
-      "type": "text"
+      "type": "text",
+      "required": false
     },
     "read": {
       "type": "boolean"

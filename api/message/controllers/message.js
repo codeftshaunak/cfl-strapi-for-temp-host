@@ -58,6 +58,11 @@ module.exports = {
         });
       }
     }
+
+    if(ctx.request.body.body.replace(/^\s+|\s+$/gm,'')==''){
+      return ctx.badRequest("Message body is empty.");
+    }
+
     entity = await strapi.services.message.create({
       connection: connection.id,
       authorProfile: user.profile,

@@ -18,6 +18,10 @@ module.exports = {
 
     const data = ctx.request.body;
 
+    if (data.message.replace(/^\s+|\s+$/gm, "") == "") {
+      return ctx.badRequest("Message body is empty.");
+    }
+
     const connection = await strapi.services.connection.findOne({
       profiles: { $all: [user.profile, data.profile] },
     });

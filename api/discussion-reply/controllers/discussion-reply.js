@@ -51,6 +51,23 @@ module.exports = {
         profile: user.profile.id,
       });
     }
+
+    // creating notification
+    strapi.services.profile
+      .findById(entity.discussion.profile)
+      .then((profile) => {
+        strapi.services.notification.create({
+          action: "discussionReply",
+          userSender: user._id,
+          userReceiver: profile.user._id,
+          references: {
+            discussionId: entity.discussion._id,
+            discussionSlug: entity.discussion.slug,
+            discussionReplyId: entity._id,
+          },
+        });
+      });
+
     return sanitizeEntity(entity, { model: strapi.models["discussion-reply"] });
   },
 

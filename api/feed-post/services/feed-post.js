@@ -5,4 +5,8 @@
  * to customize this service
  */
 
-module.exports = {};
+module.exports = {
+  findById(id) {
+    return strapi.query("feed-post").findOne({ _id: id });
+  },
+};

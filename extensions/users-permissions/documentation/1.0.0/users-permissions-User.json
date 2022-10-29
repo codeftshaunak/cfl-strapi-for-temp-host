@@ -1789,6 +1789,92 @@
                 }
               }
             }
+          },
+          "notificationsSent": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "commented",
+                    "liked",
+                    "connectionRequest",
+                    "discussionReply"
+                  ]
+                },
+                "userSender": {
+                  "type": "string"
+                },
+                "userReceiver": {
+                  "type": "string"
+                },
+                "references": {
+                  "type": "object"
+                },
+                "isSeen": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "notificationsReceived": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "commented",
+                    "liked",
+                    "connectionRequest",
+                    "discussionReply"
+                  ]
+                },
+                "userSender": {
+                  "type": "string"
+                },
+                "userReceiver": {
+                  "type": "string"
+                },
+                "references": {
+                  "type": "object"
+                },
+                "isSeen": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -1877,6 +1963,18 @@
             }
           },
           "liked_posts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notificationsSent": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notificationsReceived": {
             "type": "array",
             "items": {
               "type": "string"

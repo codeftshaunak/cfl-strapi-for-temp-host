@@ -44,15 +44,15 @@ module.exports = {
     }
 
     connection = await strapi.services.connection.findOne({
-      status: "accepted",
+      status: { $in: ["accepted", "pending", "message"]},
       profiles: { $all: [user.profile, ctx.request.body.to] },
     });
     if (!connection) {
       if (user.role.type !== "premium") {
-        return ctx.unauthorized("Not allowed.");
+        return ctx.unauthorized("Not allowed, Premium required.");
       } else {
         connection = await strapi.services.connection.create({
-          status: "accepted",
+          status: "message",
           profiles: [user.profile.id, ctx.request.body.to],
           authorProfile: user.profile.id,
         });

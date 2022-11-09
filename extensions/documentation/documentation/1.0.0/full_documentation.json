@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/30/2022 1:27:36 AM"
+    "x-generation-date": "11/06/2022 12:14:38 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -15692,7 +15692,8 @@
               "withdrawn",
               "deleted",
               "pending_received",
-              "not_existing_connection"
+              "not_existing_connection",
+              "message"
             ]
           },
           "message": {
@@ -15849,7 +15850,8 @@
               "withdrawn",
               "deleted",
               "pending_received",
-              "not_existing_connection"
+              "not_existing_connection",
+              "message"
             ]
           },
           "message": {
@@ -18210,7 +18212,8 @@
                   "withdrawn",
                   "deleted",
                   "pending_received",
-                  "not_existing_connection"
+                  "not_existing_connection",
+                  "message"
                 ]
               },
               "message": {
@@ -19389,7 +19392,8 @@
                     "withdrawn",
                     "deleted",
                     "pending_received",
-                    "not_existing_connection"
+                    "not_existing_connection",
+                    "message"
                   ]
                 },
                 "message": {

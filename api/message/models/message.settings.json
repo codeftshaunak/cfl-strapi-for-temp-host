@@ -13,8 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "connection": {
-      "model": "connection",
-      "via": "messages"
+      "via": "messages",
+      "model": "connection"
     },
     "authorProfile": {
       "model": "profile"

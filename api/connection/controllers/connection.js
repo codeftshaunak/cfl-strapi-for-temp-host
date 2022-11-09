@@ -25,7 +25,8 @@ module.exports = {
     const connection = await strapi.services.connection.findOne({
       profiles: { $all: [user.profile, data.profile] },
     });
-    if (connection) {
+
+    if (connection && connection.status!=="message") {
       return ctx.badRequest(
         `You already have a connection with this person. Status: ${connection.status}`
       );
@@ -49,7 +50,19 @@ module.exports = {
     data["authorProfile"] = user.profile;
     data["profiles"] = [user.profile, data.profile];
     data["status"] = "pending";
-    entity = await strapi.services.connection.create(data);
+    // updating if chatting already
+    if(connection){
+      entity = await strapi.services.connection.update({
+        id:connection.id,
+        profiles: user.profile.id
+      },{
+        authorProfile:user.profile,
+        message:data.message,
+        status:"pending"
+      });
+    }else{
+      entity = await strapi.services.connection.create(data);
+    }
 
     strapi.plugins.queue.services.badges.add({
       type: "connections",
@@ -126,6 +139,25 @@ module.exports = {
       type: "connections",
       profileId: user.profile.id,
     });
+
+    return sanitizeEntity(entity, { model: strapi.models.connection });
+  },
+
+  async delete(ctx) {
+    const { id } = ctx.params;
+    let entity;
+    //get authenicated user details
+    const user = ctx.state.user;
+    if (!user) {
+      return ctx.unauthorized("No authorization header was found.");
+    }
+    // changing to message status to keep the chat and connection alive
+    entity = await strapi.services.connection.update(
+      { id, profiles: user.profile.id },
+      {
+        status: "message",
+      }
+    );
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },

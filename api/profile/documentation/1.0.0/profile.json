@@ -1013,7 +1013,8 @@
                     "withdrawn",
                     "deleted",
                     "pending_received",
-                    "not_existing_connection"
+                    "not_existing_connection",
+                    "message"
                   ]
                 },
                 "message": {

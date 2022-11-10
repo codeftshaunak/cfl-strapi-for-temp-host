@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/advisor-profiles": {
+    "/feed-posts": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Feed-post"
         ],
         "parameters": [
           {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Feed-post"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAdvisor-profile"
+                "$ref": "#/components/schemas/NewFeed-post"
               }
             }
           }
         }
       }
     },
-    "/advisor-profiles/count": {
+    "/feed-posts/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Feed-post"
         ],
         "parameters": []
       }
     },
-    "/advisor-profiles/{slug}": {
+    "/feed-posts/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -368,11 +368,11 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Feed-post"
         ],
         "parameters": [
           {
-            "name": "slug",
+            "name": "id",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -382,9 +382,7 @@
             }
           }
         ]
-      }
-    },
-    "/advisor-profiles/{id}": {
+      },
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -436,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Feed-post"
         ],
         "requestBody": {
           "description": "",
@@ -444,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAdvisor-profile"
+                "$ref": "#/components/schemas/NewFeed-post"
               }
             }
           }
@@ -510,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Advisor-profile"
+          "Feed-post"
         ],
         "parameters": [
           {
@@ -525,16 +523,90 @@
           }
         ]
       }
+    },
+    "/feed-posts/like-by-user/{id}": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Feed-post"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "Advisor-profile": {
+      "Feed-post": {
         "required": [
           "id"
         ],
         "properties": {
           "id": {
+            "type": "string"
+          },
+          "text": {
             "type": "string"
           },
           "user": {
@@ -642,212 +714,244 @@
               }
             }
           },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "professionalBackground": {
-            "type": "string"
-          },
-          "topics": {
-            "type": "string"
-          },
-          "otherAreas": {
-            "type": "string"
-          },
-          "sessionsCompleted": {
-            "type": "integer"
-          },
-          "founderConnections": {
-            "type": "integer"
-          },
-          "hoursOffered": {
-            "type": "integer"
-          },
-          "hoursConsumed": {
-            "type": "number"
-          },
-          "profilePicture": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "comments": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "feed_post": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
-          "slug": {
-            "type": "string"
-          },
-          "city": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "region": {
-                "type": "string"
-              },
-              "regionCode": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "countryCode": {
-                "type": "string"
-              },
-              "coordinates": {
-                "type": "object"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "liked_by_users": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "confirmationToken": {
+                  "type": "string"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                },
+                "blocked": {
+                  "type": "boolean"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "phoneToken": {
+                  "type": "integer"
+                },
+                "emailToken": {
+                  "type": "integer"
+                },
+                "onboarded": {
+                  "type": "boolean"
+                },
+                "onboardedAt": {
+                  "type": "string"
+                },
+                "profile": {
+                  "type": "string"
+                },
+                "lastLogin": {
+                  "type": "string"
+                },
+                "subscription": {
+                  "type": "string"
+                },
+                "badges": {
+                  "type": "object"
+                },
+                "advisor_profile": {
+                  "type": "string"
+                },
+                "feed_posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "feed_post_comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "liked_posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificationsSent": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificationsReceived": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
-          "accessToken": {
-            "type": "string"
+          "media": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "refreshToken": {
-            "type": "string"
-          },
-          "bookingUrl": {
-            "type": "string"
-          },
-          "website": {
-            "type": "string"
-          },
-          "companyName": {
-            "type": "string"
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
-      "NewAdvisor-profile": {
+      "NewFeed-post": {
         "properties": {
+          "text": {
+            "type": "string"
+          },
           "user": {
             "type": "string"
           },
-          "firstName": {
-            "type": "string"
+          "comments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
-          "lastName": {
-            "type": "string"
+          "liked_by_users": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
-          "title": {
-            "type": "string"
-          },
-          "professionalBackground": {
-            "type": "string"
-          },
-          "topics": {
-            "type": "string"
-          },
-          "otherAreas": {
-            "type": "string"
-          },
-          "sessionsCompleted": {
-            "type": "integer"
-          },
-          "founderConnections": {
-            "type": "integer"
-          },
-          "hoursOffered": {
-            "type": "integer"
-          },
-          "hoursConsumed": {
-            "type": "number"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "accessToken": {
-            "type": "string"
-          },
-          "refreshToken": {
-            "type": "string"
-          },
-          "bookingUrl": {
-            "type": "string"
-          },
-          "website": {
-            "type": "string"
-          },
-          "companyName": {
-            "type": "string"
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"

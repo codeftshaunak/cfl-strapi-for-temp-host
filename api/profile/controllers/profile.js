@@ -29,6 +29,9 @@ module.exports = {
     const { slug } = ctx.params;
 
     const entity = await strapi.services.profile.findOne({ slug });
+    if (!entity.public) {
+      return ctx.badRequest("profile not found");
+    }
     if (!entity) {
       return ctx.badRequest("profile not found");
     }

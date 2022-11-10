@@ -101,6 +101,26 @@
     "advisor_profile": {
       "via": "user",
       "model": "advisor-profile"
+    },
+    "feed_posts": {
+      "via": "user",
+      "collection": "feed-post"
+    },
+    "feed_post_comments": {
+      "via": "user",
+      "collection": "feed-post-comment"
+    },
+    "liked_posts": {
+      "via": "liked_by_users",
+      "collection": "feed-post"
+    },
+    "notificationsSent": {
+      "via": "userSender",
+      "collection": "notification"
+    },
+    "notificationsReceived": {
+      "via": "userReceiver",
+      "collection": "notification"
     }
   }
 }

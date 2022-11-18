@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/connections/messages",
+      "handler": "connection.findMeMessages",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/connections/count",
       "handler": "connection.count",
       "config": {

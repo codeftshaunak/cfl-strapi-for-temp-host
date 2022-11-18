@@ -55,6 +55,7 @@ module.exports = {
           status: "message",
           profiles: [user.profile.id, ctx.request.body.to],
           authorProfile: user.profile.id,
+          updatedOn: new Date(),
         });
       }
     }
@@ -68,6 +69,14 @@ module.exports = {
       authorProfile: user.profile,
       body: ctx.request.body.body,
       read: false,
+    });
+
+    // marking for sort order of new messages
+    await strapi.services.connection.update({
+      id:connection.id,
+      profiles: user.profile.id
+    },{
+      updatedOn: new Date(),
     });
 
     // recalculate badges for receiving user

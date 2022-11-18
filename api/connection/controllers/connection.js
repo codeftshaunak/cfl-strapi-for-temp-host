@@ -102,6 +102,31 @@ module.exports = {
     let entities;
     //get authenticated user details
     const user = ctx.state.user;
+
+    if (!user) {
+      return ctx.unauthorized("No authorization header was found.");
+    }
+    if (!user.profile) {
+      return ctx.unauthorized("No profile created.");
+    }
+
+    const query = ctx.query;
+    query["profiles"] = user.profile.id;
+    entities = await strapi.query("connection").find(query);
+
+    return entities.map((entity) => {
+      //delete entity.messages;
+      return sanitizeEntity(entity, { model: strapi.models.connection });
+    })
+    // return entities.map((entity) =>
+    //   sanitizeEntity(entity, { model: strapi.models.connection })
+    // );
+  },
+
+  async findMeMessages(ctx) {
+    let entities;
+    //get authenticated user details
+    const user = ctx.state.user;
     if (!user) {
       return ctx.unauthorized("No authorization header was found.");
     }
@@ -132,6 +157,7 @@ module.exports = {
       { id, profiles: user.profile.id },
       {
         status: "accepted",
+        updatedOn: new Date()
       }
     );
 

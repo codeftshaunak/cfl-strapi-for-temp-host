@@ -13,14 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "connection": {
-      "model": "connection",
-      "via": "messages"
+      "via": "messages",
+      "model": "connection"
     },
     "authorProfile": {
       "model": "profile"
     },
     "body": {
-      "type": "text"
+      "type": "text",
+      "required": false
     },
     "read": {
       "type": "boolean"

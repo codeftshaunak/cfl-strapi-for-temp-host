@@ -19,7 +19,7 @@ module.exports = {
         select: ["email"],
         populate: {
           path: "profile",
-          select: ["firstName", "lastName"],
+          select: ["firstName", "lastName", "role", "tagline"],
         },
       })
       .populate({
@@ -36,6 +36,26 @@ module.exports = {
         commentsCount,
       };
     });
+  },
+
+  async findOne(ctx) {
+    let entity;
+
+    const { id } = ctx.params;
+
+    if (id) {
+      entity = strapi
+        .query("feed-post")
+        .model.findOne({ _id: id })
+        .populate({
+          path: "user",
+          populate: {
+            path: "profile",
+          },
+        });
+    }
+
+    return entity;
   },
 
   async create(ctx) {
@@ -75,6 +95,17 @@ module.exports = {
       await strapi
         .query("feed-post")
         .update({ id }, { liked_by_users: entity.liked_by_users });
+
+      if (likedByUser) {
+        await strapi.services.notification.create({
+          action: "liked",
+          userSender: user,
+          userReceiver: entity.user._id,
+          references: {
+            postId: entity._id,
+          },
+        });
+      }
 
       return entity.liked_by_users;
     } catch (err) {

@@ -715,6 +715,18 @@
                   "type": "string"
                 }
               },
+              "notificationsSent": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificationsReceived": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -1001,7 +1013,8 @@
                     "withdrawn",
                     "deleted",
                     "pending_received",
-                    "not_existing_connection"
+                    "not_existing_connection",
+                    "message"
                   ]
                 },
                 "message": {

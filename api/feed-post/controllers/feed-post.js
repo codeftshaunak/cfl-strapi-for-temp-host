@@ -19,7 +19,7 @@ module.exports = {
         select: ["email"],
         populate: {
           path: "profile",
-          select: ["firstName", "lastName"],
+          select: ["firstName", "lastName", "role", "tagline"],
         },
       })
       .populate({

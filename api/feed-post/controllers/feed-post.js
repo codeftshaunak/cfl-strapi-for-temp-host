@@ -10,7 +10,6 @@ const { sanitizeEntity, parseMultipartData } = require("strapi-utils");
 module.exports = {
   async find(ctx) {
     let entities;
-
     entities = await strapi
       .query("feed-post")
       .model.find()

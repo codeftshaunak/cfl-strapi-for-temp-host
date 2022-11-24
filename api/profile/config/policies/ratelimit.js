@@ -11,7 +11,6 @@ module.exports = async (ctx, next) => {
     {
       messages: [
         {
-          statusCode: 429,
           id: "Auth.form.error.ratelimit",
           message: "You're browsing too fast, please try again in a minute.",
         },

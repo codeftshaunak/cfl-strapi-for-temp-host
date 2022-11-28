@@ -185,4 +185,23 @@ module.exports = {
     const entity = await strapi.services.profile.delete({ user: user.id });
     return sanitizeEntity(entity, { model: strapi.models.profile });
   },
+
+  async recommendSearch(ctx) {
+    const params = strapi.services.profile.buildReccomendSearchParams(
+      ctx.state.user,
+      ctx.query
+    );
+
+    const { _limit, _start } = ctx.query;
+
+    const entities = await strapi
+      .query("profile")
+      .model.find(params)
+      .skip(parseInt(_start))
+      .limit(parseInt(_limit));
+
+    return entities.map((entity) =>
+      sanitizeEntity(entity, { model: strapi.models.profile })
+    );
+  },
 };

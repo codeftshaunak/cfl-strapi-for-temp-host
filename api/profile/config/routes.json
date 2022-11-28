@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/profiles/recommend-search",
+      "handler": "profile.recommendSearch",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/profiles/me",
       "handler": "profile.findMe",
       "config": {

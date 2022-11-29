@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "feed_post_comments",
+  "collectionName": "poll_posts",
   "info": {
-    "name": "FeedPostComment"
+    "name": "PollPost",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,16 +13,16 @@
   "pluginOptions": {},
   "attributes": {
     "text": {
-      "type": "text"
-    },
-    "feed_post": {
-      "via": "comments",
-      "model": "feed-post"
+      "type": "string"
     },
     "user": {
-      "via": "feed_post_comments",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "poll_posts"
+    },
+    "options": {
+      "via": "poll_post",
+      "collection": "poll-post-option"
     }
   }
 }

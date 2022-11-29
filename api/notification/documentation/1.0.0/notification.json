@@ -825,6 +825,12 @@
                   "type": "string"
                 }
               },
+              "poll_posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -925,6 +931,12 @@
                 }
               },
               "notificationsReceived": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "poll_posts": {
                 "type": "array",
                 "items": {
                   "type": "string"

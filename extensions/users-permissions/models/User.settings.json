@@ -121,6 +121,10 @@
     "notificationsReceived": {
       "via": "userReceiver",
       "collection": "notification"
+    },
+    "poll_posts": {
+      "via": "user",
+      "collection": "poll-post"
     }
   }
 }

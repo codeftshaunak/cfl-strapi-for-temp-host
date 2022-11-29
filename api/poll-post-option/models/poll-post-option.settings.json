@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "poll_post_options",
+  "info": {
+    "name": "PollPostOption",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "poll_post": {
+      "via": "options",
+      "model": "poll-post"
+    }
+  }
+}

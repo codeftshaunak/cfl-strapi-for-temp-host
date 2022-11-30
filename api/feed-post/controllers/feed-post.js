@@ -65,6 +65,36 @@ module.exports = {
       user: user.id,
     });
 
+    // Finding all the connections
+    const connection = await strapi.services.connection.find({
+        status: { $in: ["accepted", "message"]},
+        authorProfile: { $in: [user.profile ] },
+      });
+
+    if (connection) {
+      let connectedUsersId = [];
+
+      connection.forEach(item => item.profiles?.forEach(profile => {
+        console.log(profile.user, user._id)
+        console.log(profile.user != user._id)
+        if (profile.user != user._id) {
+          connectedUsersId.push(profile.user);
+        };
+      }));
+
+      connectedUsersId.forEach(async connectedUserId => {
+        // send notification
+        await strapi.services.notification.create({
+          action: "posted",
+          userSender: user,
+          userReceiver: connectedUserId,
+          references: {
+            postId: entity._id,
+          },
+        });
+      })
+    }
+
     return sanitizeEntity(entity, { model: strapi.models["feed-post"] });
   },
 

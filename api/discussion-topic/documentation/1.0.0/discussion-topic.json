@@ -544,6 +544,10 @@
           "description": {
             "type": "string"
           },
+          "trending": {
+            "type": "boolean",
+            "default": false
+          },
           "discussions": {
             "type": "array",
             "items": {
@@ -564,12 +568,6 @@
                   "type": "string"
                 },
                 "replies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "topics": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -602,6 +600,12 @@
                 "pinned": {
                   "type": "boolean"
                 },
+                "topics": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -610,10 +614,6 @@
                 }
               }
             }
-          },
-          "trending": {
-            "type": "boolean",
-            "default": false
           }
         }
       },
@@ -628,15 +628,15 @@
           "description": {
             "type": "string"
           },
+          "trending": {
+            "type": "boolean",
+            "default": false
+          },
           "discussions": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "trending": {
-            "type": "boolean",
-            "default": false
           },
           "created_by": {
             "type": "string"

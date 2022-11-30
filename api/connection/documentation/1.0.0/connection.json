@@ -311,6 +311,63 @@
         "parameters": []
       }
     },
+    "/connections/messages": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Connection"
+        ],
+        "parameters": []
+      }
+    },
     "/connections/count": {
       "get": {
         "deprecated": false,
@@ -1134,6 +1191,11 @@
                 }
               }
             }
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time",
+            "default": "2022-11-16T18:30:00.000Z"
           }
         }
       },
@@ -1170,6 +1232,11 @@
             "items": {
               "type": "string"
             }
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time",
+            "default": "2022-11-16T18:30:00.000Z"
           },
           "created_by": {
             "type": "string"

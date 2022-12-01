@@ -76,7 +76,7 @@ const HomePage = () => {
   };
 
   const refreshLogs = async () => {
-    const jobLog = await request(`/${pluginId}/jobs/${activeTab}`, {
+    const jobLog = await request(`/${pluginId}/jobs/${activeTab}?_limit=50`, {
       method: "GET",
     });
     const newRows = { ...rows };

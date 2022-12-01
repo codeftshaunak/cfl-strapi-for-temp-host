@@ -77,6 +77,21 @@ module.exports = {
         userReceiver: profile.user._id,
         references: {},
       });
+
+      // email notification
+      strapi.plugins.queue.services.emails.add({
+        options: {
+          to: profile.email,
+        },
+        template: {
+          templateId: 6,
+          sourceCodeToTemplateId: 6,
+        },
+        data: {
+          toProfile: profile,
+          fromProfile: user,
+        },
+      });
     });
 
     return sanitizeEntity(entity, { model: strapi.models.connection });

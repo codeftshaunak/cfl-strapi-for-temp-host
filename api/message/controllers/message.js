@@ -106,6 +106,16 @@ module.exports = {
         )[0],
       },
     });
+    
+    // send system notification
+    await strapi.services.notification.create({
+      action: "messaged",
+      userSender: user,
+      userReceiver: ctx.request.body.toUser,
+      references: {
+        connectionId: connection.id,
+      },
+    });
 
     return sanitizeEntity(entity, { model: strapi.models.message });
   },

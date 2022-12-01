@@ -81,7 +81,7 @@ module.exports = {
       // email notification
       strapi.plugins.queue.services.emails.add({
         options: {
-          to: profile.email,
+          to: profile.user.email,
         },
         template: {
           templateId: 6,
@@ -92,7 +92,6 @@ module.exports = {
           fromProfile: user,
         },
       });
-      console.log("check email ",data.profile, profile.email);
     });
 
     return sanitizeEntity(entity, { model: strapi.models.connection });

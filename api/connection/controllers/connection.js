@@ -92,7 +92,7 @@ module.exports = {
           fromProfile: user,
         },
       });
-      console.log("check email ",profile.email);
+      console.log("check email ",data.profile, profile.email);
     });
 
     return sanitizeEntity(entity, { model: strapi.models.connection });

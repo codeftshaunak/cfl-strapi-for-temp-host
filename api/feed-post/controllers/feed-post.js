@@ -10,7 +10,6 @@ const { sanitizeEntity, parseMultipartData } = require("strapi-utils");
 module.exports = {
   async find(ctx) {
     let entities;
-
     entities = await strapi
       .query("feed-post")
       .model.find()
@@ -19,7 +18,7 @@ module.exports = {
         select: ["email"],
         populate: {
           path: "profile",
-          select: ["firstName", "lastName"],
+          select: ["firstName", "lastName", "role", "tagline"],
         },
       })
       .populate({
@@ -65,6 +64,36 @@ module.exports = {
       ...data,
       user: user.id,
     });
+
+    // Finding all the connections
+    const connection = await strapi.services.connection.find({
+        status: { $in: ["accepted", "message"]},
+        authorProfile: { $in: [user.profile ] },
+      });
+
+    if (connection) {
+      let connectedUsersId = [];
+
+      connection.forEach(item => item.profiles?.forEach(profile => {
+        console.log(profile.user, user._id)
+        console.log(profile.user != user._id)
+        if (profile.user != user._id) {
+          connectedUsersId.push(profile.user);
+        };
+      }));
+
+      connectedUsersId.forEach(async connectedUserId => {
+        // send notification
+        await strapi.services.notification.create({
+          action: "posted",
+          userSender: user,
+          userReceiver: connectedUserId,
+          references: {
+            postId: entity._id,
+          },
+        });
+      })
+    }
 
     return sanitizeEntity(entity, { model: strapi.models["feed-post"] });
   },

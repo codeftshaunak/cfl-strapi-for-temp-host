@@ -11,6 +11,7 @@ module.exports = async (ctx, next) => {
     {
       messages: [
         {
+          statusCode: 429,
           id: "Auth.form.error.ratelimit",
           message: "You're browsing too fast, please try again in a minute.",
         },
@@ -22,8 +23,8 @@ module.exports = async (ctx, next) => {
     Object.assign(
       {},
       {
-        interval: 60 * 60 * 1000,
-        max: 2,
+        interval: 1 * 60 * 1000,
+        max: 10,
         prefixKey: `${ctx.request.path}:${ctx.request.ip}`,
         message,
       }

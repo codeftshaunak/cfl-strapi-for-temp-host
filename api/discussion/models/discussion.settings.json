@@ -29,12 +29,6 @@
       "model": "discussion-reply",
       "collection": "discussion-reply"
     },
-    "topics": {
-      "autoPopulate": false,
-      "via": "discussions",
-      "collection": "discussion-topic",
-      "dominant": true
-    },
     "profile": {
       "via": "discussions",
       "model": "profile"
@@ -58,6 +52,11 @@
     },
     "pinned": {
       "type": "boolean"
+    },
+    "topics": {
+      "collection": "discussion-topic",
+      "via": "discussions",
+      "dominant": true
     }
   }
 }

@@ -187,12 +187,30 @@ module.exports = {
   },
 
   async recommendSearch(ctx) {
+    const user = ctx.state.user;
+    const { _limit, _start } = ctx.query;
+    let connectedUsersId = [];
+
+    // Finding all the connections
+    const connection = await strapi.services.connection.find({
+        status: { $in: ["accepted", "message"]},
+        profiles: { $in: [user.profile ] },
+      });
+
+    if (connection) {
+      connection.forEach(item => item.profiles?.forEach(profile => {
+        if (profile.user != user._id) {
+          connectedUsersId.push(profile.user);
+        };
+      }));
+    }
+
     const params = strapi.services.profile.buildReccomendSearchParams(
-      ctx.state.user,
-      ctx.query
+      user,
+      ctx.query,
+      connectedUsersId
     );
 
-    const { _limit, _start } = ctx.query;
 
     const entities = await strapi
       .query("profile")

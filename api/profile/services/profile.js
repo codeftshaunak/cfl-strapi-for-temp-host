@@ -109,14 +109,21 @@ module.exports = {
     return strapi.query("profile").findOne({ _id: profileId });
   },
 
-  buildReccomendSearchParams(user, query) {
+  buildReccomendSearchParams(user, query, connectedUsersId) {
     let params = {
       public: true,
     };
     let optionalParams = [];
 
     if (user) {
-      params["user"] = { $ne: user.id };
+      connectedUsersId = [
+        ...connectedUsersId,
+        user.id
+      ]
+    }
+
+    if (connectedUsersId && connectedUsersId.length > 0) {
+      params["user"] = { $nin: connectedUsersId };
     }
 
     if (query.country) {

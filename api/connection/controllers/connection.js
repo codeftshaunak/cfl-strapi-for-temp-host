@@ -89,9 +89,10 @@ module.exports = {
         },
         data: {
           toProfile: profile,
-          fromProfile: user,
+          fromProfile: user.profile,
         },
       });
+      //console.log('check status ', profile ,user.profile);
     });
 
     return sanitizeEntity(entity, { model: strapi.models.connection });

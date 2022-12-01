@@ -31,7 +31,7 @@ badgesQueue.process(async (job, done) => {
         try {
           const connections = await strapi.query("connection").find({
             profiles: job.data.profileId,
-            status: "accepted",
+            status: { $in: ["accepted", "pending", "message"]},
             _limit: -1,
           });
 

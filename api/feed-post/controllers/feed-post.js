@@ -68,15 +68,13 @@ module.exports = {
     // Finding all the connections
     const connection = await strapi.services.connection.find({
         status: { $in: ["accepted", "message"]},
-        authorProfile: { $in: [user.profile ] },
+        profiles: { $in: [user.profile ] },
       });
 
     if (connection) {
       let connectedUsersId = [];
 
       connection.forEach(item => item.profiles?.forEach(profile => {
-        console.log(profile.user, user._id)
-        console.log(profile.user != user._id)
         if (profile.user != user._id) {
           connectedUsersId.push(profile.user);
         };

@@ -632,12 +632,6 @@
                   "type": "string"
                 }
               },
-              "topics": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "profile": {
                 "type": "string"
               },
@@ -664,6 +658,12 @@
               },
               "pinned": {
                 "type": "boolean"
+              },
+              "topics": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"

@@ -715,43 +715,6 @@
               }
             }
           },
-          "topics": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "discussions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "trending": {
-                  "type": "boolean"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "profile": {
             "required": [
               "id"
@@ -1060,6 +1023,43 @@
           },
           "pinned": {
             "type": "boolean"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "trending": {
+                  "type": "boolean"
+                },
+                "discussions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -1075,12 +1075,6 @@
             "type": "string"
           },
           "replies": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "topics": {
             "type": "array",
             "items": {
               "type": "string"
@@ -1112,6 +1106,12 @@
           },
           "pinned": {
             "type": "boolean"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

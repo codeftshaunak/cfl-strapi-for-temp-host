@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/19/2022 2:34:58 AM"
+    "x-generation-date": "11/30/2022 9:27:19 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -16723,12 +16723,6 @@
                   "type": "string"
                 }
               },
-              "topics": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "profile": {
                 "type": "string"
               },
@@ -16755,6 +16749,12 @@
               },
               "pinned": {
                 "type": "boolean"
+              },
+              "topics": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -17117,6 +17117,10 @@
           "description": {
             "type": "string"
           },
+          "trending": {
+            "type": "boolean",
+            "default": false
+          },
           "discussions": {
             "type": "array",
             "items": {
@@ -17137,12 +17141,6 @@
                   "type": "string"
                 },
                 "replies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "topics": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -17175,6 +17173,12 @@
                 "pinned": {
                   "type": "boolean"
                 },
+                "topics": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -17183,10 +17187,6 @@
                 }
               }
             }
-          },
-          "trending": {
-            "type": "boolean",
-            "default": false
           }
         }
       },
@@ -17201,15 +17201,15 @@
           "description": {
             "type": "string"
           },
+          "trending": {
+            "type": "boolean",
+            "default": false
+          },
           "discussions": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "trending": {
-            "type": "boolean",
-            "default": false
           },
           "created_by": {
             "type": "string"
@@ -17269,43 +17269,6 @@
                   "items": {
                     "type": "string"
                   }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "topics": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "discussions": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "trending": {
-                  "type": "boolean"
                 },
                 "created_by": {
                   "type": "string"
@@ -17624,6 +17587,43 @@
           },
           "pinned": {
             "type": "boolean"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "trending": {
+                  "type": "boolean"
+                },
+                "discussions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -17639,12 +17639,6 @@
             "type": "string"
           },
           "replies": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "topics": {
             "type": "array",
             "items": {
               "type": "string"
@@ -17676,6 +17670,12 @@
           },
           "pinned": {
             "type": "boolean"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"
@@ -19412,12 +19412,6 @@
                     "type": "string"
                   }
                 },
-                "topics": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "profile": {
                   "type": "string"
                 },
@@ -19444,6 +19438,12 @@
                 },
                 "pinned": {
                   "type": "boolean"
+                },
+                "topics": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"

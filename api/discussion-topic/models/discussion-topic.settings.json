@@ -23,14 +23,13 @@
     "description": {
       "type": "string"
     },
-    "discussions": {
-      "via": "topics",
-      "autoPopulate": false,
-      "collection": "discussion"
-    },
     "trending": {
       "type": "boolean",
       "default": false
+    },
+    "discussions": {
+      "via": "topics",
+      "collection": "discussion"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/feed-posts": {
+    "/poll-options": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Poll-option"
         ],
         "parameters": [
           {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Poll-option"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewFeed-post"
+                "$ref": "#/components/schemas/NewPoll-option"
               }
             }
           }
         }
       }
     },
-    "/feed-posts/count": {
+    "/poll-options/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Poll-option"
         ],
         "parameters": []
       }
     },
-    "/feed-posts/{id}": {
+    "/poll-options/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Poll-option"
         ],
         "parameters": [
           {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Poll-option"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewFeed-post"
+                "$ref": "#/components/schemas/NewPoll-option"
               }
             }
           }
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Poll-option"
         ],
         "parameters": [
           {
@@ -524,10 +524,10 @@
         ]
       }
     },
-    "/feed-posts/like-by-user/{id}": {
-      "post": {
+    "/poll-options/{id}/vote": {
+      "get": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "",
         "responses": {
           "200": {
             "description": "response",
@@ -576,29 +576,26 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Poll-option"
         ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        }
+        ]
       }
     }
   },
   "components": {
     "schemas": {
-      "Feed-post": {
+      "Poll-option": {
         "required": [
           "id"
         ],
@@ -609,143 +606,7 @@
           "text": {
             "type": "string"
           },
-          "user": {
-            "required": [
-              "id",
-              "username",
-              "email"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "phone": {
-                "type": "string"
-              },
-              "phoneToken": {
-                "type": "integer"
-              },
-              "emailToken": {
-                "type": "integer"
-              },
-              "onboarded": {
-                "type": "boolean"
-              },
-              "onboardedAt": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "lastLogin": {
-                "type": "string"
-              },
-              "subscription": {
-                "type": "string"
-              },
-              "badges": {
-                "type": "object"
-              },
-              "advisor_profile": {
-                "type": "string"
-              },
-              "feed_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "feed_post_comments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "liked_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "notificationsSent": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "notificationsReceived": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "comments": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                },
-                "feed_post": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "liked_by_users": {
+          "votes": {
             "type": "array",
             "items": {
               "required": [
@@ -853,132 +714,22 @@
               }
             }
           },
-          "media": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "poll": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "text": {
-                "type": "string"
-              },
-              "poll_options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewFeed-post": {
+      "NewPoll-option": {
         "properties": {
           "text": {
             "type": "string"
           },
-          "user": {
-            "type": "string"
-          },
-          "comments": {
+          "votes": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "liked_by_users": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "poll": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",

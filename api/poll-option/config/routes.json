@@ -1,0 +1,61 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/poll-options",
+      "handler": "poll-option.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/poll-options/count",
+      "handler": "poll-option.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/poll-options/:id",
+      "handler": "poll-option.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+
+    {
+      "method": "POST",
+      "path": "/poll-options",
+      "handler": "poll-option.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/poll-options/:id/vote",
+      "handler": "poll-option.pollVote",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/poll-options/:id",
+      "handler": "poll-option.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/poll-options/:id",
+      "handler": "poll-option.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

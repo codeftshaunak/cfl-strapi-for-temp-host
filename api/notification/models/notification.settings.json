@@ -24,14 +24,14 @@
       ]
     },
     "userSender": {
+      "via": "notificationsSent",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "notificationsSent"
+      "model": "user"
     },
     "userReceiver": {
+      "via": "notificationsReceived",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "notificationsReceived"
+      "model": "user"
     },
     "references": {
       "type": "json"

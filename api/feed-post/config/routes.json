@@ -24,6 +24,7 @@
         "policies": []
       }
     },
+
     {
       "method": "POST",
       "path": "/feed-posts",

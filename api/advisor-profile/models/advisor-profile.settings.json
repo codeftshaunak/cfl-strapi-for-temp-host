@@ -13,9 +13,9 @@
   "pluginOptions": {},
   "attributes": {
     "user": {
+      "via": "advisor_profile",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "advisor_profile"
+      "model": "user"
     },
     "firstName": {
       "type": "string"

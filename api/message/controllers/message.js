@@ -83,7 +83,7 @@ module.exports = {
     strapi.plugins.queue.services.badges.add({
       type: "messages",
       profileId: ctx.request.body.to,
-    });
+    },{removeOnComplete: true});
 
     // send email notification
     const receivingUser = await strapi
@@ -105,7 +105,7 @@ module.exports = {
           (p) => p.id === user.profile.id
         )[0],
       },
-    });
+    },{removeOnComplete: true});
     
     // send system notification
     await strapi.services.notification.create({

@@ -1701,6 +1701,9 @@
                     "type": "string"
                   }
                 },
+                "poll": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1777,6 +1780,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "poll": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"

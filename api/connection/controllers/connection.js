@@ -67,7 +67,7 @@ module.exports = {
     strapi.plugins.queue.services.badges.add({
       type: "connections",
       profileId: data.profile,
-    });
+    },{removeOnComplete: true});
 
     // creating notification
     strapi.services.profile.findById(data.profile).then((profile) => {
@@ -91,7 +91,7 @@ module.exports = {
           toProfile: profile,
           fromProfile: user.profile,
         },
-      });
+      },{removeOnComplete: true});
       //console.log('check status ', profile ,user.profile);
     });
 
@@ -180,7 +180,7 @@ module.exports = {
     strapi.plugins.queue.services.badges.add({
       type: "connections",
       profileId: user.profile.id,
-    });
+    },{removeOnComplete: true});
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },
@@ -225,7 +225,7 @@ module.exports = {
     strapi.plugins.queue.services.badges.add({
       type: "connections",
       profileId: user.profile.id,
-    });
+    },{removeOnComplete: true});
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },
@@ -257,7 +257,7 @@ module.exports = {
       strapi.plugins.queue.services.badges.add({
         type: "messages",
         profileId: user.profile.id,
-      });
+      },{removeOnComplete: true});
     } catch (e) {}
 
     return { ok: true };

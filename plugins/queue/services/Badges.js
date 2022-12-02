@@ -10,19 +10,24 @@ const badgesQueue = new Queue("badges", opts);
 badgesQueue.process(async (job, done) => {
   switch (job.data.type) {
     case "connections":
-      const count = await strapi.query("connection").count({
-        profiles: job.data.profileId,
-        authorProfile_ne: job.data.profileId,
-        status: "pending",
-        _limit: -1,
-      });
-
-      await strapi
-        .query("user", "users-permissions")
-        .model.updateOne(
-          { profile: job.data.profileId },
-          { $set: { "badges.pendingConnections": count } }
+      try{
+        const count = await strapi.query("connection").count({
+          profiles: job.data.profileId,
+          authorProfile_ne: job.data.profileId,
+          status: "pending",
+          _limit: -1,
+        });
+        await strapi
+          .query("user", "users-permissions")
+          .model.updateOne(
+            { profile: job.data.profileId },
+            { $set: { "badges.pendingConnections": count } }
         );
+        badgesQueue.close();
+        done();
+      }catch(e){
+        console.log('updating count in badges.js---------------------------',e.message);
+      }
 
       break;
 
@@ -50,9 +55,10 @@ badgesQueue.process(async (job, done) => {
               { $set: { "badges.unreadMessages": count } }
             );
 
+          badgesQueue.close();
           done();
         } catch (error) {
-          done(new Error("failed", error));
+          done(new Error("failed updating unread message count ----------------", error));
         }
       }
       done(new Error("no profileId"));

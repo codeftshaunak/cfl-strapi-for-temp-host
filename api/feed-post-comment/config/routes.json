@@ -42,6 +42,14 @@
     },
     {
       "method": "PUT",
+      "path": "/feed-post/poll/",
+      "handler": "feed-post-comment.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
       "path": "/feed-post-comments/:id",
       "handler": "feed-post-comment.update",
       "config": {

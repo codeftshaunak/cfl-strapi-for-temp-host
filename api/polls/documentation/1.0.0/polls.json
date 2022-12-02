@@ -1,19 +1,18 @@
 {
   "paths": {
-    "/feed-posts": {
+    "/polls": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the polls's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Polls"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Polls"
         ],
         "parameters": [
           {
@@ -195,18 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new polls record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Polls"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Polls"
         ],
         "requestBody": {
           "description": "",
@@ -252,26 +247,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewFeed-post"
+                "$ref": "#/components/schemas/NewPolls"
               }
             }
           }
         }
       }
     },
-    "/feed-posts/count": {
+    "/polls/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of polls documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,26 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Polls"
         ],
         "parameters": []
       }
     },
-    "/feed-posts/{id}": {
+    "/polls/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one polls record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Polls"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Polls"
         ],
         "parameters": [
           {
@@ -385,18 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single polls record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Polls"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Polls"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewFeed-post"
+                "$ref": "#/components/schemas/NewPolls"
               }
             }
           }
@@ -462,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single polls record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single polls based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Feed-post"
+          "Polls"
         ],
         "parameters": [
           {
@@ -523,82 +510,11 @@
           }
         ]
       }
-    },
-    "/feed-posts/like-by-user/{id}": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Feed-post"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "Feed-post": {
+      "Polls": {
         "required": [
           "id"
         ],
@@ -609,112 +525,7 @@
           "text": {
             "type": "string"
           },
-          "user": {
-            "required": [
-              "id",
-              "username",
-              "email"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "phone": {
-                "type": "string"
-              },
-              "phoneToken": {
-                "type": "integer"
-              },
-              "emailToken": {
-                "type": "integer"
-              },
-              "onboarded": {
-                "type": "boolean"
-              },
-              "onboardedAt": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "lastLogin": {
-                "type": "string"
-              },
-              "subscription": {
-                "type": "string"
-              },
-              "badges": {
-                "type": "object"
-              },
-              "advisor_profile": {
-                "type": "string"
-              },
-              "feed_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "feed_post_comments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "liked_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "notificationsSent": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "notificationsReceived": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "comments": {
+          "poll_options": {
             "type": "array",
             "items": {
               "required": [
@@ -727,11 +538,11 @@
                 "text": {
                   "type": "string"
                 },
-                "feed_post": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
+                "votes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -745,240 +556,22 @@
               }
             }
           },
-          "liked_by_users": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "phone": {
-                  "type": "string"
-                },
-                "phoneToken": {
-                  "type": "integer"
-                },
-                "emailToken": {
-                  "type": "integer"
-                },
-                "onboarded": {
-                  "type": "boolean"
-                },
-                "onboardedAt": {
-                  "type": "string"
-                },
-                "profile": {
-                  "type": "string"
-                },
-                "lastLogin": {
-                  "type": "string"
-                },
-                "subscription": {
-                  "type": "string"
-                },
-                "badges": {
-                  "type": "object"
-                },
-                "advisor_profile": {
-                  "type": "string"
-                },
-                "feed_posts": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "feed_post_comments": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "liked_posts": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "notificationsSent": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "notificationsReceived": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "media": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "poll": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "text": {
-                "type": "string"
-              },
-              "poll_options": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewFeed-post": {
+      "NewPolls": {
         "properties": {
           "text": {
             "type": "string"
           },
-          "user": {
-            "type": "string"
-          },
-          "comments": {
+          "poll_options": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "liked_by_users": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "poll": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -994,5 +587,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Polls"
+    }
+  ]
 }

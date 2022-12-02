@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "feed_post_comments",
+  "collectionName": "poll_options",
   "info": {
-    "name": "FeedPostComment"
+    "name": "poll-option",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,16 +13,11 @@
   "pluginOptions": {},
   "attributes": {
     "text": {
-      "type": "text"
+      "type": "string"
     },
-    "feed_post": {
-      "via": "comments",
-      "model": "feed-post"
-    },
-    "user": {
-      "via": "feed_post_comments",
+    "votes": {
       "plugin": "users-permissions",
-      "model": "user"
+      "collection": "user"
     }
   }
 }

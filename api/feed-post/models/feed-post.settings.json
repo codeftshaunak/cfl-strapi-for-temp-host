@@ -16,18 +16,18 @@
       "type": "text"
     },
     "user": {
+      "via": "feed_posts",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "feed_posts"
+      "model": "user"
     },
     "comments": {
       "via": "feed_post",
       "collection": "feed-post-comment"
     },
     "liked_by_users": {
+      "via": "liked_posts",
       "plugin": "users-permissions",
       "collection": "user",
-      "via": "liked_posts",
       "dominant": true
     },
     "media": {
@@ -41,6 +41,9 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "poll": {
+      "model": "polls"
     }
   }
 }

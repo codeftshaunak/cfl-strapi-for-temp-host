@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "polls",
+  "info": {
+    "name": "poll",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "poll_options": {
+      "collection": "poll-option"
+    }
+  }
+}

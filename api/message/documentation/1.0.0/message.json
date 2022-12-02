@@ -562,6 +562,9 @@
                   "type": "string"
                 }
               },
+              "updatedOn": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },

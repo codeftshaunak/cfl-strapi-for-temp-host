@@ -18,7 +18,9 @@
         "commented",
         "liked",
         "connectionRequest",
-        "discussionReply"
+        "discussionReply",
+        "posted",
+        "messaged"
       ]
     },
     "userSender": {

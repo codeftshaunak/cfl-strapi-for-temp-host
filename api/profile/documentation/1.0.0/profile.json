@@ -250,6 +250,63 @@
         "parameters": []
       }
     },
+    "/profiles/recommend-search": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Profile"
+        ],
+        "parameters": []
+      }
+    },
     "/profiles/me": {
       "get": {
         "deprecated": false,
@@ -902,12 +959,6 @@
                     "type": "string"
                   }
                 },
-                "topics": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "profile": {
                   "type": "string"
                 },
@@ -934,6 +985,12 @@
                 },
                 "pinned": {
                   "type": "boolean"
+                },
+                "topics": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -1028,6 +1085,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "updatedOn": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"

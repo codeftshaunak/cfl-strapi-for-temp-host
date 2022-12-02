@@ -40,6 +40,10 @@
     "messages": {
       "via": "connection",
       "collection": "message"
+    },
+    "updatedOn": {
+      "type": "datetime",
+      "default": "2022-11-16T18:30:00.000Z"
     }
   }
 }

@@ -1812,7 +1812,9 @@
                     "commented",
                     "liked",
                     "connectionRequest",
-                    "discussionReply"
+                    "discussionReply",
+                    "posted",
+                    "messaged"
                   ]
                 },
                 "userSender": {
@@ -1855,7 +1857,9 @@
                     "commented",
                     "liked",
                     "connectionRequest",
-                    "discussionReply"
+                    "discussionReply",
+                    "posted",
+                    "messaged"
                   ]
                 },
                 "userSender": {

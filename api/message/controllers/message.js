@@ -55,6 +55,7 @@ module.exports = {
           status: "message",
           profiles: [user.profile.id, ctx.request.body.to],
           authorProfile: user.profile.id,
+          updatedOn: new Date(),
         });
       }
     }
@@ -68,6 +69,14 @@ module.exports = {
       authorProfile: user.profile,
       body: ctx.request.body.body,
       read: false,
+    });
+
+    // marking for sort order of new messages
+    await strapi.services.connection.update({
+      id:connection.id,
+      profiles: user.profile.id
+    },{
+      updatedOn: new Date(),
     });
 
     // recalculate badges for receiving user
@@ -95,6 +104,16 @@ module.exports = {
         fromProfile: connection.profiles.filter(
           (p) => p.id === user.profile.id
         )[0],
+      },
+    });
+    
+    // send system notification
+    await strapi.services.notification.create({
+      action: "messaged",
+      userSender: user,
+      userReceiver: ctx.request.body.toUser,
+      references: {
+        connectionId: connection.id,
       },
     });
 

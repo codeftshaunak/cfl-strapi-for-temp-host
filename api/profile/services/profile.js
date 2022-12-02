@@ -108,4 +108,53 @@ module.exports = {
   findById(profileId) {
     return strapi.query("profile").findOne({ _id: profileId });
   },
+
+  buildReccomendSearchParams(user, query, connectedUsersId) {
+    let params = {
+      public: true,
+    };
+    let optionalParams = [];
+
+    if (user) {
+      connectedUsersId = [
+        ...connectedUsersId,
+        user.id
+      ]
+    }
+
+    if (connectedUsersId && connectedUsersId.length > 0) {
+      params["user"] = { $nin: connectedUsersId };
+    }
+
+    if (query.country) {
+      optionalParams = [
+        ...optionalParams,
+        { countryCode: { $in: query.country } },
+      ]
+    }
+    if (query.role && query.role.length > 0) {
+      optionalParams = [
+        ...optionalParams,
+        { role: { $in: query.role } },
+      ]
+    }
+    if (query.skills && query.skills.length > 0) {
+      optionalParams = [
+        ...optionalParams,
+        { skills: { $in: query.skills } },
+      ]
+    }
+    if (query.interests && query.interests.length > 0) {
+      optionalParams = [
+        ...optionalParams,
+        { interests: { $in: query.interests } },
+      ]
+    }
+
+    if (optionalParams.length > 0) {
+      params["$or"] = optionalParams;
+    }
+
+    return params;
+  },
 };

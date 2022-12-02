@@ -1,19 +1,18 @@
 {
   "paths": {
-    "/poll-post-options": {
+    "/polls": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the polls's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Polls"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Polls"
         ],
         "parameters": [
           {
@@ -195,18 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new polls record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Polls"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Polls"
         ],
         "requestBody": {
           "description": "",
@@ -252,26 +247,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPoll-post-option"
+                "$ref": "#/components/schemas/NewPolls"
               }
             }
           }
         }
       }
     },
-    "/poll-post-options/count": {
+    "/polls/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of polls documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,26 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Polls"
         ],
         "parameters": []
       }
     },
-    "/poll-post-options/{id}": {
+    "/polls/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one polls record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Polls"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Polls"
         ],
         "parameters": [
           {
@@ -385,18 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single polls record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Polls"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Polls"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPoll-post-option"
+                "$ref": "#/components/schemas/NewPolls"
               }
             }
           }
@@ -462,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single polls record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single polls based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Polls"
         ],
         "parameters": [
           {
@@ -527,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Poll-post-option": {
+      "Polls": {
         "required": [
           "id"
         ],
@@ -538,34 +525,34 @@
           "text": {
             "type": "string"
           },
-          "poll_post": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "text": {
-                "type": "string"
-              },
-              "user": {
-                "type": "string"
-              },
-              "options": {
-                "type": "array",
-                "items": {
+          "poll_options": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "votes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
@@ -575,13 +562,16 @@
           }
         }
       },
-      "NewPoll-post-option": {
+      "NewPolls": {
         "properties": {
           "text": {
             "type": "string"
           },
-          "poll_post": {
-            "type": "string"
+          "poll_options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -597,5 +587,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Polls"
+    }
+  ]
 }

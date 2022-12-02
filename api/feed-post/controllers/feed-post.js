@@ -24,6 +24,18 @@ module.exports = {
       .populate({
         path: "comments",
       })
+      .populate({
+        path: "user",
+        populate: {
+          path: "profile",
+        },
+      })
+      .populate({
+        path: "poll",
+        populate: {
+          path: "poll_options",
+        },
+      })
       .lean()
       .sort([["createdAt", "desc"]]);
 
@@ -51,6 +63,12 @@ module.exports = {
           populate: {
             path: "profile",
           },
+        })
+        .populate({
+          path: "poll",
+          populate: {
+            path: "poll_options",
+          },
         });
     }
 
@@ -60,9 +78,29 @@ module.exports = {
   async create(ctx) {
     const user = ctx.state.user;
     const data = ctx.request.body;
+    const { poll } = data;
+
+    const ids = await Promise.all(
+      poll.options.map(async (option) => {
+        const opt = await strapi.services["poll-option"].create({
+          text: option.value,
+          votes: 0,
+        });
+
+        return opt._id.toString();
+      })
+    );
+
+    console.log(ids);
+
+    const createdPoll = await strapi.services["polls"].create({
+      text: poll.text,
+      poll_options: ids,
+    });
     const entity = await strapi.services["feed-post"].create({
       ...data,
       user: user.id,
+      poll: createdPoll._id,
     });
 
     return sanitizeEntity(entity, { model: strapi.models["feed-post"] });

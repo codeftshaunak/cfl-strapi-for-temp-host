@@ -1701,6 +1701,9 @@
                     "type": "string"
                   }
                 },
+                "poll": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1777,6 +1780,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "poll": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -1863,40 +1869,6 @@
                 },
                 "isSeen": {
                   "type": "boolean"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "poll_posts": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "options": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -2009,12 +1981,6 @@
             }
           },
           "notificationsReceived": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "poll_posts": {
             "type": "array",
             "items": {
               "type": "string"

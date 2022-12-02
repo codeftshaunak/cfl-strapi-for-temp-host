@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "poll_posts",
+  "collectionName": "poll_options",
   "info": {
-    "name": "PollPost",
+    "name": "poll-option",
     "description": ""
   },
   "options": {
@@ -15,14 +15,9 @@
     "text": {
       "type": "string"
     },
-    "user": {
+    "votes": {
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "poll_posts"
-    },
-    "options": {
-      "via": "poll_post",
-      "collection": "poll-post-option"
+      "collection": "user"
     }
   }
 }

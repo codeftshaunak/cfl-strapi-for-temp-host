@@ -29,7 +29,7 @@ module.exports = {
     const { slug } = ctx.params;
 
     const entity = await strapi.services.profile.findOne({ slug });
-    if (!entity.public) {
+    if (!entity?.public) {
       return ctx.badRequest("profile not found");
     }
     if (!entity) {
@@ -137,7 +137,7 @@ module.exports = {
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
       data["user"] = user.id;
-      if(ctx.request.body.summary!==undefined){
+      if (ctx.request.body.summary !== undefined) {
         data["summary"] = sanitizeHtml(ctx.request.body.summary);
       }
       entity = await strapi.services.profile.update(
@@ -147,7 +147,7 @@ module.exports = {
       );
     } else {
       let data = ctx.request.body;
-      if(ctx.request.body.summary!==undefined){
+      if (ctx.request.body.summary !== undefined) {
         data = {
           ...ctx.request.body,
           summary: sanitizeHtml(ctx.request.body.summary),

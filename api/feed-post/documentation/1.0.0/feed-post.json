@@ -706,12 +706,6 @@
                   "type": "string"
                 }
               },
-              "poll_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "created_by": {
                 "type": "string"
               },
@@ -850,12 +844,6 @@
                     "type": "string"
                   }
                 },
-                "poll_posts": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "created_by": {
                   "type": "string"
                 },
@@ -935,6 +923,34 @@
               }
             }
           },
+          "poll": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "poll_options": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -960,6 +976,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "poll": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

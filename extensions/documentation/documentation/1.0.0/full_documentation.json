@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/28/2022 7:26:33 PM"
+    "x-generation-date": "12/02/2022 6:39:08 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8248,6 +8248,74 @@
         ]
       }
     },
+    "/feed-post/poll/": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Feed-post-comment"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewFeed-post-comment"
+              }
+            }
+          }
+        },
+        "parameters": []
+      }
+    },
     "/feed-posts": {
       "get": {
         "deprecated": false,
@@ -10895,7 +10963,7 @@
         ]
       }
     },
-    "/poll-post-options": {
+    "/poll-options": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10947,7 +11015,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Poll-option"
         ],
         "parameters": [
           {
@@ -11139,7 +11207,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Poll-option"
         ],
         "requestBody": {
           "description": "",
@@ -11147,14 +11215,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPoll-post-option"
+                "$ref": "#/components/schemas/NewPoll-option"
               }
             }
           }
         }
       }
     },
-    "/poll-post-options/count": {
+    "/poll-options/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -11206,12 +11274,12 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Poll-option"
         ],
         "parameters": []
       }
     },
-    "/poll-post-options/{id}": {
+    "/poll-options/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -11263,7 +11331,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Poll-option"
         ],
         "parameters": [
           {
@@ -11329,7 +11397,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Poll-option"
         ],
         "requestBody": {
           "description": "",
@@ -11337,7 +11405,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPoll-post-option"
+                "$ref": "#/components/schemas/NewPoll-option"
               }
             }
           }
@@ -11403,7 +11471,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post-option"
+          "Poll-option"
         ],
         "parameters": [
           {
@@ -11419,7 +11487,7 @@
         ]
       }
     },
-    "/poll-posts": {
+    "/poll-options/{id}/vote": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -11471,7 +11539,74 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post"
+          "Poll-option"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/polls": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the polls's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve polls document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Polls"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Polls"
         ],
         "parameters": [
           {
@@ -11614,18 +11749,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new polls record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Polls"
                 }
               }
             }
@@ -11663,7 +11794,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post"
+          "Polls"
         ],
         "requestBody": {
           "description": "",
@@ -11671,26 +11802,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPoll-post"
+                "$ref": "#/components/schemas/NewPolls"
               }
             }
           }
         }
       }
     },
-    "/poll-posts/count": {
+    "/polls/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of polls documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -11730,26 +11861,22 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post"
+          "Polls"
         ],
         "parameters": []
       }
     },
-    "/poll-posts/{id}": {
+    "/polls/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one polls record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Polls"
                 }
               }
             }
@@ -11787,7 +11914,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post"
+          "Polls"
         ],
         "parameters": [
           {
@@ -11804,18 +11931,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single polls record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve polls document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Polls"
                 }
               }
             }
@@ -11853,7 +11976,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post"
+          "Polls"
         ],
         "requestBody": {
           "description": "",
@@ -11861,7 +11984,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPoll-post"
+                "$ref": "#/components/schemas/NewPolls"
               }
             }
           }
@@ -11881,10 +12004,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single polls record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single polls based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -11927,7 +12050,7 @@
         },
         "summary": "",
         "tags": [
-          "Poll-post"
+          "Polls"
         ],
         "parameters": [
           {
@@ -16074,12 +16197,6 @@
                   "type": "string"
                 }
               },
-              "poll_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "created_by": {
                 "type": "string"
               },
@@ -18726,6 +18843,9 @@
                   "type": "string"
                 }
               },
+              "poll": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -18829,12 +18949,6 @@
                 }
               },
               "notificationsReceived": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "poll_posts": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -18985,12 +19099,6 @@
                   "type": "string"
                 }
               },
-              "poll_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "created_by": {
                 "type": "string"
               },
@@ -19129,12 +19237,6 @@
                     "type": "string"
                   }
                 },
-                "poll_posts": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "created_by": {
                   "type": "string"
                 },
@@ -19214,6 +19316,34 @@
               }
             }
           },
+          "poll": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "poll_options": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -19239,6 +19369,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "poll": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -19557,12 +19690,6 @@
                   "type": "string"
                 }
               },
-              "poll_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "created_by": {
                 "type": "string"
               },
@@ -19663,12 +19790,6 @@
                 }
               },
               "notificationsReceived": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "poll_posts": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -20056,12 +20177,6 @@
                   "type": "string"
                 }
               },
-              "poll_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "created_by": {
                 "type": "string"
               },
@@ -20091,7 +20206,7 @@
           }
         }
       },
-      "Poll-post-option": {
+      "Poll-option": {
         "required": [
           "id"
         ],
@@ -20102,34 +20217,111 @@
           "text": {
             "type": "string"
           },
-          "poll_post": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "text": {
-                "type": "string"
-              },
-              "user": {
-                "type": "string"
-              },
-              "options": {
-                "type": "array",
-                "items": {
+          "votes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "confirmationToken": {
+                  "type": "string"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                },
+                "blocked": {
+                  "type": "boolean"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "phoneToken": {
+                  "type": "integer"
+                },
+                "emailToken": {
+                  "type": "integer"
+                },
+                "onboarded": {
+                  "type": "boolean"
+                },
+                "onboardedAt": {
+                  "type": "string"
+                },
+                "profile": {
+                  "type": "string"
+                },
+                "lastLogin": {
+                  "type": "string"
+                },
+                "subscription": {
+                  "type": "string"
+                },
+                "badges": {
+                  "type": "object"
+                },
+                "advisor_profile": {
+                  "type": "string"
+                },
+                "feed_posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "feed_post_comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "liked_posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificationsSent": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificationsReceived": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
@@ -20139,13 +20331,16 @@
           }
         }
       },
-      "NewPoll-post-option": {
+      "NewPoll-option": {
         "properties": {
           "text": {
             "type": "string"
           },
-          "poll_post": {
-            "type": "string"
+          "votes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -20159,7 +20354,7 @@
           }
         }
       },
-      "Poll-post": {
+      "Polls": {
         "required": [
           "id"
         ],
@@ -20170,118 +20365,7 @@
           "text": {
             "type": "string"
           },
-          "user": {
-            "required": [
-              "id",
-              "username",
-              "email"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "phone": {
-                "type": "string"
-              },
-              "phoneToken": {
-                "type": "integer"
-              },
-              "emailToken": {
-                "type": "integer"
-              },
-              "onboarded": {
-                "type": "boolean"
-              },
-              "onboardedAt": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "lastLogin": {
-                "type": "string"
-              },
-              "subscription": {
-                "type": "string"
-              },
-              "badges": {
-                "type": "object"
-              },
-              "advisor_profile": {
-                "type": "string"
-              },
-              "feed_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "feed_post_comments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "liked_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "notificationsSent": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "notificationsReceived": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "poll_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "options": {
+          "poll_options": {
             "type": "array",
             "items": {
               "required": [
@@ -20294,8 +20378,11 @@
                 "text": {
                   "type": "string"
                 },
-                "poll_post": {
-                  "type": "string"
+                "votes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -20315,15 +20402,12 @@
           }
         }
       },
-      "NewPoll-post": {
+      "NewPolls": {
         "properties": {
           "text": {
             "type": "string"
           },
-          "user": {
-            "type": "string"
-          },
-          "options": {
+          "poll_options": {
             "type": "array",
             "items": {
               "type": "string"
@@ -20441,12 +20525,6 @@
                 }
               },
               "notificationsReceived": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "poll_posts": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -21062,12 +21140,6 @@
                   "type": "string"
                 }
               },
-              "poll_posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "created_by": {
                 "type": "string"
               },
@@ -21251,12 +21323,6 @@
                   }
                 },
                 "notificationsReceived": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "poll_posts": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -21612,6 +21678,9 @@
                     "type": "string"
                   }
                 },
+                "poll": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -21688,6 +21757,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "poll": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -21774,40 +21846,6 @@
                 },
                 "isSeen": {
                   "type": "boolean"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "poll_posts": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "text": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "options": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -21925,12 +21963,6 @@
               "type": "string"
             }
           },
-          "poll_posts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "created_by": {
             "type": "string"
           },
@@ -21996,6 +22028,9 @@
     },
     {
       "name": "Onboarding"
+    },
+    {
+      "name": "Polls"
     },
     {
       "name": "Profile"

@@ -26,7 +26,7 @@ module.exports = {
       profiles: { $all: [user.profile, data.profile] },
     });
 
-    if (connection && connection.status!=="message") {
+    if (connection && connection.status !== "message") {
       return ctx.badRequest(
         `You already have a connection with this person. Status: ${connection.status}`
       );
@@ -51,16 +51,19 @@ module.exports = {
     data["profiles"] = [user.profile, data.profile];
     data["status"] = "pending";
     // updating if chatting already
-    if(connection){
-      entity = await strapi.services.connection.update({
-        id:connection.id,
-        profiles: user.profile.id
-      },{
-        authorProfile:user.profile,
-        message:data.message,
-        status:"pending"
-      });
-    }else{
+    if (connection) {
+      entity = await strapi.services.connection.update(
+        {
+          id: connection.id,
+          profiles: user.profile.id,
+        },
+        {
+          authorProfile: user.profile,
+          message: data.message,
+          status: "pending",
+        }
+      );
+    } else {
       entity = await strapi.services.connection.create(data);
     }
 
@@ -70,13 +73,23 @@ module.exports = {
     });
 
     // creating notification
-    strapi.services.profile.findById(data.profile).then((profile) => {
+    strapi.services.profile.findById(data.profile).then(async (profile) => {
       strapi.services.notification.create({
         action: "connectionRequest",
         userSender: user._id,
         userReceiver: profile.user._id,
         references: {},
       });
+      const updatedConnections = [entity.id];
+      console.log("updatedConnections = ", updatedConnections);
+      await strapi.services.profile.update(
+        {
+          id: profile.id,
+        },
+        {
+          connections: updatedConnections,
+        }
+      );
     });
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
@@ -117,7 +130,7 @@ module.exports = {
     return entities.map((entity) => {
       //delete entity.messages;
       return sanitizeEntity(entity, { model: strapi.models.connection });
-    })
+    });
     // return entities.map((entity) =>
     //   sanitizeEntity(entity, { model: strapi.models.connection })
     // );
@@ -157,7 +170,7 @@ module.exports = {
       { id, profiles: user.profile.id },
       {
         status: "accepted",
-        updatedOn: new Date()
+        updatedOn: new Date(),
       }
     );
 

@@ -84,7 +84,6 @@ module.exports = {
       poll.options.map(async (option) => {
         const opt = await strapi.services["poll-option"].create({
           text: option.value,
-          votes: 0,
         });
 
         return opt._id.toString();
@@ -105,20 +104,22 @@ module.exports = {
 
     // Finding all the connections
     const connection = await strapi.services.connection.find({
-        status: { $in: ["accepted", "message"]},
-        profiles: { $in: [user.profile ] },
-      });
+      status: { $in: ["accepted", "message"] },
+      profiles: { $in: [user.profile] },
+    });
 
     if (connection) {
       let connectedUsersId = [];
 
-      connection.forEach(item => item.profiles?.forEach(profile => {
-        if (profile.user != user._id) {
-          connectedUsersId.push(profile.user);
-        };
-      }));
+      connection.forEach((item) =>
+        item.profiles?.forEach((profile) => {
+          if (profile.user != user._id) {
+            connectedUsersId.push(profile.user);
+          }
+        })
+      );
 
-      connectedUsersId.forEach(async connectedUserId => {
+      connectedUsersId.forEach(async (connectedUserId) => {
         // send notification
         await strapi.services.notification.create({
           action: "posted",
@@ -128,7 +129,7 @@ module.exports = {
             postId: entity._id,
           },
         });
-      })
+      });
     }
 
     return sanitizeEntity(entity, { model: strapi.models["feed-post"] });

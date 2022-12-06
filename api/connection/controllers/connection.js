@@ -47,9 +47,6 @@ module.exports = {
       );
     }
 
-    data["authorProfile"] = user.profile;
-    data["profiles"] = [user.profile, data.profile];
-    data["status"] = "pending";
     // updating if chatting already
     if (connection) {
       entity = await strapi.services.connection.update(
@@ -64,7 +61,13 @@ module.exports = {
         }
       );
     } else {
-      entity = await strapi.services.connection.create(data);
+      const newConnection = {
+        authorProfile: data.profile,
+        profiles: [user.profile.id, data.profile],
+        status: "pending",
+        message: data.message,
+      };
+      entity = await strapi.services.connection.create(newConnection);
     }
 
     strapi.plugins.queue.services.badges.add({
@@ -74,20 +77,18 @@ module.exports = {
 
     // creating notification
     strapi.services.profile.findById(data.profile).then(async (profile) => {
-      strapi.services.notification.create({
+      await strapi.services.notification.create({
         action: "connectionRequest",
         userSender: user._id,
         userReceiver: profile.user._id,
         references: {},
       });
-      const updatedConnections = [entity.id];
-      console.log("updatedConnections = ", updatedConnections);
       await strapi.services.profile.update(
         {
           id: profile.id,
         },
         {
-          connections: updatedConnections,
+          connections: [entity],
         }
       );
     });

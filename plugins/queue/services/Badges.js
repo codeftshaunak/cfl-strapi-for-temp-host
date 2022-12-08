@@ -58,14 +58,18 @@ badgesQueue.process(async (job, done) => {
           badgesQueue.close();
           done();
         } catch (error) {
+          console.log("failed updating unread message count ----------------", error);
           done(new Error("failed updating unread message count ----------------", error));
         }
       }
+      console.log("no profile id ------------------------------");
       done(new Error("no profileId"));
       break;
     default:
+      console.log("Unexpected job type ------------------------------");
       done(new Error("unexpected job type"));
   }
+  console.log("should not get here ------------------------------");
   done(new Error("should not get here"));
 });
 

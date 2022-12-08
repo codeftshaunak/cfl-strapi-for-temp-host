@@ -26,7 +26,7 @@ module.exports = {
       profiles: { $all: [user.profile, data.profile] },
     });
 
-    if (connection && connection.status!=="message") {
+    if (connection && connection.status !== "message") {
       return ctx.badRequest(
         `You already have a connection with this person. Status: ${connection.status}`
       );
@@ -47,31 +47,40 @@ module.exports = {
       );
     }
 
-    data["authorProfile"] = user.profile;
-    data["profiles"] = [user.profile, data.profile];
-    data["status"] = "pending";
     // updating if chatting already
-    if(connection){
-      entity = await strapi.services.connection.update({
-        id:connection.id,
-        profiles: user.profile.id
-      },{
-        authorProfile:user.profile,
-        message:data.message,
-        status:"pending"
-      });
-    }else{
-      entity = await strapi.services.connection.create(data);
+    if (connection) {
+      entity = await strapi.services.connection.update(
+        {
+          id: connection.id,
+          profiles: user.profile.id,
+        },
+        {
+          authorProfile: user.profile,
+          message: data.message,
+          status: "pending",
+        }
+      );
+    } else {
+      const newConnection = {
+        authorProfile: data.profile,
+        profiles: [user.profile.id, data.profile],
+        status: "pending",
+        message: data.message,
+      };
+      entity = await strapi.services.connection.create(newConnection);
     }
 
-    strapi.plugins.queue.services.badges.add({
-      type: "connections",
-      profileId: data.profile,
-    },{removeOnComplete: true});
+    strapi.plugins.queue.services.badges.add(
+      {
+        type: "connections",
+        profileId: data.profile,
+      },
+      { removeOnComplete: true }
+    );
 
     // creating notification
-    strapi.services.profile.findById(data.profile).then((profile) => {
-      strapi.services.notification.create({
+    strapi.services.profile.findById(data.profile).then(async (profile) => {
+      await strapi.services.notification.create({
         action: "connectionRequest",
         userSender: user._id,
         userReceiver: profile.user._id,
@@ -79,20 +88,32 @@ module.exports = {
       });
 
       // email notification
-      strapi.plugins.queue.services.emails.add({
-        options: {
-          to: profile.user.email,
+      strapi.plugins.queue.services.emails.add(
+        {
+          options: {
+            to: profile.user.email,
+          },
+          template: {
+            templateId: 6,
+            sourceCodeToTemplateId: 6,
+          },
+          data: {
+            toProfile: profile,
+            fromProfile: user.profile,
+          },
         },
-        template: {
-          templateId: 6,
-          sourceCodeToTemplateId: 6,
-        },
-        data: {
-          toProfile: profile,
-          fromProfile: user.profile,
-        },
-      },{removeOnComplete: true});
+        { removeOnComplete: true }
+      );
       //console.log('check status ', profile ,user.profile);
+
+      await strapi.services.profile.update(
+        {
+          id: profile.id,
+        },
+        {
+          connections: [entity],
+        }
+      );
     });
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
@@ -133,7 +154,7 @@ module.exports = {
     return entities.map((entity) => {
       //delete entity.messages;
       return sanitizeEntity(entity, { model: strapi.models.connection });
-    })
+    });
     // return entities.map((entity) =>
     //   sanitizeEntity(entity, { model: strapi.models.connection })
     // );
@@ -173,14 +194,17 @@ module.exports = {
       { id, profiles: user.profile.id },
       {
         status: "accepted",
-        updatedOn: new Date()
+        updatedOn: new Date(),
       }
     );
 
-    strapi.plugins.queue.services.badges.add({
-      type: "connections",
-      profileId: user.profile.id,
-    },{removeOnComplete: true});
+    strapi.plugins.queue.services.badges.add(
+      {
+        type: "connections",
+        profileId: user.profile.id,
+      },
+      { removeOnComplete: true }
+    );
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },
@@ -222,10 +246,13 @@ module.exports = {
       }
     );
 
-    strapi.plugins.queue.services.badges.add({
-      type: "connections",
-      profileId: user.profile.id,
-    },{removeOnComplete: true});
+    strapi.plugins.queue.services.badges.add(
+      {
+        type: "connections",
+        profileId: user.profile.id,
+      },
+      { removeOnComplete: true }
+    );
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
   },
@@ -254,10 +281,13 @@ module.exports = {
         }
       );
 
-      strapi.plugins.queue.services.badges.add({
-        type: "messages",
-        profileId: user.profile.id,
-      },{removeOnComplete: true});
+      strapi.plugins.queue.services.badges.add(
+        {
+          type: "messages",
+          profileId: user.profile.id,
+        },
+        { removeOnComplete: true }
+      );
     } catch (e) {}
 
     return { ok: true };

@@ -64,6 +64,10 @@ module.exports = {
     entities = await strapi
       .query("profile")
       .model.find(params)
+      .populate({
+        path: "connections",
+        select: ["status", "profiles"],
+      })
       .sort(sort)
       .skip(parseInt(_start))
       .limit(parseInt(_limit));
@@ -193,16 +197,18 @@ module.exports = {
 
     // Finding all the connections
     const connection = await strapi.services.connection.find({
-        status: { $in: ["accepted", "message"]},
-        profiles: { $in: [user.profile ] },
-      });
+      status: { $in: ["accepted", "message"] },
+      profiles: { $in: [user.profile] },
+    });
 
     if (connection) {
-      connection.forEach(item => item.profiles?.forEach(profile => {
-        if (profile.user != user._id) {
-          connectedUsersId.push(profile.user);
-        };
-      }));
+      connection.forEach((item) =>
+        item.profiles?.forEach((profile) => {
+          if (profile.user != user._id) {
+            connectedUsersId.push(profile.user);
+          }
+        })
+      );
     }
 
     const params = strapi.services.profile.buildReccomendSearchParams(
@@ -210,7 +216,6 @@ module.exports = {
       ctx.query,
       connectedUsersId
     );
-
 
     const entities = await strapi
       .query("profile")

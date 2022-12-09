@@ -9,32 +9,53 @@ module.exports = {
   async pollVote(ctx) {
     try {
       const user = ctx.state.user;
-      const { voted } = ctx.request.body;
 
       const { id } = ctx.params;
+      const { pollId } = ctx.query;
 
-      const entity = await strapi
-        .query("poll-option")
-        .findOne({ _id: id })
-        .lean();
+      const entity = await strapi.query("poll-option").findOne({ _id: id });
 
-      if (voted) {
-        entity.votes.push(user.id);
-      } else {
-        const { votes } = entity;
+      const { votes } = entity;
 
-        const index = votes.findIndex(
-          (userId) => userId.toString() === user.id
+      if (
+        !votes.find((vote) => vote?._id.toString() === user?._id.toString())
+      ) {
+        const saved = await strapi.query("poll-option").update(
+          { id },
+          {
+            votes: [
+              ...votes,
+              !votes.includes(user?._id) && user?._id.toString(),
+            ],
+          }
+        );
+        const poll = await strapi.query("polls").findOne({ _id: pollId });
+
+        const count = poll?.poll_options.reduce(
+          (acc, item) => acc + item.votes.length,
+          0
         );
 
-        if (index > -1) {
-          entity.votes.splice(index, 1);
-        }
+        return { poll: poll, count };
+      } else {
+        const newVotes = votes.filter(
+          (vote) => vote?._id.toString() !== user._id.toString()
+        );
+        const saved = await strapi.query("poll-option").update(
+          { id },
+          {
+            votes: newVotes,
+          }
+        );
+
+        const poll = await strapi.query("polls").findOne({ _id: pollId });
+
+        const count = poll?.poll_options.reduce(
+          (acc, item) => acc + item.votes.length,
+          0
+        );
+        return { poll: poll, count };
       }
-
-      await strapi.query("poll-option").update({ id }, { votes: entity.votes });
-
-      return entity.votes;
     } catch (err) {
       console.log("err", err);
       return err;

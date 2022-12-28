@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/02/2022 6:39:08 PM"
+    "x-generation-date": "12/28/2022 3:47:34 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -96,7 +96,9 @@
           }
         },
         "summary": "",
-        "tags": ["Advisor-profile"],
+        "tags": [
+          "Advisor-profile"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -286,7 +288,9 @@
           }
         },
         "summary": "",
-        "tags": ["Advisor-profile"],
+        "tags": [
+          "Advisor-profile"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -351,7 +355,9 @@
           }
         },
         "summary": "",
-        "tags": ["Advisor-profile"],
+        "tags": [
+          "Advisor-profile"
+        ],
         "parameters": []
       }
     },
@@ -406,7 +412,9 @@
           }
         },
         "summary": "",
-        "tags": ["Advisor-profile"],
+        "tags": [
+          "Advisor-profile"
+        ],
         "parameters": [
           {
             "name": "slug",
@@ -472,7 +480,9 @@
           }
         },
         "summary": "",
-        "tags": ["Advisor-profile"],
+        "tags": [
+          "Advisor-profile"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -544,7 +554,9 @@
           }
         },
         "summary": "",
-        "tags": ["Advisor-profile"],
+        "tags": [
+          "Advisor-profile"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -609,7 +621,9 @@
           }
         },
         "summary": "",
-        "tags": ["Announcement"],
+        "tags": [
+          "Announcement"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -795,7 +809,9 @@
           }
         },
         "summary": "",
-        "tags": ["Announcement"],
+        "tags": [
+          "Announcement"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -856,7 +872,9 @@
           }
         },
         "summary": "",
-        "tags": ["Announcement"],
+        "tags": [
+          "Announcement"
+        ],
         "parameters": []
       }
     },
@@ -911,7 +929,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-category"],
+        "tags": [
+          "Blog-category"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -1101,7 +1121,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-category"],
+        "tags": [
+          "Blog-category"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1166,7 +1188,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-category"],
+        "tags": [
+          "Blog-category"
+        ],
         "parameters": []
       }
     },
@@ -1221,7 +1245,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-category"],
+        "tags": [
+          "Blog-category"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1285,7 +1311,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-category"],
+        "tags": [
+          "Blog-category"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1357,7 +1385,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-category"],
+        "tags": [
+          "Blog-category"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1423,7 +1453,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-post"],
+        "tags": [
+          "Blog-post"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -1613,7 +1645,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-post"],
+        "tags": [
+          "Blog-post"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1678,7 +1712,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-post"],
+        "tags": [
+          "Blog-post"
+        ],
         "parameters": []
       }
     },
@@ -1733,7 +1769,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-post"],
+        "tags": [
+          "Blog-post"
+        ],
         "parameters": [
           {
             "name": "slug",
@@ -1799,7 +1837,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-post"],
+        "tags": [
+          "Blog-post"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1871,7 +1911,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blog-post"],
+        "tags": [
+          "Blog-post"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1936,7 +1978,9 @@
           }
         },
         "summary": "",
-        "tags": ["City"],
+        "tags": [
+          "City"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -2122,7 +2166,9 @@
           }
         },
         "summary": "",
-        "tags": ["City"],
+        "tags": [
+          "City"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2187,7 +2233,9 @@
           }
         },
         "summary": "",
-        "tags": ["City"],
+        "tags": [
+          "City"
+        ],
         "parameters": []
       }
     },
@@ -2238,7 +2286,9 @@
           }
         },
         "summary": "",
-        "tags": ["City"],
+        "tags": [
+          "City"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -2298,7 +2348,9 @@
           }
         },
         "summary": "",
-        "tags": ["City"],
+        "tags": [
+          "City"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2370,7 +2422,9 @@
           }
         },
         "summary": "",
-        "tags": ["City"],
+        "tags": [
+          "City"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -2435,7 +2489,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -2621,7 +2677,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2686,7 +2744,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "parameters": []
       }
     },
@@ -2741,7 +2801,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "parameters": []
       }
     },
@@ -2796,7 +2858,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "parameters": []
       }
     },
@@ -2847,7 +2911,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -2907,7 +2973,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2979,7 +3047,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -3045,7 +3115,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3114,7 +3186,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3195,7 +3269,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3276,7 +3352,9 @@
           }
         },
         "summary": "",
-        "tags": ["Connection"],
+        "tags": [
+          "Connection"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3344,7 +3422,9 @@
           }
         },
         "summary": "",
-        "tags": ["Contact"],
+        "tags": [
+          "Contact"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -3530,7 +3610,9 @@
           }
         },
         "summary": "",
-        "tags": ["Contact"],
+        "tags": [
+          "Contact"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3595,7 +3677,9 @@
           }
         },
         "summary": "",
-        "tags": ["Contact"],
+        "tags": [
+          "Contact"
+        ],
         "parameters": []
       }
     },
@@ -3646,7 +3730,9 @@
           }
         },
         "summary": "",
-        "tags": ["Contact"],
+        "tags": [
+          "Contact"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -3706,7 +3792,9 @@
           }
         },
         "summary": "",
-        "tags": ["Contact"],
+        "tags": [
+          "Contact"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3778,7 +3866,9 @@
           }
         },
         "summary": "",
-        "tags": ["Contact"],
+        "tags": [
+          "Contact"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -3843,7 +3933,9 @@
           }
         },
         "summary": "",
-        "tags": ["Country"],
+        "tags": [
+          "Country"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -4029,7 +4121,9 @@
           }
         },
         "summary": "",
-        "tags": ["Country"],
+        "tags": [
+          "Country"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4094,7 +4188,9 @@
           }
         },
         "summary": "",
-        "tags": ["Country"],
+        "tags": [
+          "Country"
+        ],
         "parameters": []
       }
     },
@@ -4145,7 +4241,9 @@
           }
         },
         "summary": "",
-        "tags": ["Country"],
+        "tags": [
+          "Country"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -4205,7 +4303,9 @@
           }
         },
         "summary": "",
-        "tags": ["Country"],
+        "tags": [
+          "Country"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4277,7 +4377,9 @@
           }
         },
         "summary": "",
-        "tags": ["Country"],
+        "tags": [
+          "Country"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -4343,7 +4445,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course-content"],
+        "tags": [
+          "Course-content"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -4533,7 +4637,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course-content"],
+        "tags": [
+          "Course-content"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4598,7 +4704,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course-content"],
+        "tags": [
+          "Course-content"
+        ],
         "parameters": []
       }
     },
@@ -4653,7 +4761,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course-content"],
+        "tags": [
+          "Course-content"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -4717,7 +4827,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course-content"],
+        "tags": [
+          "Course-content"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4789,7 +4901,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course-content"],
+        "tags": [
+          "Course-content"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -4854,7 +4968,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course"],
+        "tags": [
+          "Course"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -5040,7 +5156,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course"],
+        "tags": [
+          "Course"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5105,7 +5223,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course"],
+        "tags": [
+          "Course"
+        ],
         "parameters": []
       }
     },
@@ -5156,7 +5276,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course"],
+        "tags": [
+          "Course"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -5216,7 +5338,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course"],
+        "tags": [
+          "Course"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5288,7 +5412,9 @@
           }
         },
         "summary": "",
-        "tags": ["Course"],
+        "tags": [
+          "Course"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -5354,7 +5480,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-reply"],
+        "tags": [
+          "Discussion-reply"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -5544,7 +5672,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-reply"],
+        "tags": [
+          "Discussion-reply"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5609,7 +5739,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-reply"],
+        "tags": [
+          "Discussion-reply"
+        ],
         "parameters": []
       }
     },
@@ -5664,7 +5796,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-reply"],
+        "tags": [
+          "Discussion-reply"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -5728,7 +5862,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-reply"],
+        "tags": [
+          "Discussion-reply"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5800,7 +5936,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-reply"],
+        "tags": [
+          "Discussion-reply"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -5866,7 +6004,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-reply"],
+        "tags": [
+          "Discussion-reply"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5935,7 +6075,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-topic"],
+        "tags": [
+          "Discussion-topic"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -6125,7 +6267,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-topic"],
+        "tags": [
+          "Discussion-topic"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6190,7 +6334,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-topic"],
+        "tags": [
+          "Discussion-topic"
+        ],
         "parameters": []
       }
     },
@@ -6245,7 +6391,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-topic"],
+        "tags": [
+          "Discussion-topic"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -6309,7 +6457,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-topic"],
+        "tags": [
+          "Discussion-topic"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6381,7 +6531,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion-topic"],
+        "tags": [
+          "Discussion-topic"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -6446,7 +6598,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion"],
+        "tags": [
+          "Discussion"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -6632,7 +6786,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion"],
+        "tags": [
+          "Discussion"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6697,7 +6853,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion"],
+        "tags": [
+          "Discussion"
+        ],
         "parameters": []
       }
     },
@@ -6752,7 +6910,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion"],
+        "tags": [
+          "Discussion"
+        ],
         "parameters": [
           {
             "name": "slug",
@@ -6814,7 +6974,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion"],
+        "tags": [
+          "Discussion"
+        ],
         "parameters": [
           {
             "name": "slug",
@@ -6880,7 +7042,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion"],
+        "tags": [
+          "Discussion"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6945,7 +7109,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion"],
+        "tags": [
+          "Discussion"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7017,7 +7183,9 @@
           }
         },
         "summary": "",
-        "tags": ["Discussion"],
+        "tags": [
+          "Discussion"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -7082,7 +7250,9 @@
           }
         },
         "summary": "",
-        "tags": ["Event"],
+        "tags": [
+          "Event"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -7268,7 +7438,9 @@
           }
         },
         "summary": "",
-        "tags": ["Event"],
+        "tags": [
+          "Event"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7333,7 +7505,9 @@
           }
         },
         "summary": "",
-        "tags": ["Event"],
+        "tags": [
+          "Event"
+        ],
         "parameters": []
       }
     },
@@ -7384,7 +7558,9 @@
           }
         },
         "summary": "",
-        "tags": ["Event"],
+        "tags": [
+          "Event"
+        ],
         "parameters": [
           {
             "name": "slug",
@@ -7446,7 +7622,9 @@
           }
         },
         "summary": "",
-        "tags": ["Event"],
+        "tags": [
+          "Event"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7518,7 +7696,9 @@
           }
         },
         "summary": "",
-        "tags": ["Event"],
+        "tags": [
+          "Event"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -7584,7 +7764,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post-comment"],
+        "tags": [
+          "Feed-post-comment"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -7774,7 +7956,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post-comment"],
+        "tags": [
+          "Feed-post-comment"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7839,7 +8023,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post-comment"],
+        "tags": [
+          "Feed-post-comment"
+        ],
         "parameters": []
       }
     },
@@ -7894,7 +8080,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post-comment"],
+        "tags": [
+          "Feed-post-comment"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -7958,7 +8146,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post-comment"],
+        "tags": [
+          "Feed-post-comment"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8030,7 +8220,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post-comment"],
+        "tags": [
+          "Feed-post-comment"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -8096,7 +8288,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post-comment"],
+        "tags": [
+          "Feed-post-comment"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -8162,7 +8356,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post-comment"],
+        "tags": [
+          "Feed-post-comment"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8228,7 +8424,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post"],
+        "tags": [
+          "Feed-post"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -8418,7 +8616,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post"],
+        "tags": [
+          "Feed-post"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8483,7 +8683,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post"],
+        "tags": [
+          "Feed-post"
+        ],
         "parameters": []
       }
     },
@@ -8538,7 +8740,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post"],
+        "tags": [
+          "Feed-post"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -8602,7 +8806,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post"],
+        "tags": [
+          "Feed-post"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8674,7 +8880,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post"],
+        "tags": [
+          "Feed-post"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -8740,7 +8948,9 @@
           }
         },
         "summary": "",
-        "tags": ["Feed-post"],
+        "tags": [
+          "Feed-post"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -8756,6 +8966,517 @@
             }
           }
         }
+      }
+    },
+    "/groups": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Group"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Group"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Group"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewGroup"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/groups/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Group"
+        ],
+        "parameters": []
+      }
+    },
+    "/groups/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Group"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Group"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewGroup"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Group"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/messages": {
@@ -8808,7 +9529,9 @@
           }
         },
         "summary": "",
-        "tags": ["Message"],
+        "tags": [
+          "Message"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -8994,7 +9717,9 @@
           }
         },
         "summary": "",
-        "tags": ["Message"],
+        "tags": [
+          "Message"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -9059,7 +9784,9 @@
           }
         },
         "summary": "",
-        "tags": ["Message"],
+        "tags": [
+          "Message"
+        ],
         "parameters": []
       }
     },
@@ -9110,7 +9837,9 @@
           }
         },
         "summary": "",
-        "tags": ["Message"],
+        "tags": [
+          "Message"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -9170,7 +9899,9 @@
           }
         },
         "summary": "",
-        "tags": ["Message"],
+        "tags": [
+          "Message"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -9242,7 +9973,9 @@
           }
         },
         "summary": "",
-        "tags": ["Message"],
+        "tags": [
+          "Message"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -9307,7 +10040,9 @@
           }
         },
         "summary": "",
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -9493,7 +10228,9 @@
           }
         },
         "summary": "",
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -9558,7 +10295,9 @@
           }
         },
         "summary": "",
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "parameters": []
       }
     },
@@ -9613,7 +10352,9 @@
           }
         },
         "summary": "",
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "parameters": []
       }
     },
@@ -9668,7 +10409,9 @@
           }
         },
         "summary": "",
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "parameters": []
       }
     },
@@ -9719,7 +10462,9 @@
           }
         },
         "summary": "",
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -9779,7 +10524,9 @@
           }
         },
         "summary": "",
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -9851,7 +10598,9 @@
           }
         },
         "summary": "",
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -9917,7 +10666,9 @@
           }
         },
         "summary": "",
-        "tags": ["Notification"],
+        "tags": [
+          "Notification"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -9997,7 +10748,9 @@
           }
         },
         "summary": "",
-        "tags": ["Onboarding"],
+        "tags": [
+          "Onboarding"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -10183,7 +10936,9 @@
           }
         },
         "summary": "",
-        "tags": ["Onboarding"],
+        "tags": [
+          "Onboarding"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -10244,7 +10999,9 @@
           }
         },
         "summary": "",
-        "tags": ["Onboarding"],
+        "tags": [
+          "Onboarding"
+        ],
         "parameters": []
       }
     },
@@ -10299,7 +11056,9 @@
           }
         },
         "summary": "",
-        "tags": ["Personal-room"],
+        "tags": [
+          "Personal-room"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -10489,7 +11248,9 @@
           }
         },
         "summary": "",
-        "tags": ["Personal-room"],
+        "tags": [
+          "Personal-room"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -10554,7 +11315,9 @@
           }
         },
         "summary": "",
-        "tags": ["Personal-room"],
+        "tags": [
+          "Personal-room"
+        ],
         "parameters": []
       }
     },
@@ -10609,7 +11372,9 @@
           }
         },
         "summary": "",
-        "tags": ["Personal-room"],
+        "tags": [
+          "Personal-room"
+        ],
         "parameters": [
           {
             "name": "slug",
@@ -10675,7 +11440,9 @@
           }
         },
         "summary": "",
-        "tags": ["Personal-room"],
+        "tags": [
+          "Personal-room"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -10747,7 +11514,9 @@
           }
         },
         "summary": "",
-        "tags": ["Personal-room"],
+        "tags": [
+          "Personal-room"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -10813,7 +11582,9 @@
           }
         },
         "summary": "",
-        "tags": ["Poll-option"],
+        "tags": [
+          "Poll-option"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -11003,7 +11774,9 @@
           }
         },
         "summary": "",
-        "tags": ["Poll-option"],
+        "tags": [
+          "Poll-option"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -11068,7 +11841,9 @@
           }
         },
         "summary": "",
-        "tags": ["Poll-option"],
+        "tags": [
+          "Poll-option"
+        ],
         "parameters": []
       }
     },
@@ -11123,7 +11898,9 @@
           }
         },
         "summary": "",
-        "tags": ["Poll-option"],
+        "tags": [
+          "Poll-option"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -11187,7 +11964,9 @@
           }
         },
         "summary": "",
-        "tags": ["Poll-option"],
+        "tags": [
+          "Poll-option"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -11259,7 +12038,9 @@
           }
         },
         "summary": "",
-        "tags": ["Poll-option"],
+        "tags": [
+          "Poll-option"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -11325,7 +12106,9 @@
           }
         },
         "summary": "",
-        "tags": ["Poll-option"],
+        "tags": [
+          "Poll-option"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -11390,7 +12173,9 @@
           }
         },
         "summary": "",
-        "tags": ["Polls"],
+        "tags": [
+          "Polls"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -11576,7 +12361,9 @@
           }
         },
         "summary": "",
-        "tags": ["Polls"],
+        "tags": [
+          "Polls"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -11641,7 +12428,9 @@
           }
         },
         "summary": "",
-        "tags": ["Polls"],
+        "tags": [
+          "Polls"
+        ],
         "parameters": []
       }
     },
@@ -11692,7 +12481,9 @@
           }
         },
         "summary": "",
-        "tags": ["Polls"],
+        "tags": [
+          "Polls"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -11752,7 +12543,9 @@
           }
         },
         "summary": "",
-        "tags": ["Polls"],
+        "tags": [
+          "Polls"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -11824,7 +12617,9 @@
           }
         },
         "summary": "",
-        "tags": ["Polls"],
+        "tags": [
+          "Polls"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -11889,7 +12684,9 @@
           }
         },
         "summary": "",
-        "tags": ["Profile"],
+        "tags": [
+          "Profile"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -12081,7 +12878,9 @@
           }
         },
         "summary": "",
-        "tags": ["Profile"],
+        "tags": [
+          "Profile"
+        ],
         "parameters": []
       }
     },
@@ -12136,7 +12935,9 @@
           }
         },
         "summary": "",
-        "tags": ["Profile"],
+        "tags": [
+          "Profile"
+        ],
         "parameters": []
       }
     },
@@ -12191,7 +12992,9 @@
           }
         },
         "summary": "",
-        "tags": ["Profile"],
+        "tags": [
+          "Profile"
+        ],
         "parameters": []
       },
       "post": {
@@ -12244,7 +13047,9 @@
           }
         },
         "summary": "",
-        "tags": ["Profile"],
+        "tags": [
+          "Profile"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -12311,7 +13116,9 @@
           }
         },
         "summary": "",
-        "tags": ["Profile"],
+        "tags": [
+          "Profile"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -12376,7 +13183,9 @@
           }
         },
         "summary": "",
-        "tags": ["Profile"],
+        "tags": [
+          "Profile"
+        ],
         "parameters": []
       }
     },
@@ -12431,7 +13240,9 @@
           }
         },
         "summary": "",
-        "tags": ["Profile"],
+        "tags": [
+          "Profile"
+        ],
         "parameters": []
       }
     },
@@ -12482,7 +13293,9 @@
           }
         },
         "summary": "",
-        "tags": ["Profile"],
+        "tags": [
+          "Profile"
+        ],
         "parameters": [
           {
             "name": "slug",
@@ -12548,7 +13361,9 @@
           }
         },
         "summary": "",
-        "tags": ["Spam-filters"],
+        "tags": [
+          "Spam-filters"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -12738,7 +13553,9 @@
           }
         },
         "summary": "",
-        "tags": ["Spam-filters"],
+        "tags": [
+          "Spam-filters"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -12799,7 +13616,9 @@
           }
         },
         "summary": "",
-        "tags": ["Spam-filters"],
+        "tags": [
+          "Spam-filters"
+        ],
         "parameters": []
       }
     },
@@ -12853,7 +13672,9 @@
           }
         },
         "summary": "",
-        "tags": ["Subscription"],
+        "tags": [
+          "Subscription"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -13039,7 +13860,9 @@
           }
         },
         "summary": "",
-        "tags": ["Subscription"],
+        "tags": [
+          "Subscription"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -13104,7 +13927,9 @@
           }
         },
         "summary": "",
-        "tags": ["Subscription"],
+        "tags": [
+          "Subscription"
+        ],
         "parameters": []
       }
     },
@@ -13155,7 +13980,9 @@
           }
         },
         "summary": "",
-        "tags": ["Subscription"],
+        "tags": [
+          "Subscription"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -13215,7 +14042,9 @@
           }
         },
         "summary": "",
-        "tags": ["Subscription"],
+        "tags": [
+          "Subscription"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -13287,7 +14116,9 @@
           }
         },
         "summary": "",
-        "tags": ["Subscription"],
+        "tags": [
+          "Subscription"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -13353,7 +14184,9 @@
           }
         },
         "summary": "",
-        "tags": ["Subscription"],
+        "tags": [
+          "Subscription"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -13422,7 +14255,9 @@
           }
         },
         "summary": "",
-        "tags": ["Subscription"],
+        "tags": [
+          "Subscription"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -13491,7 +14326,9 @@
           }
         },
         "summary": "",
-        "tags": ["Email - Email"],
+        "tags": [
+          "Email - Email"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -13560,7 +14397,9 @@
           }
         },
         "summary": "",
-        "tags": ["Email - Email"],
+        "tags": [
+          "Email - Email"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -13629,7 +14468,9 @@
           }
         },
         "summary": "",
-        "tags": ["Email - Email"],
+        "tags": [
+          "Email - Email"
+        ],
         "parameters": []
       }
     },
@@ -13684,7 +14525,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -13753,7 +14596,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": []
       }
     },
@@ -13808,7 +14653,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": []
       }
     },
@@ -13863,7 +14710,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -13927,7 +14776,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -13993,7 +14844,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -14055,7 +14908,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -14120,7 +14975,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -14306,7 +15163,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -14367,7 +15226,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "parameters": [
           {
             "name": "role",
@@ -14442,7 +15303,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "parameters": [
           {
             "name": "role",
@@ -14504,7 +15367,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -14569,7 +15434,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -14638,7 +15505,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -14707,7 +15576,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -14775,7 +15646,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -14977,7 +15850,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": []
       }
     },
@@ -15032,7 +15907,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -15101,7 +15978,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "provider",
@@ -15167,7 +16046,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -15236,7 +16117,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -15305,7 +16188,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": []
       }
     },
@@ -15360,7 +16245,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -15428,7 +16315,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -15616,7 +16505,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": []
       }
     },
@@ -15667,7 +16558,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -15727,7 +16620,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -15802,7 +16697,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -15821,13 +16718,19 @@
   "components": {
     "schemas": {
       "Advisor-profile": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
           },
           "user": {
-            "required": ["id", "username", "email"],
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -16028,7 +16931,9 @@
             "type": "string"
           },
           "city": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -16141,7 +17046,9 @@
         }
       },
       "Announcement": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -16189,7 +17096,9 @@
         }
       },
       "Blog-category": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -16203,7 +17112,9 @@
           "posts": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -16260,7 +17171,9 @@
         }
       },
       "Blog-post": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -16275,7 +17188,9 @@
             "type": "string"
           },
           "category": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -16400,7 +17315,9 @@
         }
       },
       "City": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -16454,7 +17371,9 @@
         }
       },
       "Connection": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -16462,7 +17381,9 @@
           "profiles": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -16575,7 +17496,9 @@
             "type": "string"
           },
           "authorProfile": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -16672,7 +17595,9 @@
           "messages": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -16756,7 +17681,9 @@
         }
       },
       "Contact": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -16798,7 +17725,9 @@
         }
       },
       "Country": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -16864,7 +17793,9 @@
         }
       },
       "Course-content": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -16893,7 +17824,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -16915,7 +17848,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -16937,7 +17872,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 }
               ]
             }
@@ -16946,7 +17883,9 @@
             "type": "integer"
           },
           "parent": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -16975,14 +17914,21 @@
             }
           },
           "course": {
-            "required": ["id", "type", "title"],
+            "required": [
+              "id",
+              "type",
+              "title"
+            ],
             "properties": {
               "id": {
                 "type": "string"
               },
               "type": {
                 "type": "string",
-                "enum": ["learn", "accelerator"]
+                "enum": [
+                  "learn",
+                  "accelerator"
+                ]
               },
               "title": {
                 "type": "string"
@@ -17038,7 +17984,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -17060,7 +18008,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -17082,7 +18032,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 }
               ]
             }
@@ -17105,7 +18057,11 @@
         }
       },
       "Course": {
-        "required": ["id", "type", "title"],
+        "required": [
+          "id",
+          "type",
+          "title"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -17113,7 +18069,10 @@
           "type": {
             "type": "string",
             "default": "learn",
-            "enum": ["learn", "accelerator"]
+            "enum": [
+              "learn",
+              "accelerator"
+            ]
           },
           "title": {
             "type": "string"
@@ -17188,7 +18147,9 @@
           "modules": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -17238,7 +18199,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -17260,7 +18223,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -17282,7 +18247,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 }
               ]
             }
@@ -17294,12 +18261,18 @@
         }
       },
       "NewCourse": {
-        "required": ["type", "title"],
+        "required": [
+          "type",
+          "title"
+        ],
         "properties": {
           "type": {
             "type": "string",
             "default": "learn",
-            "enum": ["learn", "accelerator"]
+            "enum": [
+              "learn",
+              "accelerator"
+            ]
           },
           "title": {
             "type": "string"
@@ -17331,7 +18304,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -17353,7 +18328,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -17375,7 +18352,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 }
               ]
             }
@@ -17393,7 +18372,9 @@
         }
       },
       "Discussion-reply": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -17402,7 +18383,9 @@
             "type": "string"
           },
           "discussion": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -17464,7 +18447,9 @@
             }
           },
           "profile": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -17564,7 +18549,9 @@
           "upvotes": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -17662,7 +18649,9 @@
           "downvotes": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -17794,7 +18783,9 @@
         }
       },
       "Discussion-topic": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -17815,7 +18806,9 @@
           "discussions": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -17909,7 +18902,9 @@
         }
       },
       "Discussion": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -17926,7 +18921,9 @@
           "replies": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -17965,7 +18962,9 @@
             }
           },
           "profile": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -18071,7 +19070,9 @@
           "upvotes": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -18169,7 +19170,9 @@
           "downvotes": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -18270,7 +19273,9 @@
           "topics": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -18363,7 +19368,9 @@
         }
       },
       "Event": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -18429,7 +19436,9 @@
         }
       },
       "Feed-post-comment": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -18438,7 +19447,9 @@
             "type": "string"
           },
           "feed_post": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -18456,6 +19467,12 @@
                 }
               },
               "liked_by_users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "group": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -18482,7 +19499,11 @@
             }
           },
           "user": {
-            "required": ["id", "username", "email"],
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -18612,7 +19633,9 @@
         }
       },
       "Feed-post": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -18621,7 +19644,11 @@
             "type": "string"
           },
           "user": {
-            "required": ["id", "username", "email"],
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -18724,7 +19751,9 @@
           "comments": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -18753,7 +19782,11 @@
           "liked_by_users": {
             "type": "array",
             "items": {
-              "required": ["id", "username", "email"],
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -18854,6 +19887,49 @@
               }
             }
           },
+          "group": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "icon": {
+                  "type": "string"
+                },
+                "users_permissions_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "feed_posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "media": {
             "type": "array",
             "items": {
@@ -18925,7 +20001,9 @@
             }
           },
           "poll": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -18976,6 +20054,12 @@
               "type": "string"
             }
           },
+          "group": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "poll": {
             "type": "string"
           },
@@ -18991,14 +20075,300 @@
           }
         }
       },
+      "Group": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "icon": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "users_permissions_users": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "confirmationToken": {
+                  "type": "string"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                },
+                "blocked": {
+                  "type": "boolean"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "phoneToken": {
+                  "type": "integer"
+                },
+                "emailToken": {
+                  "type": "integer"
+                },
+                "onboarded": {
+                  "type": "boolean"
+                },
+                "onboardedAt": {
+                  "type": "string"
+                },
+                "profile": {
+                  "type": "string"
+                },
+                "lastLogin": {
+                  "type": "string"
+                },
+                "subscription": {
+                  "type": "string"
+                },
+                "badges": {
+                  "type": "object"
+                },
+                "advisor_profile": {
+                  "type": "string"
+                },
+                "feed_posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "feed_post_comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "liked_posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificationsSent": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificationsReceived": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "feed_posts": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "comments": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "liked_by_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "group": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "media": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "poll": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewGroup": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "users_permissions_users": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "feed_posts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "Message": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
           },
           "connection": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -19047,7 +20417,9 @@
             }
           },
           "authorProfile": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -19180,7 +20552,9 @@
         }
       },
       "Notification": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -19197,7 +20571,11 @@
             ]
           },
           "userSender": {
-            "required": ["id", "username", "email"],
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -19298,7 +20676,11 @@
             }
           },
           "userReceiver": {
-            "required": ["id", "username", "email"],
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -19450,7 +20832,9 @@
         }
       },
       "Onboarding": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -19459,7 +20843,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19474,7 +20860,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19489,7 +20877,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19504,7 +20894,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19519,7 +20911,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19550,7 +20944,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19565,7 +20961,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19580,7 +20978,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19595,7 +20995,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19610,7 +21012,9 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19642,7 +21046,9 @@
         }
       },
       "Personal-room": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -19654,7 +21060,11 @@
             "type": "string"
           },
           "user": {
-            "required": ["id", "username", "email"],
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -19776,7 +21186,9 @@
         }
       },
       "Poll-option": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -19787,7 +21199,11 @@
           "votes": {
             "type": "array",
             "items": {
-              "required": ["id", "username", "email"],
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19918,7 +21334,9 @@
         }
       },
       "Polls": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -19929,7 +21347,9 @@
           "poll_options": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -19985,13 +21405,19 @@
         }
       },
       "Profile": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
           },
           "user": {
-            "required": ["id", "username", "email"],
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -20162,7 +21588,9 @@
             "type": "string"
           },
           "city": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -20234,7 +21662,9 @@
           "discussions": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -20299,7 +21729,9 @@
           "discussion_replies": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -20340,7 +21772,9 @@
           "connections": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -20558,7 +21992,9 @@
         }
       },
       "Spam-filters": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -20582,13 +22018,19 @@
         }
       },
       "Subscription": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
           },
           "user": {
-            "required": ["id", "username", "email"],
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -20710,7 +22152,10 @@
         }
       },
       "UsersPermissionsRole": {
-        "required": ["id", "name"],
+        "required": [
+          "id",
+          "name"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -20728,7 +22173,13 @@
           "permissions": {
             "type": "array",
             "items": {
-              "required": ["id", "type", "controller", "action", "enabled"],
+              "required": [
+                "id",
+                "type",
+                "controller",
+                "action",
+                "enabled"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -20763,7 +22214,11 @@
           "users": {
             "type": "array",
             "items": {
-              "required": ["id", "username", "email"],
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -20867,7 +22322,9 @@
         }
       },
       "NewUsersPermissionsRole": {
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string",
@@ -20900,7 +22357,11 @@
         }
       },
       "UsersPermissionsUser": {
-        "required": ["id", "username", "email"],
+        "required": [
+          "id",
+          "username",
+          "email"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -20925,7 +22386,10 @@
             "default": false
           },
           "role": {
-            "required": ["id", "name"],
+            "required": [
+              "id",
+              "name"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -20964,7 +22428,9 @@
             "default": false
           },
           "profile": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -21063,7 +22529,9 @@
             "format": "date-time"
           },
           "subscription": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -21086,7 +22554,9 @@
             "type": "object"
           },
           "advisor_profile": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -21159,7 +22629,9 @@
           "feed_posts": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -21177,6 +22649,12 @@
                   }
                 },
                 "liked_by_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "group": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -21206,7 +22684,9 @@
           "feed_post_comments": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -21235,7 +22715,9 @@
           "liked_posts": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -21253,6 +22735,12 @@
                   }
                 },
                 "liked_by_users": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "group": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -21282,7 +22770,9 @@
           "notificationsSent": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -21325,7 +22815,9 @@
           "notificationsReceived": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -21368,7 +22860,10 @@
         }
       },
       "NewUsersPermissionsUser": {
-        "required": ["username", "email"],
+        "required": [
+          "username",
+          "email"
+        ],
         "properties": {
           "username": {
             "type": "string",
@@ -21475,7 +22970,10 @@
         }
       },
       "Error": {
-        "required": ["code", "message"],
+        "required": [
+          "code",
+          "message"
+        ],
         "properties": {
           "code": {
             "type": "integer",
@@ -21519,6 +23017,9 @@
     },
     {
       "name": "Event"
+    },
+    {
+      "name": "Group"
     },
     {
       "name": "Message"

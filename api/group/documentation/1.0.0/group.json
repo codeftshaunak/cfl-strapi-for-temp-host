@@ -731,6 +731,12 @@
                     "type": "string"
                   }
                 },
+                "group": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "media": {
                   "type": "array",
                   "items": {
@@ -738,9 +744,6 @@
                   }
                 },
                 "poll": {
-                  "type": "string"
-                },
-                "group": {
                   "type": "string"
                 },
                 "published_at": {

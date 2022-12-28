@@ -52,6 +52,9 @@ module.exports = {
       });
     }
 
+    // updating post count if less than 10
+    await strapi.services.discussion.offer(user);
+
     // creating notification
     strapi.services.profile
       .findById(entity.discussion.profile)

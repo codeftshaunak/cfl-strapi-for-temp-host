@@ -59,7 +59,7 @@ module.exports = {
       strapi.services["spam-filters"].match("email").test(ctx.request.body.body)
     ) {
       return ctx.badRequest(
-        "Please remove any email adresses from your message."
+        "Please remove any email addresses from your message."
       );
     }
     if (
@@ -90,6 +90,9 @@ module.exports = {
         profile: user.profile.id,
       });
     }
+
+    // updating post count if less than 10
+    await strapi.services.discussion.offer(user);
 
     return sanitizeEntity(entity, { model: strapi.models.discussion });
   },

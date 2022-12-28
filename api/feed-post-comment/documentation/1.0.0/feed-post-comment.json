@@ -700,6 +700,12 @@
                   "type": "string"
                 }
               },
+              "group": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "media": {
                 "type": "array",
                 "items": {

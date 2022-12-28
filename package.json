@@ -22,7 +22,7 @@
     "strapi-plugin-content-type-builder": "3.6.11",
     "strapi-plugin-documentation": "^3.6.11",
     "strapi-plugin-email": "3.6.11",
-    "strapi-plugin-email-designer": "^1.1.7",
+    "strapi-plugin-email-designer": "^1.1.9",
     "strapi-plugin-i18n": "3.6.11",
     "strapi-plugin-migrate": "^3.6.3",
     "strapi-plugin-sentry": "^3.6.11",

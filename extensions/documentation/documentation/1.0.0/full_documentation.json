@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/28/2022 3:47:34 PM"
+    "x-generation-date": "12/29/2022 9:12:56 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -19472,13 +19472,97 @@
                   "type": "string"
                 }
               },
-              "group": {
+              "media": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               },
-              "media": {
+              "poll": {
+                "type": "string"
+              },
+              "group": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "phoneToken": {
+                "type": "integer"
+              },
+              "emailToken": {
+                "type": "integer"
+              },
+              "onboarded": {
+                "type": "boolean"
+              },
+              "onboardedAt": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "string"
+              },
+              "lastLogin": {
+                "type": "string"
+              },
+              "subscription": {
+                "type": "string"
+              },
+              "badges": {
+                "type": "object"
+              },
+              "advisor_profile": {
+                "type": "string"
+              },
+              "feed_posts": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -20151,6 +20235,30 @@
               "created_by": {
                 "type": "string"
               },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
               "updated_by": {
                 "type": "string"
               }
@@ -20319,6 +20427,76 @@
               }
             }
           },
+          "profileBanner": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "tagline": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -20344,6 +20522,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "tagline": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -22669,6 +22850,9 @@
                 "poll": {
                   "type": "string"
                 },
+                "group": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -22753,6 +22937,9 @@
                   }
                 },
                 "poll": {
+                  "type": "string"
+                },
+                "group": {
                   "type": "string"
                 },
                 "published_at": {

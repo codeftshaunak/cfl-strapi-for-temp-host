@@ -35,6 +35,21 @@
     "feed_posts": {
       "via": "group",
       "collection": "feed-post"
+    },
+    "profileBanner": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "tagline": {
+      "type": "string"
     }
   }
 }

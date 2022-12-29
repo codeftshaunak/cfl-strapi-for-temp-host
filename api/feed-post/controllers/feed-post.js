@@ -9,10 +9,25 @@ const { sanitizeEntity, parseMultipartData } = require("strapi-utils");
 
 module.exports = {
   async find(ctx) {
-    let entities;
-    entities = await strapi
+    const query = ctx.query;
+    const user = query.user_id;
+    const params = {
+      group: query.group,
+    };
+
+    if (params.group) {
+      if (!user) {
+        return ctx.unauthorized("You must be logged in to see this.");
+      }
+      const isMember = await strapi.query("group").findOne({ id: params.group, users_permissions_users: user });
+      if (!isMember) {
+        return ctx.unauthorized("You are not part of the group.");
+      }
+    }
+
+    const entities = await strapi
       .query("feed-post")
-      .model.find()
+      .model.find(params)
       .populate({
         path: "user",
         select: ["email"],

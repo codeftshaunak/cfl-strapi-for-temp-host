@@ -62,7 +62,7 @@ module.exports = {
       );
     } else {
       const newConnection = {
-        authorProfile: user.profile,
+        authorProfile: user.profile.id,
         profiles: [user.profile.id, data.profile],
         status: "pending",
         message: data.message,

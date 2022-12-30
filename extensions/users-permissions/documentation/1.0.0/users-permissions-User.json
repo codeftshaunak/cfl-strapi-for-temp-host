@@ -1710,6 +1710,9 @@
                 "poll": {
                   "type": "string"
                 },
+                "group": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1794,6 +1797,9 @@
                   }
                 },
                 "poll": {
+                  "type": "string"
+                },
+                "group": {
                   "type": "string"
                 },
                 "published_at": {

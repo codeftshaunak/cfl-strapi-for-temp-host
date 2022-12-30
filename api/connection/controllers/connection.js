@@ -106,14 +106,15 @@ module.exports = {
       );
       //console.log('check status ', profile ,user.profile);
 
-      await strapi.services.profile.update(
-        {
-          id: profile.id,
-        },
-        {
-          connections: [entity],
-        }
-      );
+      // code added by mohammad, its causing issue I am commenting it as its changing the connection data, Roop on 30-12-2022
+      // await strapi.services.profile.update(
+      //   {
+      //     id: profile.id,
+      //   },
+      //   {
+      //     connections: [entity],
+      //   }
+      // );
     });
 
     return sanitizeEntity(entity, { model: strapi.models.connection });

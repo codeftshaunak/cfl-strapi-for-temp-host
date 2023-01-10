@@ -149,7 +149,19 @@ module.exports = {
     }
 
     const query = ctx.query;
+    
+    if (ctx.query?.authorProfile) {
+      query["authorProfile"] = {
+        $ne: ctx.query.authorProfile
+      };
+    }
+
+    if (ctx.query?.profiles) {
+      query["authorProfile"] = user.profile.id;
+    }
+
     query["profiles"] = user.profile.id;
+
     entities = await strapi.query("connection").find(query);
 
     return entities.map((entity) => {

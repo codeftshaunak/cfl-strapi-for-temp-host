@@ -29,6 +29,9 @@
     },
     "location": {
       "type": "string"
+    },
+    "url": {
+      "type": "string"
     }
   }
 }

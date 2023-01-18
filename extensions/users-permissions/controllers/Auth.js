@@ -389,7 +389,7 @@ module.exports = {
       strapi.plugins["users-permissions"].services;
 
     if (_.isEmpty(emailToken)) {
-      return ctx.badRequest("token.invalid");
+      return ctx.badRequest("token.is.empty");
     }
 
     const user = await strapi.query("user", "users-permissions").model.findOne({
@@ -398,7 +398,7 @@ module.exports = {
     });
 
     if (!user) {
-      return ctx.badRequest("user.not.found");
+      return ctx.badRequest("token.invalid");
     }
 
     await userService.edit(

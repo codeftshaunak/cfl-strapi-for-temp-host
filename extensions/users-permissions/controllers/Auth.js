@@ -398,7 +398,7 @@ module.exports = {
     });
 
     if (!user) {
-      return ctx.badRequest("token.invalid");
+      return ctx.badRequest("user.not.found");
     }
 
     await userService.edit(

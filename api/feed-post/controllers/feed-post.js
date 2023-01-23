@@ -93,7 +93,7 @@ module.exports = {
   async create(ctx) {
     const user = ctx.state.user;
     const data = ctx.request.body;
-    const { poll } = data;
+    const { poll, text } = data;
 
     const ids = await Promise.all(
       poll.options.map(async (option) => {
@@ -105,14 +105,14 @@ module.exports = {
       })
     );
 
-    console.log(ids);
-
     const createdPoll = await strapi.services["polls"].create({
       text: poll.text,
       poll_options: ids,
     });
+    const anchorText = await strapi.services["feed-post"].getAchorText(text);
     const entity = await strapi.services["feed-post"].create({
       ...data,
+      text: anchorText,
       user: user.id,
       poll: createdPoll._id,
     });

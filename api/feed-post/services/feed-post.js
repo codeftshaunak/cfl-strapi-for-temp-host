@@ -31,7 +31,7 @@ module.exports = {
             <h3 style="color: #000000e6; margin: 0px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
               ${title}
             </h3>
-            <p style="color: #000000b8; margin: 8px 0px 0px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+            <p style="color: #000000b8; margin: 8px 0px 0px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
               ${description}
             </p>
           </div>

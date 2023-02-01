@@ -52,4 +52,21 @@ module.exports = {
       model: strapi.models.notification,
     });
   },
+
+  async updateNotificationsSeen(ctx) {
+    const user = ctx.state.user;
+
+    const updatedEntity = await strapi.query("notification").model.updateMany(
+      {
+        userReceiver: user
+      },
+      { 
+        isSeen: true
+      }
+    );
+
+    return sanitizeEntity(updatedEntity, {
+      model: strapi.models.notification,
+    });
+  },
 };

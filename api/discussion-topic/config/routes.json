@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/discussion-trending-topics",
+      "handler": "discussion-topic.findTrending",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/discussion-topics/count",
       "handler": "discussion-topic.count",
       "config": {

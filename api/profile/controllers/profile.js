@@ -50,8 +50,6 @@ module.exports = {
       ctx.query
     );
 
-    // entities = await strapi.services.profile.find(params);
-
     const { _sort, _limit, _start } = ctx.query;
     let sort = _sort.split(",").reduce((reducer, sort) => {
       const [sortBy, sortOrder] = sort.split(":");
@@ -64,17 +62,29 @@ module.exports = {
     entities = await strapi
       .query("profile")
       .model.find(params)
-      .populate({
-        path: "connections",
-        select: ["status", "profiles"],
-      })
       .sort(sort)
       .skip(parseInt(_start))
       .limit(parseInt(_limit));
 
+    let connections = await strapi.services.connection.find({
+      profiles: ctx.state.user.profile,
+    });
+
+    connections = connections.map((connection) =>
+        sanitizeEntity(connection, { model: strapi.models.connection })
+      ).map(connection => ({
+        ...connection,
+        profiles: connection.profiles[1]
+      }))
+
     return entities.map((entity) =>
-      sanitizeEntity(entity, { model: strapi.models.profile })
-    );
+        sanitizeEntity(entity, { model: strapi.models.profile })
+      ).map(entity => {
+        return {
+          ...entity,
+          connection: connections.find(connection => connection.profiles.id.toString() == entity._id) || {}
+        }
+      });
   },
 
   async count(ctx) {

@@ -83,7 +83,7 @@ module.exports = {
       ).map(entity => {
         return {
           ...entity,
-          connection: connections.find(connection => connection.profiles.id.toString() == entity._id) || {}
+          connection: connections.find(connection => connection?.profiles?.id.toString() == entity?._id) || []
         }
       });
   },

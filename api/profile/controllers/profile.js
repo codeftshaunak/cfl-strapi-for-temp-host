@@ -51,7 +51,8 @@ module.exports = {
     );
 
     const { _sort, _limit, _start } = ctx.query;
-    let sort = _sort.split(",").reduce((reducer, sort) => {
+
+    let sort = String(_sort).split(",").reduce((reducer, sort) => {
       const [sortBy, sortOrder] = sort.split(":");
       reducer[sortBy] = sortOrder === "ASC" ? 1 : -1;
       return reducer;

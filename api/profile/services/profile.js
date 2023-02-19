@@ -80,11 +80,11 @@ module.exports = {
     if (query.startupStage && query.startupStage.length > 0) {
       params["startupStage"] = { $in: query.startupStage };
     }
-    if (user.role?.type === "premium") {
-      if (query.premium?.includes("premium")) {
+    if (user?.role?.type === "premium") {
+      if (query?.premium?.includes("premium")) {
         params["premium"] = true;
       }
-      if (query.role && query.role.length > 0) {
+      if (query?.role && query?.role?.length > 0) {
         params["role"] = { $in: query.role };
       }
     }

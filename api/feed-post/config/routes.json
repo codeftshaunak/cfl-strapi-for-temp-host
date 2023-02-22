@@ -57,5 +57,14 @@
         "policies": []
       }
     }
+,{
+  "method": "POST",
+  "path": "/feed-posts/entity",
+  "handler": "feed-post.findprofee",
+  "config": {
+    "policies": []
+  }
+}
+
   ]
 }

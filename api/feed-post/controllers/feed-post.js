@@ -16,6 +16,7 @@ module.exports = {
     const params = {
       group: query.group,
     };
+    const { _sort, _limit, _start } = ctx.query;
 
     if (params.group) {
       if (!user) {
@@ -54,7 +55,9 @@ module.exports = {
         },
       })
       .lean()
-      .sort([["createdAt", "desc"]]);
+      .sort([["createdAt", "desc"]])
+      .skip(parseInt(_start))
+      .limit(parseInt(_limit));;
 
     return entities.map((entity) => {
       const commentsCount = entity.comments.length;

@@ -4,7 +4,9 @@
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
-
+const express = require("express");
+const app = express();
+app.use(express.json());
 const { sanitizeEntity, parseMultipartData } = require("strapi-utils");
 
 module.exports = {
@@ -62,6 +64,22 @@ module.exports = {
         commentsCount,
       };
     });
+  },
+
+  async findprofee (req,res){
+
+
+    const { valeee } = req.body;
+
+    await strapi.query("profile").model.findOne({firstName: valeee})
+    .then((data) => {
+      res.send({ status: "ok", data: data.slug });
+    })
+    .catch((error) => {
+      res.send({ status: "error", data: error });
+    });;
+
+
   },
 
   async findOne(ctx) {

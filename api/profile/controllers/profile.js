@@ -75,7 +75,7 @@ module.exports = {
         sanitizeEntity(connection, { model: strapi.models.connection })
       ).map(connection => ({
         ...connection,
-        profiles: connection.profiles[1]
+        profiles: connection.profiles[0].id.toString() == ctx.state.user.profile.id ? connection.profiles[1] : connection.profiles[0]
       }))
 
     return entities.map((entity) =>

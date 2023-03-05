@@ -89,24 +89,40 @@ module.exports = {
     const receivingUser = await strapi
       .query("user", "users-permissions")
       .findOne({ profile: ctx.request.body.to });
-    strapi.plugins.queue.services.emails.add({
-      options: {
-        to: receivingUser.email,
-      },
-      template: {
-        templateId: 4,
-        sourceCodeToTemplateId: 4,
-      },
-      data: {
-        toProfile: connection.profiles.filter(
-          (p) => p.id !== user.profile.id
-        )[0],
-        fromProfile: connection.profiles.filter(
-          (p) => p.id === user.profile.id
-        )[0],
-      },
-    },{removeOnComplete: true});
-    
+
+    try{
+      await strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
+        {to:receivingUser.email},
+        {
+          templateId: 4,
+          sourceCodeToTemplateId: 4,
+        },
+        {
+          toProfile: connection.profiles.filter((p) => p.id !== user.profile.id)[0],
+          fromProfile: connection.profiles.filter((p) => p.id === user.profile.id)[0],
+        }
+      );
+    }catch(e){
+      console.log("error while sending connection email ",e.message);
+    }
+    // strapi.plugins.queue.services.emails.add({
+    //   options: {
+    //     to: receivingUser.email,
+    //   },
+    //   template: {
+    //     templateId: 4,
+    //     sourceCodeToTemplateId: 4,
+    //   },
+    //   data: {
+    //     toProfile: connection.profiles.filter(
+    //       (p) => p.id !== user.profile.id
+    //     )[0],
+    //     fromProfile: connection.profiles.filter(
+    //       (p) => p.id === user.profile.id
+    //     )[0],
+    //   },
+    // },{removeOnComplete: true});
+
     // send system notification
     await strapi.services.notification.create({
       action: "messaged",
@@ -119,4 +135,40 @@ module.exports = {
 
     return sanitizeEntity(entity, { model: strapi.models.message });
   },
+
+  async testEmail(ctx) {
+    try{
+      await strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
+        {to:"kartique79@gmail.com"},
+        {
+          templateId: 2,
+          sourceCodeToTemplateId: 2,
+        },
+        {
+          url: "https://cofounderslab.com",
+          token: "testToken",
+        }
+      );
+    }catch(e){
+      console.log("error while sending connection email ",e.message);
+    }
+    // try{
+    //   strapi.plugins.queue.services.emails.add({
+    //     options: {
+    //       to: 'kartique79@gmail.com',
+    //     },
+    //     template: {
+    //       templateId: '61f51089bcb43958aaed0889',
+    //       sourceCodeToTemplateId: 2,
+    //     },
+    //     data: {
+    //       url: "https://cofounderslab.com",
+    //       token: "RoopKumar",
+    //     },
+    //   },{removeOnComplete: true});
+    // }catch(e){
+    //   console.log(e);
+    // }
+    return "ok";
+  }
 };

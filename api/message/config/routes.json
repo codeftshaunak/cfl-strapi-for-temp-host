@@ -47,6 +47,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/messages/test-email/:id",
+      "handler": "message.testEmail",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

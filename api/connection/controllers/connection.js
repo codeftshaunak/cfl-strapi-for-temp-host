@@ -87,23 +87,39 @@ module.exports = {
         references: {},
       });
 
-      // email notification
-      strapi.plugins.queue.services.emails.add(
-        {
-          options: {
-            to: profile.user.email,
-          },
-          template: {
+      try{
+        await strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
+          {to:profile.user.email},
+          {
             templateId: 6,
             sourceCodeToTemplateId: 6,
           },
-          data: {
+          {
             toProfile: profile,
             fromProfile: user.profile,
-          },
-        },
-        { removeOnComplete: true }
-      );
+          }
+        );
+      }catch(e){
+        console.log("error while sending connection email ",e.message);
+      }
+
+      // email notification
+      // strapi.plugins.queue.services.emails.add(
+      //   {
+      //     options: {
+      //       to: profile.user.email,
+      //     },
+      //     template: {
+      //       templateId: 6,
+      //       sourceCodeToTemplateId: 6,
+      //     },
+      //     data: {
+      //       toProfile: profile,
+      //       fromProfile: user.profile,
+      //     },
+      //   },
+      //   { removeOnComplete: true }
+      // );
       //console.log('check status ', profile ,user.profile);
 
       // code added by mohammad, its causing issue I am commenting it as its changing the connection data, Roop on 30-12-2022

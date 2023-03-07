@@ -36,18 +36,41 @@ module.exports = {
     entity = await strapi.services["feed-post-comment"].create(body);
 
     // creating notification
-    strapi.services["feed-post"].findById(feed_post).then((post) => {
-      const { user: userReceiver } = post;
+    let post = await strapi.services["feed-post"].findById(feed_post);
+    const { user: userReceiver } = post;
 
-      strapi.services.notification.create({
-        action: "commented",
-        userSender,
-        userReceiver,
-        references: {
-          postId: feed_post,
-          commentId: entity._id,
-        },
-      });
+    let commentAuthor = ctx.state.user;
+    let postAuthor = await strapi.services["profile"].findById(post.user.profile);
+    delete postAuthor.connections;
+    delete postAuthor.discussions;
+    delete postAuthor.discussion_replies;
+
+    if(!post.user.blocked){
+      try{
+        strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
+          {to:post.user.email},
+          {
+            templateId: 7,
+            sourceCodeToTemplateId: 7,
+          },
+          {
+            toProfile: postAuthor,
+            fromProfile: commentAuthor.profile,
+          }
+        );
+      }catch(e){
+        console.log("error while sending connection email ",e.message);
+      }
+    }
+
+    strapi.services.notification.create({
+      action: "commented",
+      userSender,
+      userReceiver,
+      references: {
+        postId: feed_post,
+        commentId: entity._id,
+      },
     });
 
     return sanitizeEntity(entity, {

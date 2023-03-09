@@ -23,19 +23,23 @@ module.exports = {
       entity = await strapi.services.contact.create(ctx.request.body);
     }
 
-    await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
-      {
-        to: "admin@cofounderslab.com",
-        replyTo: ctx.request.body.email,
-      },
-      {
-        templateId: 5,
-        sourceCodeToTemplateId: 5,
-      },
-      {
-        ...ctx.request.body,
-      }
-    );
+    try{
+      await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
+        {
+          to: "admin@cofounderslab.com",
+          replyTo: ctx.request.body.email,
+        },
+        {
+          templateId: 5,
+          sourceCodeToTemplateId: 5,
+        },
+        {
+          ...ctx.request.body,
+        }
+      );
+    }catch(e){
+      console.log(e, e.message);
+    }
 
     return sanitizeEntity(entity, { model: strapi.models.contact });
   },

@@ -215,7 +215,7 @@ module.exports = {
           }
         );
       }catch(e){
-        console.log("error while sending connection email ",e.message);
+        console.log("error while sending deletion email ",e.message);
       }
     }
     const entity = await strapi.services["feed-post"].delete({id});

@@ -103,7 +103,7 @@ module.exports = {
         }
       );
     }catch(e){
-      console.log("error while sending connection email ",e.message);
+      console.log("error while sending message email ",e.message);
     }
     // strapi.plugins.queue.services.emails.add({
     //   options: {
@@ -141,16 +141,13 @@ module.exports = {
       await strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
         {to:"kartique79@gmail.com"},
         {
-          templateId: 2,
-          sourceCodeToTemplateId: 2,
+          templateId: 9,
+          sourceCodeToTemplateId: 9,
         },
-        {
-          url: "https://cofounderslab.com",
-          token: "testToken",
-        }
+        {}
       );
     }catch(e){
-      console.log("error while sending connection email ",e.message);
+      console.log("error while sending test email ",e.message);
     }
     // try{
     //   strapi.plugins.queue.services.emails.add({

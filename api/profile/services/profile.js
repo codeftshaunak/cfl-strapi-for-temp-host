@@ -109,6 +109,14 @@ module.exports = {
     return strapi.query("profile").findOne({ _id: profileId });
   },
 
+  async getProfile(profileId) {
+    let profile = await strapi.query("profile").findOne({ _id: profileId });
+    delete profile.discussions;
+    delete profile.discussion_replies;
+    delete profile.connections;
+    return profile;
+  },
+
   buildReccomendSearchParams(user, query, connectedUsersId) {
     let params = {
       public: true,
@@ -154,6 +162,11 @@ module.exports = {
     if (optionalParams.length > 0) {
       params["$or"] = optionalParams;
     }
+
+    optionalParams = [
+      ...optionalParams,
+      {profilePicture:{$exists:true}},
+    ]
 
     return params;
   },

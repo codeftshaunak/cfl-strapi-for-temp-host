@@ -197,4 +197,28 @@ module.exports = {
       return err;
     }
   },
+
+  async delete(ctx) {
+    const { id } = ctx.params;
+    if(ctx.state.user.id==='63c0dd3221902f001692f4c2'){
+      const post = await strapi.services['feed-post'].findById(id);
+      const receiver = await strapi.services['profile'].getProfile(post?.user?.profile);
+      try{
+        await strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
+          {to:post?.user?.email},
+          {
+            templateId: 8,
+            sourceCodeToTemplateId: 8,
+          },
+          {
+            toProfile: receiver,
+          }
+        );
+      }catch(e){
+        console.log("error while sending connection email ",e.message);
+      }
+    }
+    const entity = await strapi.services["feed-post"].delete({id});
+    return sanitizeEntity(entity, { model: strapi.models["feed-post"] });
+  }
 };

@@ -1696,10 +1696,7 @@
                   }
                 },
                 "group": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "type": "string"
                 },
                 "media": {
                   "type": "array",
@@ -1708,9 +1705,6 @@
                   }
                 },
                 "poll": {
-                  "type": "string"
-                },
-                "group": {
                   "type": "string"
                 },
                 "published_at": {
@@ -1743,6 +1737,9 @@
                 },
                 "user": {
                   "type": "string"
+                },
+                "replies": {
+                  "type": "object"
                 },
                 "published_at": {
                   "type": "string"
@@ -1785,10 +1782,7 @@
                   }
                 },
                 "group": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "type": "string"
                 },
                 "media": {
                   "type": "array",
@@ -1797,9 +1791,6 @@
                   }
                 },
                 "poll": {
-                  "type": "string"
-                },
-                "group": {
                   "type": "string"
                 },
                 "published_at": {

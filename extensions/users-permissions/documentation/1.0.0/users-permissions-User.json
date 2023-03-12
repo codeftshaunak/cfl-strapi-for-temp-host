@@ -1823,7 +1823,8 @@
                     "connectionRequest",
                     "discussionReply",
                     "posted",
-                    "messaged"
+                    "messaged",
+                    "replied"
                   ]
                 },
                 "userSender": {
@@ -1868,7 +1869,8 @@
                     "connectionRequest",
                     "discussionReply",
                     "posted",
-                    "messaged"
+                    "messaged",
+                    "replied"
                   ]
                 },
                 "userSender": {

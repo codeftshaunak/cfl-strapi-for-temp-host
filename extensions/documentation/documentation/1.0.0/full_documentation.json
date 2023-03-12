@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/12/2023 7:19:11 PM"
+    "x-generation-date": "03/13/2023 1:51:40 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -20988,7 +20988,8 @@
               "connectionRequest",
               "discussionReply",
               "posted",
-              "messaged"
+              "messaged",
+              "replied"
             ]
           },
           "userSender": {
@@ -21224,7 +21225,8 @@
               "connectionRequest",
               "discussionReply",
               "posted",
-              "messaged"
+              "messaged",
+              "replied"
             ]
           },
           "userSender": {
@@ -23203,7 +23205,8 @@
                     "connectionRequest",
                     "discussionReply",
                     "posted",
-                    "messaged"
+                    "messaged",
+                    "replied"
                   ]
                 },
                 "userSender": {
@@ -23248,7 +23251,8 @@
                     "connectionRequest",
                     "discussionReply",
                     "posted",
-                    "messaged"
+                    "messaged",
+                    "replied"
                   ]
                 },
                 "userSender": {

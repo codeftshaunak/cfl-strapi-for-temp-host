@@ -47,11 +47,16 @@ module.exports = {
     const {commentId} = ctx.request.body;
     const reply = await strapi.services["feed-post-comment"].create(ctx?.request?.body);
     const comment = await strapi.services["feed-post-comment"].findOne({id:commentId});
+    const userSender = ctx.state.user;
+    const userReceiver = comment.user;
     let replies = comment.replies || [];
     replies.push(reply.id);
     // console.log(comment);
     const toProfile = await strapi.services["profile"].getProfile(comment.user?.profile);
 
+    //adding replies ids to the comment data
+    await strapi.services["feed-post-comment"].update({id: commentId},{replies});
+    
     // send email only if the user is not the comment author
     if(comment.user.id!==ctx.state.user.id){
       try{
@@ -66,13 +71,19 @@ module.exports = {
             fromProfile: ctx.state.user.profile,
           }
         );
+        strapi.services.notification.create({
+          action: "replied",
+          userSender,
+          userReceiver,
+          references: {
+            postId: comment.feed_post,
+            commentId: reply._id,
+          },
+        });
       }catch(e){
         console.log("error while sending message email ",e.message);
       }
     }
-
-    //adding replies ids to the comment data
-    await strapi.services["feed-post-comment"].update({id: commentId},{replies});
 
     return sanitizeEntity(reply, {model: strapi.models["feed-post-comment"]});
   },
@@ -93,33 +104,35 @@ module.exports = {
     let commentAuthor = ctx.state.user;
     let postAuthor = await strapi.services["profile"].getProfile(post.user.profile);
 
-    if(!post.user.blocked){
-      try{
-        strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
-          {to:post.user.email},
-          {
-            templateId: 7,
-            sourceCodeToTemplateId: 7,
-          },
-          {
-            toProfile: postAuthor,
-            fromProfile: commentAuthor.profile,
-          }
-        );
-      }catch(e){
-        console.log("error while sending connection email ",e.message);
+    // if user is commenting on his own post then should not be notified
+    if(post.user.id!==commentAuthor.id){
+      if(!post.user.blocked){
+        try{
+          strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
+            {to:post.user.email},
+            {
+              templateId: 7,
+              sourceCodeToTemplateId: 7,
+            },
+            {
+              toProfile: postAuthor,
+              fromProfile: commentAuthor.profile,
+            }
+          );
+        }catch(e){
+          console.log("error while sending connection email ",e.message);
+        }
       }
+      strapi.services.notification.create({
+        action: "commented",
+        userSender,
+        userReceiver,
+        references: {
+          postId: feed_post,
+          commentId: entity._id,
+        },
+      });
     }
-
-    strapi.services.notification.create({
-      action: "commented",
-      userSender,
-      userReceiver,
-      references: {
-        postId: feed_post,
-        commentId: entity._id,
-      },
-    });
 
     return sanitizeEntity(entity, {
       model: strapi.models["feed-post-comment"],

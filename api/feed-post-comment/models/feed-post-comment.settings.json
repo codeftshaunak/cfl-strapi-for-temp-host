@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "feed_post_comments",
   "info": {
-    "name": "FeedPostComment"
+    "name": "FeedPostComment",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -22,6 +23,9 @@
       "via": "feed_post_comments",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "replies": {
+      "type": "json"
     }
   }
 }

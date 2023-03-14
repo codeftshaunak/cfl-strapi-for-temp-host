@@ -20,7 +20,8 @@
         "connectionRequest",
         "discussionReply",
         "posted",
-        "messaged"
+        "messaged",
+        "replied"
       ]
     },
     "userSender": {

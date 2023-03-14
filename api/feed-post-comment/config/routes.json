@@ -41,6 +41,22 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/feed-post-comments/reply",
+      "handler": "feed-post-comment.reply",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/feed-post-comments/get-replies",
+      "handler": "feed-post-comment.getReplies",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/feed-post/poll/",
       "handler": "feed-post-comment.create",

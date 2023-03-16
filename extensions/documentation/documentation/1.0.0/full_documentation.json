@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/13/2023 1:51:40 AM"
+    "x-generation-date": "03/16/2023 1:35:35 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -17808,6 +17808,9 @@
                 "profileBanner": {
                   "type": "string"
                 },
+                "lastLogin": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -17921,6 +17924,9 @@
                 "type": "string"
               },
               "profileBanner": {
+                "type": "string"
+              },
+              "lastLogin": {
                 "type": "string"
               },
               "created_by": {
@@ -18874,6 +18880,9 @@
               "profileBanner": {
                 "type": "string"
               },
+              "lastLogin": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -18976,6 +18985,9 @@
                 "profileBanner": {
                   "type": "string"
                 },
+                "lastLogin": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -19074,6 +19086,9 @@
                   "type": "string"
                 },
                 "profileBanner": {
+                  "type": "string"
+                },
+                "lastLogin": {
                   "type": "string"
                 },
                 "created_by": {
@@ -19389,6 +19404,9 @@
               "profileBanner": {
                 "type": "string"
               },
+              "lastLogin": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -19497,6 +19515,9 @@
                 "profileBanner": {
                   "type": "string"
                 },
+                "lastLogin": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -19595,6 +19616,9 @@
                   "type": "string"
                 },
                 "profileBanner": {
+                  "type": "string"
+                },
+                "lastLogin": {
                   "type": "string"
                 },
                 "created_by": {
@@ -20924,6 +20948,9 @@
                 "type": "string"
               },
               "profileBanner": {
+                "type": "string"
+              },
+              "lastLogin": {
                 "type": "string"
               },
               "created_by": {
@@ -22324,6 +22351,10 @@
                 "type": "string"
               }
             }
+          },
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -22405,6 +22436,10 @@
           },
           "twitterUrl": {
             "type": "string"
+          },
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"
@@ -22937,6 +22972,9 @@
                 "type": "string"
               },
               "profileBanner": {
+                "type": "string"
+              },
+              "lastLogin": {
                 "type": "string"
               },
               "created_by": {

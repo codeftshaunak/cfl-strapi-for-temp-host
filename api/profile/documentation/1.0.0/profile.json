@@ -1176,6 +1176,10 @@
                 "type": "string"
               }
             }
+          },
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -1257,6 +1261,10 @@
           },
           "twitterUrl": {
             "type": "string"
+          },
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"

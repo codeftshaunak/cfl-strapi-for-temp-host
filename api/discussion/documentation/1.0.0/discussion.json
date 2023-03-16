@@ -804,6 +804,9 @@
               "profileBanner": {
                 "type": "string"
               },
+              "lastLogin": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -912,6 +915,9 @@
                 "profileBanner": {
                   "type": "string"
                 },
+                "lastLogin": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -1010,6 +1016,9 @@
                   "type": "string"
                 },
                 "profileBanner": {
+                  "type": "string"
+                },
+                "lastLogin": {
                   "type": "string"
                 },
                 "created_by": {

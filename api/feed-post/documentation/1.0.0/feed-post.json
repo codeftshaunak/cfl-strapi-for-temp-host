@@ -870,9 +870,6 @@
               "description": {
                 "type": "string"
               },
-              "icon": {
-                "type": "string"
-              },
               "users_permissions_users": {
                 "type": "array",
                 "items": {

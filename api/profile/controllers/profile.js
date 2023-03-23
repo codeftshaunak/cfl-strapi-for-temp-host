@@ -29,11 +29,11 @@ module.exports = {
     const { slug } = ctx.params;
 
     const entity = await strapi.services.profile.findOne({ slug });
-    if (!entity?.public) {
-      return ctx.badRequest("profile not found");
-    }
     if (!entity) {
       return ctx.badRequest("profile not found");
+    }
+    if (!entity?.public) {
+      return ctx.badRequest("profile is not public");
     }
     delete entity.user;
     delete entity.discussions;

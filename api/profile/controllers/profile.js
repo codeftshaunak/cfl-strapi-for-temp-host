@@ -138,6 +138,29 @@ module.exports = {
     );
   },
 
+  async checkConnection(ctx) {
+    const { slug } = ctx.params;
+    const user = ctx.state.user;
+    if (!user) {
+      return ctx.unauthorized("No authorization header was found.");
+    }
+    let connections = await strapi.services.connection.find({
+      profiles: ctx.state.user.profile,
+    });
+
+    let flag = false;
+    let state = '';
+    for(let i in connections){
+      let profile = connections[i].profiles[0].id.toString() == ctx.state.user.profile.id ? connections[i].profiles[1] : connections[i].profiles[0];
+      //console.log(profile)
+      if(profile.id==slug){
+        flag = true;
+        state = connections[i].status;
+      }
+    }
+    return {status:flag, state};
+  },
+
   async updateMe(ctx) {
     let entity;
     //get authenicated user details

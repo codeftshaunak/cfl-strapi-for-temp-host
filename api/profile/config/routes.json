@@ -49,6 +49,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/profiles/check-connection/:slug",
+      "handler": "profile.checkConnection",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/profiles/me",
       "handler": "profile.createMe",

@@ -153,7 +153,7 @@ module.exports = {
     for(let i in connections){
       let profile = connections[i].profiles[0].id.toString() == ctx.state.user.profile.id ? connections[i].profiles[1] : connections[i].profiles[0];
       //console.log(profile)
-      if(profile.id==slug){
+      if(profile?.id==slug){
         flag = true;
         state = connections[i].status;
       }

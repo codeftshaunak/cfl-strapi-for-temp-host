@@ -161,6 +161,26 @@ module.exports = {
     return {status:flag, state};
   },
 
+  async getConnectionList(ctx) {
+    const user = ctx.state.user;
+    if (!user) {
+      return ctx.unauthorized("No authorization header was found.");
+    }
+    let connections = await strapi.services.connection.find({
+      profiles: ctx.state.user.profile,
+      status: 'accepted'
+    });
+
+    connections = connections.map((connection) =>
+      sanitizeEntity(connection, { model: strapi.models.connection })
+    ).map(connection => {
+      delete connection.authorProfile;
+      delete connection.messages;
+      return connection.profiles[0].id.toString() == ctx.state.user.profile.id ? connection.profiles[1] : connection.profiles[0];
+    })
+    return {status:true, users: connections};
+  },
+
   async updateMe(ctx) {
     let entity;
     //get authenicated user details

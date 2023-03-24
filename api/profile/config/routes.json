@@ -26,6 +26,14 @@
     },
     {
       "method": "GET",
+      "path": "/profiles/connection-list",
+      "handler": "profile.getConnectionList",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/profiles/me",
       "handler": "profile.findMe",
       "config": {

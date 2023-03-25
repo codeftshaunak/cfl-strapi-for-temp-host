@@ -9,11 +9,9 @@ const { sanitizeEntity, parseMultipartData } = require("strapi-utils");
 
 module.exports = {
   async find(ctx) {
-    const query = ctx.query;
-    const user = query.user_id;
-    const params = {
-      group: query.group,
-    };
+    const { _limit, _start, group, user_id } = ctx.query;
+    const user = user_id;
+    const params = { group };
 
     if (params.group) {
       if (!user) {
@@ -52,7 +50,9 @@ module.exports = {
         },
       })
       .lean()
-      .sort([["createdAt", "desc"]]);
+      .sort([["createdAt", "desc"]])
+      .skip(parseInt(_start))
+      .limit(parseInt(_limit));
 
     return entities.map((entity) => {
       const commentsCount = entity.comments.length;

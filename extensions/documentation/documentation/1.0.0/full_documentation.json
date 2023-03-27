@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/17/2023 2:53:10 PM"
+    "x-generation-date": "03/27/2023 1:33:17 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -19562,6 +19562,9 @@
               "poll": {
                 "type": "string"
               },
+              "isPinned": {
+                "type": "boolean"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -20103,6 +20106,10 @@
               }
             }
           },
+          "isPinned": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -20134,6 +20141,10 @@
           },
           "poll": {
             "type": "string"
+          },
+          "isPinned": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -20308,6 +20319,9 @@
                 },
                 "poll": {
                   "type": "string"
+                },
+                "isPinned": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -22741,6 +22755,9 @@
                 "poll": {
                   "type": "string"
                 },
+                "isPinned": {
+                  "type": "boolean"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -22823,6 +22840,9 @@
                 },
                 "poll": {
                   "type": "string"
+                },
+                "isPinned": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"

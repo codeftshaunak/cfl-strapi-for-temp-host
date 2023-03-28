@@ -311,7 +311,7 @@
         "parameters": []
       }
     },
-    "/events/{slug}": {
+    "/events/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -363,7 +363,7 @@
         ],
         "parameters": [
           {
-            "name": "slug",
+            "name": "id",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -373,9 +373,7 @@
             }
           }
         ]
-      }
-    },
-    "/events/{id}": {
+      },
       "put": {
         "deprecated": false,
         "description": "Update a record",

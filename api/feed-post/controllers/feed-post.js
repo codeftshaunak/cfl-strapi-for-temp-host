@@ -11,9 +11,9 @@ const { sanitizeEntity, parseMultipartData } = require("strapi-utils");
 
 module.exports = {
   async find(ctx) {
-    const { _limit, _start, group, user_id } = ctx.query;
+    const { _limit, _start, group, user_id, isPinned = false } = ctx.query;
     const user = user_id;
-    const params = { group };
+    const params = { group, isPinned };
 
     if (params.group) {
       if (!user) {
@@ -24,6 +24,11 @@ module.exports = {
         return ctx.unauthorized("You are not part of the group.");
       }
     }
+    
+    await strapi.query("feed-post").model.updateMany(
+      { isPinned: null },
+      { isPinned: false }
+    );
 
     const entities = await strapi
       .query("feed-post")

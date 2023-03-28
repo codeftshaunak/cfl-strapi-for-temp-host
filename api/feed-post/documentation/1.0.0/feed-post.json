@@ -997,6 +997,10 @@
               }
             }
           },
+          "isPinned": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1028,6 +1032,10 @@
           },
           "poll": {
             "type": "string"
+          },
+          "isPinned": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",

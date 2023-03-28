@@ -48,6 +48,10 @@
     },
     "poll": {
       "model": "polls"
+    },
+    "isPinned": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

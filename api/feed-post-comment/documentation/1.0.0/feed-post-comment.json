@@ -844,6 +844,7 @@
               },
               "group": {
                 "type": "string"
+                "type": "string"
               },
               "media": {
                 "type": "array",
@@ -853,6 +854,9 @@
               },
               "poll": {
                 "type": "string"
+              },
+              "isPinned": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"

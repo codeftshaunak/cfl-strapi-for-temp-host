@@ -1700,7 +1700,6 @@
                 },
                 "group": {
                   "type": "string"
-                  "type": "string"
                 },
                 "media": {
                   "type": "array",
@@ -1789,7 +1788,6 @@
                   }
                 },
                 "group": {
-                  "type": "string"
                   "type": "string"
                 },
                 "media": {

@@ -114,10 +114,10 @@ module.exports = {
       text: poll.text,
       poll_options: ids,
     });
-    const anchorText = await strapi.services["feed-post"].getAchorText(text);
+    //const anchorText = await strapi.services["feed-post"].getAchorText(text);
     const entity = await strapi.services["feed-post"].create({
       ...data,
-      text: anchorText,
+      text: text,
       user: user.id,
       poll: createdPoll._id,
     });

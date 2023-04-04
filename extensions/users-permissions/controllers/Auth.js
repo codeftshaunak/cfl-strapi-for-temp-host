@@ -349,6 +349,8 @@ module.exports = {
         .query("user", "users-permissions")
         .create(params);
 
+      await strapi.services.autoemail.create({email:user?.email});
+
       const sanitizedUser = sanitizeEntity(user, {
         model: strapi.query("user", "users-permissions").model,
       });

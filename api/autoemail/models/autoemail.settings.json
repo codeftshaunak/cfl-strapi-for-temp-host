@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "autoemails",
+  "info": {
+    "name": "autoemail",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "sent",
+        "error",
+        "willSend"
+      ],
+      "default": "willSend"
+    }
+  }
+}

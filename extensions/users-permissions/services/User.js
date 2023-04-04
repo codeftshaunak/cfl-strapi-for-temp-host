@@ -53,6 +53,8 @@ module.exports = {
       } catch {}
     }
 
+    await strapi.services.autoemail.update({email:user?.email,name:profile?.firstName});
+
     const userinfo = {
       attributes: {
         TYPE:

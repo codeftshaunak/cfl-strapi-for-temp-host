@@ -203,8 +203,6 @@ module.exports = {
         data,
         { files }
       );
-      // updating user data on updating profile name
-      await strapi.services.autoemail.update({email:user.email},{email:ctx.state.user.email,name:data.firstName});
     } else {
       let data = ctx.request.body;
       if (ctx.request.body.summary !== undefined) {
@@ -215,9 +213,10 @@ module.exports = {
       }
       data["user"] = user.id;
       entity = await strapi.services.profile.update({ id: user.profile }, data);
-      // updating user data on updating profile name
-      await strapi.services.autoemail.update({email:user.email},{email:ctx.state.user.email,name:data.firstName});
     }
+
+    // updating user data on updating profile name
+    await strapi.services.autoemail.update({email:user.email},{email:ctx.state.user.email,name:entity?.firstName});
 
     // update onboarded param on user if all necessary data is completed
     if (!user.onboarded && strapi.services.profile.okForOnboarding(entity)) {

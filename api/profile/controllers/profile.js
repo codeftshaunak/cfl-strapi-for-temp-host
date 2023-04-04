@@ -120,6 +120,8 @@ module.exports = {
       data["lastLogin"] = new Date();
       entity = await strapi.services.profile.create(data);
     }
+    // updating user data on updating profile name
+    await strapi.services.autoemail.create({email:ctx.state.user.email,name:entity?.firstName});
     strapi.plugins["users-permissions"].services.user.updateCRM(user, entity);
     return sanitizeEntity(entity, { model: strapi.models.profile });
   },

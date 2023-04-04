@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/autoemails",
+      "handler": "autoemail.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/autoemails/shoot",
+      "handler": "autoemail.shoot",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/autoemails/count",
+      "handler": "autoemail.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/autoemails/:id",
+      "handler": "autoemail.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/autoemails",
+      "handler": "autoemail.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/autoemails/:id",
+      "handler": "autoemail.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/autoemails/:id",
+      "handler": "autoemail.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

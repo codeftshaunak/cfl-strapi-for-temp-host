@@ -8,6 +8,18 @@
 const { sanitizeEntity } = require("strapi-utils");
 
 module.exports = {
+    async mailData(entity){
+      await strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
+        {to:entity.email},
+        {
+          templateId: 11,
+          sourceCodeToTemplateId: 11,
+        },
+        {
+          name: entity.name,
+        }
+      );
+    },
     async shoot(ctx) {
         let entities;
         const query = ctx.query;
@@ -20,16 +32,7 @@ module.exports = {
         entities = await strapi.query("autoemail").find(query);
         return entities.map((entity) => {
           try{
-                strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
-                  {to:entity.email},
-                  {
-                    templateId: 11,
-                    sourceCodeToTemplateId: 11,
-                  },
-                  {
-                    name: entity.name,
-                  }
-                );
+                this.mailData(entity);
                 strapi.services.autoemail.update({ id: entity.id }, {state:'sent'});
               }catch(e){
                 strapi.services.autoemail.update({ id: entity.id }, {state:'error'});

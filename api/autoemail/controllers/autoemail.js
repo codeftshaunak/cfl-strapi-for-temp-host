@@ -15,7 +15,7 @@ module.exports = {
         query['name'] = {$exists:true, $ne:''};
         var d = new Date();
         d.setHours(d.getHours() - 2);
-        query['createdAt_gte'] = d.toISOString();
+        query['createdAt_lte'] = d.toISOString();
 
         entities = await strapi.query("autoemail").find(query);
         return entities.map((entity) => {

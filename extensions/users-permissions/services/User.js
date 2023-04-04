@@ -53,7 +53,7 @@ module.exports = {
       } catch {}
     }
 
-    await strapi.services.autoemail.update({email:user?.email,name:profile?.firstName});
+    await strapi.services.autoemail.update({email:user?.email},{email:user?.email,name:profile?.firstName});
 
     const userinfo = {
       attributes: {

@@ -21,5 +21,7 @@ module.exports = {
   "* * * * *": async () => {
     // console.log("I am running " + new Date(), Object.keys(strapi.config));
     // console.log(env("DYNO"));
+
+    console.log('==================running cronjob test======================');
   },
 };

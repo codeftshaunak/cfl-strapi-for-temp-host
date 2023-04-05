@@ -217,7 +217,7 @@ module.exports = {
 
     if(user?.email && entity?.firstName){
       // updating user data on updating profile name
-      await strapi.services.autoemail.update({email:user.email},{email:user.email,name:entity?.firstName});
+      await strapi.services.autoemail.update({email:user?.email},{email:user?.email,name:entity?.firstName});
     }
 
     // update onboarded param on user if all necessary data is completed

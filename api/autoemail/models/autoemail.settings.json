@@ -23,7 +23,8 @@
       "enum": [
         "sent",
         "error",
-        "willSend"
+        "willSend",
+        "dontSend"
       ],
       "default": "willSend"
     }

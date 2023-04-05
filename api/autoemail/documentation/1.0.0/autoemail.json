@@ -591,7 +591,8 @@
             "enum": [
               "sent",
               "error",
-              "willSend"
+              "willSend",
+              "dontSend"
             ]
           },
           "published_at": {
@@ -614,7 +615,8 @@
             "enum": [
               "sent",
               "error",
-              "willSend"
+              "willSend",
+              "dontSend"
             ]
           },
           "published_at": {

@@ -9,6 +9,14 @@ const _ = require("lodash");
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 const sanitizeHtml = require("sanitize-html");
 
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
+  // https://github.com/stripe/stripe-node#configuration
+  apiVersion: "2020-08-27",
+});
+
+const LAUNCH_PRODUCT_ID = "prod_NMZLButyFGhHRn";
+const PREMIUM_PRODUCT_ID = "prod_KaYioVgNUhHzup";
+
 module.exports = {
   async find(ctx) {
     let entities;
@@ -280,5 +288,45 @@ module.exports = {
     return entities.map((entity) =>
       sanitizeEntity(entity, { model: strapi.models.profile })
     );
+  },
+
+  async dashboardDetails() {
+    let launchMembers = 0;
+
+    const totalMembers = await strapi.query("user", "users-permissions").count();
+    const premiumMembers = await strapi.query("user", "users-permissions").count({ role: "6172fdb46fd9888cab5c47b8" });
+    const groupEntity = await strapi.query("group").find();
+
+    if (groupEntity && groupEntity.length > 0 && groupEntity[0].users_permissions_users) {
+      launchMembers = groupEntity[0].users_permissions_users.length;
+    }
+
+    const { data } = await stripe.subscriptions.list({
+      created: {
+        gt: Math.floor(Date.now() / 1000) - 86400,
+        lt: Math.floor(Date.now() / 1000),
+      },
+      expand: ["data.customer"],
+    });
+    
+    const launchSubscriptions = data.filter(
+      (subscription) => ["active", "trialing"].includes(subscription.status) && subscription.plan.product === LAUNCH_PRODUCT_ID
+      );
+    const premiumSubscriptions = data.filter(
+      (subscription) => ["active", "trialing"].includes(subscription.status) && subscription.plan.product === PREMIUM_PRODUCT_ID
+      );
+    const launchSubscriptionsRevenue = launchSubscriptions.reduce(
+      (total, subscription) => total + (subscription.plan.amount / 100), 0
+      );
+    const premiumSubscriptionsRevenue = premiumSubscriptions.reduce(
+      (total, subscription) => total + (subscription.plan.amount / 100), 0
+      );
+      
+    return {
+      totalMembers,
+      premiumMembers,
+      launchMembers,
+      revenueInADay: `$${launchSubscriptionsRevenue + premiumSubscriptionsRevenue}`,
+    }
   },
 };

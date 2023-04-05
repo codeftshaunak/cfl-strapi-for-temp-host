@@ -50,7 +50,9 @@ module.exports = {
     if (!profile) {
       try {
         profile = await strapi.query("profile").findOne({ user: user.id }, []);
-      } catch {}
+      } catch (e){
+        console.log('error in update CRM', e);
+      }
     }
 
     if(user?.email && profile?.firstName){

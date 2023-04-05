@@ -55,13 +55,17 @@ module.exports = {
       }
     }
 
-    if(user?.email && profile?.firstName){
-      const auto = await strapi.services.autoemail.findOne({email:user?.email});
-      if(auto){
-        await strapi.services.autoemail.update({email:user?.email},{email:user?.email,name:profile?.firstName});
-      }else{
-        await strapi.services.autoemail.create({email:user?.email,name:profile?.firstName});
+    try{
+      if(user?.email && user.createdAt.toISOString() >= new Date('2023-03-05 00:00:00').toISOString() && profile?.firstName){
+        const auto = await strapi.services.autoemail.findOne({email:user?.email});
+        if(auto){
+          await strapi.services.autoemail.update({email:user?.email},{email:user?.email,name:profile?.firstName});
+        }else{
+          await strapi.services.autoemail.create({email:user?.email,name:profile?.firstName});
+        }
       }
+    }catch(e){
+      console.log(e);
     }
 
     const userinfo = {

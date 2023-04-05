@@ -56,7 +56,12 @@ module.exports = {
     }
 
     if(user?.email && profile?.firstName){
-      await strapi.services.autoemail.update({email:user?.email},{email:user?.email,name:profile?.firstName});
+      const auto = await strapi.services.autoemail.findOne({email:user?.email});
+      if(auto){
+        await strapi.services.autoemail.update({email:user?.email},{email:user?.email,name:profile?.firstName});
+      }else{
+        await strapi.services.autoemail.create({email:user?.email,name:profile?.firstName});
+      }
     }
 
     const userinfo = {

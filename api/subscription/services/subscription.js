@@ -41,7 +41,7 @@ module.exports = {
       );
       await strapi
         .query("user", "users-permissions")
-        .update({ id: user.id }, { role: "616dc08eddd40a6af489ec09" });
+        .update({ id: user.id }, { role: "63c1723243571e0016a41f79" });
     }
   },
 };

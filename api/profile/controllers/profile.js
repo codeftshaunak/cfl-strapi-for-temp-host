@@ -152,14 +152,18 @@ module.exports = {
     if (!user) {
       return ctx.unauthorized("No authorization header was found.");
     }
+    if (!user.profile) {
+      return ctx.badRequest("Profile not found.");
+    }
     let connections = await strapi.services.connection.find({
       profiles: ctx.state.user.profile,
     });
 
     let flag = false;
     let state = '';
+
     for(let i in connections){
-      let profile = connections[i].profiles[0].id.toString() == ctx.state.user.profile.id ? connections[i].profiles[1] : connections[i].profiles[0];
+      let profile = connections[i].profiles[0]?.id.toString() == ctx.state.user?.profile?.id ? connections[i]?.profiles[1] : connections[i].profiles[0];
       //console.log(profile)
       if(profile?.id==slug){
         flag = true;

@@ -80,10 +80,12 @@ module.exports = {
     });
 
     // recalculate badges for receiving user
-    strapi.plugins.queue.services.badges.add({
-      type: "messages",
-      profileId: ctx.request.body.to,
-    },{removeOnComplete: true});
+    // strapi.plugins.queue.services.badges.add({
+    //   type: "messages",
+    //   profileId: ctx.request.body.to,
+    // },{removeOnComplete: true});
+
+    await strapi.plugins["users-permissions"].services.user.calculateMessages(ctx.request.body.to);
 
     // send email notification
     const receivingUser = await strapi
@@ -105,6 +107,7 @@ module.exports = {
     }catch(e){
       console.log("error while sending message email ",e.message);
     }
+    await strapi.plugins["users-permissions"].services.user.calculateMessages(ctx.request.body.toUser);
     // strapi.plugins.queue.services.emails.add({
     //   options: {
     //     to: receivingUser.email,

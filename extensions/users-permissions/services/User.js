@@ -45,6 +45,53 @@ module.exports = {
     });
   },
 
+  async calculateMessages(profileId){
+    try {
+      const connections = await strapi.query("connection").find({
+        profiles: profileId,
+        status: { $in: ["accepted", "pending", "message"]},
+        _limit: -1,
+      });
+
+      const connectionsIds = connections.map((connection) => connection.id);
+
+      const count = await strapi.query("message").count({
+        connection_in: connectionsIds,
+        authorProfile_ne: profileId,
+        read: false,
+      });
+
+      await strapi
+        .query("user", "users-permissions")
+        .model.updateOne(
+          { profile: profileId },
+          { $set: { "badges.unreadMessages": count } }
+        );
+
+    } catch (e) {
+      console.log("failed updating unread message count ----------------", e.message);
+    }
+  },
+
+  async calculateConnections(profileId){
+    try{
+      const count = await strapi.query("connection").count({
+        profiles: profileId,
+        authorProfile_ne: profileId,
+        status: "pending",
+        _limit: -1,
+      });
+      await strapi
+        .query("user", "users-permissions")
+        .model.updateOne(
+          { profile: profileId },
+          { $set: { "badges.pendingConnections": count } }
+      );
+    }catch(e){
+      console.log('updating count in badges.js---------------------------',e.message);
+    }
+  },
+
   async updateCRM(user, profile) {
     if (!user.email) return;
     if (!profile) {

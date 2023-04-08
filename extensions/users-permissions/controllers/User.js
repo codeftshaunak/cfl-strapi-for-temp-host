@@ -34,6 +34,11 @@ module.exports = {
       );
     } catch {}
 
+    const group = await strapi.query('group').findOne({users_permissions_users:user.id});
+    if(group){
+      user.launch = true;
+    }
+
     ctx.body = sanitizeUser(user);
   },
 };

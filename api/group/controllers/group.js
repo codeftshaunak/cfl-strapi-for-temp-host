@@ -31,6 +31,10 @@ module.exports = {
       { id },
       { users_permissions_users: newUsers }
     );
+    const found = await strapi.services.autoemail.findOne({ email: user.email })
+    if(found){
+      await strapi.services.autoemail.update({ email: user.email }, {state:'dontSend'});
+    }
 
     return sanitizeEntity(entity, { model: strapi.models.group });
   },

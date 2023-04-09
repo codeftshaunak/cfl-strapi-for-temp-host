@@ -31,13 +31,13 @@ module.exports = {
 
         entities = await strapi.query("autoemail").find(query);
         return entities.map((entity) => {
-          try{
+            try{
                 this.mailData(entity);
                 strapi.services.autoemail.update({ id: entity.id }, {state:'sent'});
-              }catch(e){
+            }catch(e){
                 strapi.services.autoemail.update({ id: entity.id }, {state:'error'});
                 console.log("error while sending message email ",e.message);
-              }
+            }
             return sanitizeEntity(entity, { model: strapi.models.autoemail })
         });
         return "ok";

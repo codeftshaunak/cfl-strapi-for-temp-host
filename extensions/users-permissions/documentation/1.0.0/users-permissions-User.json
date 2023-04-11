@@ -1905,6 +1905,43 @@
                 }
               }
             }
+          },
+          "report": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "typeId": {
+                "type": "string"
+              },
+              "comment": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "Profile",
+                  "Comment",
+                  "Message",
+                  "Post"
+                ]
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -2009,6 +2046,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "report": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

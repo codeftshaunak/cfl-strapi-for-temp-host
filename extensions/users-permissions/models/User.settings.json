@@ -121,6 +121,10 @@
     "notificationsReceived": {
       "via": "userReceiver",
       "collection": "notification"
+    },
+    "report": {
+      "via": "users_permissions_user",
+      "model": "report"
     }
   }
 }

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reports",
+  "info": {
+    "name": "report",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "private": true,
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "report"
+    },
+    "typeId": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Profile",
+        "Comment",
+        "Message",
+        "Post"
+      ]
+    }
+  }
+}

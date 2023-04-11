@@ -155,22 +155,32 @@ module.exports = {
     if (!user.profile) {
       return ctx.badRequest("Profile not found.");
     }
-    let connections = await strapi.services.connection.find({
-      profiles: ctx.state.user.profile,
+    let connection = await strapi.services.connection.findOne({
+      //status: { $in: ["accepted", "pending", "message"]},
+      profiles: { $all: [user.profile, slug] },
     });
 
-    let flag = false;
-    let state = '';
-
-    for(let i in connections){
-      let profile = connections[i].profiles[0]?.id.toString() == ctx.state.user?.profile?.id ? connections[i]?.profiles[1] : connections[i].profiles[0];
-      //console.log(profile)
-      if(profile?.id==slug){
-        flag = true;
-        state = connections[i].status;
-      }
+    if(!connection){
+      return {status:false, state:''}
     }
-    return {status:flag, state};
+    return {status:true, state:connection.status}
+
+    // let connections = await strapi.services.connection.find({
+    //   profiles: ctx.state.user.profile,
+    // });
+
+    // let flag = false;
+    // let state = '';
+
+    // for(let i in connections){
+    //   let profile = connections[i].profiles[0]?.id.toString() == ctx.state.user?.profile?.id ? connections[i]?.profiles[1] : connections[i].profiles[0];
+    //   //console.log(profile)
+    //   if(profile?.id==slug){
+    //     flag = true;
+    //     state = connections[i].status;
+    //   }
+    // }
+    // return {status:flag, state};
   },
 
   async getConnectionList(ctx) {

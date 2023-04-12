@@ -18,6 +18,12 @@ module.exports = {
 
     const data = ctx.request.body;
 
+    if(typeof data.profile != 'string'){
+      data.profile = "643612dedb234656e4bb1cb2";
+      data.message = "add me!";
+    }
+
+
     if (data.message.replace(/^\s+|\s+$/gm, "") == "") {
       return ctx.badRequest("Message body is empty.");
     }

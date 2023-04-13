@@ -42,6 +42,14 @@
     },
     {
       "method": "POST",
+      "path": "/notifications/email-system",
+      "handler": "notification.createEmailSystem",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
       "path": "/notifications",
       "handler": "notification.create",
       "config": {

@@ -183,6 +183,11 @@ module.exports = {
       query["authorProfile"] = user.profile.id;
     }
 
+    if (ctx.query?.name) {
+      query["profiles.firstName_contains"] = ctx.query.name.toLowerCase();
+      delete ctx.query.name;
+    }
+
     query["profiles"] = user.profile.id;
 
     entities = await strapi.query("connection").find(query);

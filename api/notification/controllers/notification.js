@@ -133,23 +133,23 @@ module.exports = {
       console.log("error while sending message email ",e.message);
     }
     
-    strapi.plugins.queue.services.emails.add({
-      options: {
-        to: receivingUser.email,
-      },
-      template: {
-        templateId: 4,
-        sourceCodeToTemplateId: 4,
-      },
-      data: {
-        toProfile: connection.profiles.filter(
-          (p) => p.id !== user.profile.id
-        )[0],
-        fromProfile: connection.profiles.filter(
-          (p) => p.id === user.profile.id
-        )[0],
-      },
-    },{ removeOnComplete: true });
+    // strapi.plugins.queue.services.emails.add({
+    //   options: {
+    //     to: receivingUser.email,
+    //   },
+    //   template: {
+    //     templateId: 4,
+    //     sourceCodeToTemplateId: 4,
+    //   },
+    //   data: {
+    //     toProfile: connection.profiles.filter(
+    //       (p) => p.id !== user.profile.id
+    //     )[0],
+    //     fromProfile: connection.profiles.filter(
+    //       (p) => p.id === user.profile.id
+    //     )[0],
+    //   },
+    // },{ removeOnComplete: true });
 
     // send system notification
     await strapi.services.notification.create({

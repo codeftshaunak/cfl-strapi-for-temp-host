@@ -84,9 +84,6 @@ module.exports = {
     if (!to) {
       return ctx.badRequest("Not allowed.");
     }
-    if (user.role.type !== "premium") {
-      return ctx.unauthorized("Not allowed, Premium required.");
-    } 
 
     let connection = await strapi.services.connection.findOne({
       status: { $in: ["accepted", "pending", "message"]},
@@ -94,6 +91,9 @@ module.exports = {
     });
 
     if (!connection) {
+      if (user.role.type !== "premium") {
+        return ctx.unauthorized("Not allowed, Premium required.");
+      }
       connection = await strapi.services.connection.create({
         status: "message",
         profiles: [user.profile.id, to],

@@ -5,9 +5,10 @@ module.exports = ({ env }) => ({
   admin: {
     auth: {
       secret: env("ADMIN_JWT_SECRET", "4e22e8a33ca6b65a99e1e9530ae0815e"),
-    },
+    }
   },
   cron: {
     enabled: true,
   },
+  admin_profile_id: "63c5dd6ee207a60016350015"
 });

@@ -19,7 +19,9 @@ module.exports = {
     const data = ctx.request.body;
 
     if(typeof data.profile != 'string'){
-      data.profile = "643612dedb234656e4bb1cb2";
+      // Admin profile id which connect with everyone automatically
+      data.profile = strapi.config.get("server.admin_profile_id"); 
+
       data.message = "add me!";
     }
 

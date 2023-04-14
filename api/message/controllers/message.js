@@ -22,9 +22,6 @@ module.exports = {
     if (!to) {
       return ctx.badRequest("Not allowed.");
     }
-    if (user.role.type !== "premium") {
-      return ctx.unauthorized("Not allowed, Premium required.");
-    } 
 
     // spam filters
     if(body.replace(/^\s+|\s+$/gm,'') == ''){
@@ -51,12 +48,22 @@ module.exports = {
     }
 
     if (!connectionId) {
-      const connection = await strapi.services.connection.create({
-        status: "message",
-        profiles: [user.profile.id, to],
-        authorProfile: user.profile.id,
-        updatedOn: new Date(),
+      let connection = await strapi.services.connection.findOne({
+        status: { $in: ["accepted", "pending", "message"]},
+        profiles: { $all: [user.profile, to] },
       });
+      
+      if (!connection) {
+        if (user.role.type !== "premium") {
+          return ctx.unauthorized("Not allowed, Premium required.");
+        }
+        connection = await strapi.services.connection.create({
+          status: "message",
+          profiles: [user.profile.id, to],
+          authorProfile: user.profile.id,
+          updatedOn: new Date(),
+        });
+      }
       connectionId = connection.id;
     }
 

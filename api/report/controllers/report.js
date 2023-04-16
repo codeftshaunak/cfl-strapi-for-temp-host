@@ -10,11 +10,13 @@ module.exports = {
     async create(ctx) {
         let entity;
         const user = ctx.state.user;
-        console.log(user.id);
+        let params = ctx.request.body;
         if(!user){
             ctx.badRequest('You are not authorized for this action.');
         }
-        let params = ctx.request.body;
+        if(!params.typeId || !params.type){
+            ctx.badRequest('Data required to report is missing, please try again.');
+        }
         entity = await await strapi.query('report').findOne({
             "type":params.type,
             'typeId':params.typeId,

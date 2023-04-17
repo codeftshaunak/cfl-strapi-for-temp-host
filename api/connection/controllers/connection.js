@@ -17,13 +17,14 @@ module.exports = {
     }
 
     const data = ctx.request.body;
-
+    
     if(typeof data.profile != 'string'){
       // Admin profile id which connect with everyone automatically
       data.profile = strapi.config.get("server.admin_profile_id"); 
 
-      data.message = "add me!";
+      data.message = "Welcome!";
     }
+
 
 
     if (data.message.replace(/^\s+|\s+$/gm, "") == "") {
@@ -69,14 +70,39 @@ module.exports = {
         }
       );
     } else {
-      const newConnection = {
-        authorProfile: user.profile.id,
-        profiles: [user.profile.id, data.profile],
-        status: "pending",
-        message: data.message,
-      };
+      let newConnection;
+
+      if(data.profile == strapi.config.get("server.admin_profile_id")){
+        newConnection = {
+          authorProfile: user.profile.id,
+          profiles: [user.profile.id, data.profile],
+          status: "accepted",
+          message: data.message,
+          updatedOn: new Date(),
+        };
+      }else {
+        newConnection = {
+          authorProfile: user.profile.id,
+          profiles: [user.profile.id, data.profile],
+          status: "pending",
+          message: data.message,
+        };
+      }
       entity = await strapi.services.connection.create(newConnection);
     }
+    // if(typeof data.profile == 'string'){
+    //   console.log('id is', id);
+    //   console.log("user.profile.id", user.profile.id);
+    //   entity = await strapi.services.connection.update(
+    //     { id, profiles: user.profile.id },
+    //     {
+    //       status: "accepted",
+    //       updatedOn: new Date(),
+    //     }
+    //   );
+    //   console.log('updated');
+    // }
+
 
     await strapi.plugins["users-permissions"].services.user.calculateConnections(data.profile);
     // strapi.plugins.queue.services.badges.add(
@@ -88,6 +114,8 @@ module.exports = {
     // );
 
     // creating notification
+
+
     strapi.services.profile.findById(data.profile).then(async (profile) => {
       await strapi.services.notification.create({
         action: "connectionRequest",
@@ -222,6 +250,7 @@ module.exports = {
     let entity;
     //get authenicated user details
     const user = ctx.state.user;
+
     if (!user) {
       return ctx.unauthorized("No authorization header was found.");
     }

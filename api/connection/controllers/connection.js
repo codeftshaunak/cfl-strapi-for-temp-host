@@ -74,8 +74,8 @@ module.exports = {
 
       if(data.profile == strapi.config.get("server.admin_profile_id")){
         newConnection = {
-          authorProfile: user.profile.id,
-          profiles: [user.profile.id, data.profile],
+          authorProfile: data.profile,
+          profiles: [data.profile, user.profile.id],
           status: "accepted",
           message: data.message,
           updatedOn: new Date(),

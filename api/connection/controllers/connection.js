@@ -22,7 +22,8 @@ module.exports = {
       // Admin profile id which connect with everyone automatically
       data.profile = strapi.config.get("server.admin_profile_id"); 
 
-      data.message = "Welcome!";
+      let WelcomeText = "Welcome to CoFoundersLab! We’re excited to have you join the community. We’d love to learn a little more about what you’re building and looking for on platform? Excited to connect!";
+      data.message = WelcomeText;
     }
 
 

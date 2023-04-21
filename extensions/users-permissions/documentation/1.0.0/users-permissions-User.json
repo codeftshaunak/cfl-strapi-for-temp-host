@@ -1833,7 +1833,8 @@
                     "discussionReply",
                     "posted",
                     "messaged",
-                    "replied"
+                    "replied",
+                    "taggedReply"
                   ]
                 },
                 "userSender": {
@@ -1879,7 +1880,8 @@
                     "discussionReply",
                     "posted",
                     "messaged",
-                    "replied"
+                    "replied",
+                    "taggedReply"
                   ]
                 },
                 "userSender": {

@@ -188,6 +188,9 @@ module.exports = {
     if (!user) {
       return ctx.unauthorized("No authorization header was found.");
     }
+    if (!user.profile) {
+      return ctx.unauthorized("incomplete user profile.");
+    }
     let connections = await strapi.services.connection.find({
       profiles: ctx.state.user.profile,
       status: 'accepted'

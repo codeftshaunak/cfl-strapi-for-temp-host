@@ -50,6 +50,14 @@
     },
     {
       "method": "POST",
+      "path": "/feed-post-comments/notify-tagged-users",
+      "handler": "feed-post-comment.notifyTaggedUsers",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
       "path": "/feed-post-comments/get-replies",
       "handler": "feed-post-comment.getReplies",
       "config": {

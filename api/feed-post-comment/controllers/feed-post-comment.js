@@ -88,6 +88,38 @@ module.exports = {
     return sanitizeEntity(reply, {model: strapi.models["feed-post-comment"]});
   },
 
+  async notifyTaggedUsers(ctx){
+    const params = ctx.request.body;
+    const sender = ctx.state.user;
+    if(!sender){
+      return ctx.badRequest("User not found");
+    }
+    if(!sender?.profile){
+      return ctx.badRequest("Sender profile not found");
+    }
+    if(!params?.postId){
+      return ctx.badRequest("PostId is missing");
+    }
+
+    const tags = JSON.parse(params?.tags);
+    tags.forEach(async (tag) => {
+      let slug = tag.replace('@','');
+      const profile = await strapi.services.profile.findOne({slug});
+
+      await strapi.services.notification.create({
+        action: "taggedReply",
+        userSender: sender.id,
+        userReceiver: profile.user.id,
+        references: {
+          postId: params?.postId,
+          commentId:params?.commentId
+        },
+      });
+
+    });
+    return "ok";
+  },
+
   async create(ctx) {
     const { body } = ctx.request;
 

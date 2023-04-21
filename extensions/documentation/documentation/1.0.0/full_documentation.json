@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/12/2023 12:08:48 AM"
+    "x-generation-date": "04/22/2023 1:59:48 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -8929,6 +8929,77 @@
       }
     },
     "/feed-post-comments/reply": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Feed-post-comment"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/feed-post-comments/notify-tagged-users": {
       "post": {
         "deprecated": false,
         "description": "Create a new record",
@@ -22365,7 +22436,8 @@
               "discussionReply",
               "posted",
               "messaged",
-              "replied"
+              "replied",
+              "taggedReply"
             ]
           },
           "userSender": {
@@ -22608,7 +22680,8 @@
               "discussionReply",
               "posted",
               "messaged",
-              "replied"
+              "replied",
+              "taggedReply"
             ]
           },
           "userSender": {
@@ -24681,7 +24754,8 @@
                     "discussionReply",
                     "posted",
                     "messaged",
-                    "replied"
+                    "replied",
+                    "taggedReply"
                   ]
                 },
                 "userSender": {
@@ -24727,7 +24801,8 @@
                     "discussionReply",
                     "posted",
                     "messaged",
-                    "replied"
+                    "replied",
+                    "taggedReply"
                   ]
                 },
                 "userSender": {

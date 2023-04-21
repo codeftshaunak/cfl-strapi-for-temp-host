@@ -21,7 +21,8 @@
         "discussionReply",
         "posted",
         "messaged",
-        "replied"
+        "replied",
+        "taggedReply"
       ]
     },
     "userSender": {

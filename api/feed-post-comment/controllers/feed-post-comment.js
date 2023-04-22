@@ -106,6 +106,25 @@ module.exports = {
       let slug = tag.replace('@','');
       const profile = await strapi.services.profile.findOne({slug});
 
+      if(!profile.user.blocked){
+        try{
+          strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
+            {to:profile.user.email},
+            {
+              templateId: 12,
+              sourceCodeToTemplateId: 12,
+            },
+            {
+              toProfile: profile,
+              fromProfile: sender.profile,
+              url : `https://cofounderslab.com/feed/${params?.postId}?cmntiId=${params?.commentId}`
+            }
+          );
+        }catch(e){
+          console.log("error while sending notification email ",e.message);
+        }
+      }
+
       await strapi.services.notification.create({
         action: "taggedReply",
         userSender: sender.id,

@@ -25,6 +25,28 @@ module.exports = {
         data.countryCode = city.countryCode;
       }
     },
+    // afterCreate: async(result) => {
+    //   if(result?.id){
+    //     let query = {};
+    //     const adminProfile = strapi.config.get("server.admin_profile_id");
+    //     query["profiles"] = {$all:[result?.id, adminProfile]};
+    //     const connection = await strapi.query("connection").findOne(query);
+    //     if(!connection){
+    //       const newConnection = {
+    //         authorProfile: adminProfile,
+    //         profiles: [adminProfile, result.id],
+    //         status: "accepted",
+    //         message: 'This connection is added by system automation',
+    //         updatedOn: new Date(),
+    //       };
+    //       await strapi.services.connection.create(newConnection);
+    //     }else{
+    //       await strapi.services.connection.update(
+    //         {id:connection.id},{status: "accepted",updatedOn: new Date()}
+    //       );
+    //     }
+    //   }
+    // },
     beforeUpdate: async (params, data) => {
       if (data.firstName && data.lastName && !data.slug) {
         data.slug = slugify(
@@ -41,5 +63,27 @@ module.exports = {
         data.countryCode = city.countryCode;
       }
     },
+    // afterUpdate: async(result) => {
+    //   if(result?.id){
+    //     let query = {};
+    //     const adminProfile = strapi.config.get("server.admin_profile_id");
+    //     query["profiles"] = {$all:[result?.id, adminProfile]};
+    //     const connection = await strapi.query("connection").findOne(query);
+    //     if(!connection){
+    //       const newConnection = {
+    //         authorProfile: adminProfile,
+    //         profiles: [adminProfile, result.id],
+    //         status: "accepted",
+    //         message: 'This connection is added by system automation',
+    //         updatedOn: new Date(),
+    //       };
+    //       await strapi.services.connection.create(newConnection);
+    //     }else{
+    //       await strapi.services.connection.update(
+    //         {id:connection.id},{status: "accepted",updatedOn: new Date()}
+    //       );
+    //     }
+    //   }
+    // },
   },
 };

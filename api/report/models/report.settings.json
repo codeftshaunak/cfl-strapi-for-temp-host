@@ -13,10 +13,10 @@
   "pluginOptions": {},
   "attributes": {
     "users_permissions_user": {
-      "private": true,
+      "via": "report",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "report"
+      "private": true,
+      "model": "user"
     },
     "typeId": {
       "type": "string"

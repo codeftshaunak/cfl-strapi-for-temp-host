@@ -26,8 +26,6 @@ module.exports = {
       data.message = WelcomeText;
     }
 
-
-
     if (data.message.replace(/^\s+|\s+$/gm, "") == "") {
       return ctx.badRequest("Message body is empty.");
     }
@@ -331,6 +329,54 @@ module.exports = {
     // );
 
     return sanitizeEntity(entity, { model: strapi.models.connection });
+  },
+
+  async delay(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  },
+
+  async fetchNext(query = {}){
+    console.log('counting here _start '+query["_start"]);
+    query["_limit"] = 10;
+    const profiles = await strapi.query("profile").find(query);
+    if(!profiles){
+      return;
+    }
+    if(profiles){
+      profiles.map(async (entity) =>{
+        let query = {};
+        const adminProfile = strapi.config.get("server.admin_profile_id");
+        query["profiles"] = {$all:[entity.id, adminProfile]};
+        const connection = await strapi.query("connection").findOne(query);
+        if(!connection){
+          const newConnection = {
+            authorProfile: adminProfile,
+            profiles: [adminProfile, entity.id],
+            status: "accepted",
+            message: 'This connection is added by system automation',
+            updatedOn: new Date(),
+          };
+          console.log("created new connection "+entity.id);
+          await strapi.services.connection.create(newConnection);
+        }else{
+          console.log("updated new connection "+entity.id)
+          await strapi.services.connection.update(
+            {id:connection.id},{status: "accepted",updatedOn: new Date()}
+          );
+        }
+        return sanitizeEntity(entity, { model: strapi.models.profile });
+      });
+    }
+    await this.delay(5000)
+    let _start=query["_start"]+10;
+    this.fetchNext({_start});
+  },
+
+  async joinAll(ctx){
+    this.fetchNext({_start:0});
+    return "ok";
   },
 
   async markRead(ctx) {

@@ -344,7 +344,6 @@ module.exports = {
     if(!profiles){
       return;
     }
-    await this.delay(5000)
     if(profiles){
       profiles.map(async (entity) =>{
         let query = {};
@@ -370,6 +369,7 @@ module.exports = {
         return sanitizeEntity(entity, { model: strapi.models.profile });
       });
     }
+    await this.delay(5000)
     let _start=query["_start"]+10;
     this.fetchNext({_start});
   },

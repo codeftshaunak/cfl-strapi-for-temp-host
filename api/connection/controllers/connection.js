@@ -355,7 +355,7 @@ module.exports = {
             authorProfile: adminProfile,
             profiles: [adminProfile, entity.id],
             status: "accepted",
-            message: 'This connection is added by system automation',
+            message: "Welcome to CoFoundersLab - We’d love to learn about what you’re building and how we can help the most! Please feel free to let us know a little more about you",
             updatedOn: new Date(),
           };
           console.log("created new connection "+entity.id);
@@ -375,7 +375,7 @@ module.exports = {
   },
 
   async joinAll(ctx){
-    this.fetchNext({_start:0});
+    this.fetchNext({_start:33200});
     return "ok";
   },
 

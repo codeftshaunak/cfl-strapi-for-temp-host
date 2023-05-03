@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/connections/join-all",
+      "handler": "connection.joinAll",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/connections/me",
       "handler": "connection.findMe",
       "config": {

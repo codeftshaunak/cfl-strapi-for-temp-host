@@ -370,7 +370,7 @@ module.exports = {
       });
     }
     await this.delay(5000)
-    let _start=query["_start"]+10;
+    let _start=parseInt(query["_start"])+10;
     this.fetchNext({_start});
   },
 

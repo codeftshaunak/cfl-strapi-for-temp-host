@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/connections/join-all",
+      "path": "/connections/join-all/:id",
       "handler": "connection.joinAll",
       "config": {
         "policies": []

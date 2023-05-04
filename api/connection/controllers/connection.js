@@ -375,7 +375,8 @@ module.exports = {
   },
 
   async joinAll(ctx){
-    this.fetchNext({_start:33200});
+    const { id } = ctx.params;
+    this.fetchNext({_start:id});
     return "ok";
   },
 

@@ -341,8 +341,8 @@ module.exports = {
     console.log('counting here _start '+query["_start"]);
     query["_limit"] = 10;
     const profiles = await strapi.query("profile").find(query);
-    if(!profiles){
-      console.log(profiles);
+    if(profiles.length==0){
+      console.log("process complete");
       return false;
     }
     if(profiles){

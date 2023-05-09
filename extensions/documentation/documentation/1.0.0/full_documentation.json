@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/03/2023 5:03:03 PM"
+    "x-generation-date": "05/05/2023 2:49:09 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3261,7 +3261,7 @@
         }
       }
     },
-    "/connections/join-all": {
+    "/connections/join-all/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -3315,7 +3315,18 @@
         "tags": [
           "Connection"
         ],
-        "parameters": []
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/connections/me": {

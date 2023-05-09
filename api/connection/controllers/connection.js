@@ -350,21 +350,25 @@ module.exports = {
         const adminProfile = strapi.config.get("server.admin_profile_id");
         query["profiles"] = {$all:[entity.id, adminProfile]};
         const connection = await strapi.query("connection").findOne(query);
-        if(!connection){
-          const newConnection = {
-            authorProfile: adminProfile,
-            profiles: [adminProfile, entity.id],
-            status: "accepted",
-            message: "Welcome to CoFoundersLab - We’d love to learn about what you’re building and how we can help the most! Please feel free to let us know a little more about you",
-            updatedOn: new Date(),
-          };
-          console.log("created new connection "+entity.id);
-          await strapi.services.connection.create(newConnection);
-        }else{
-          console.log("updated new connection "+entity.id)
-          await strapi.services.connection.update(
-            {id:connection.id},{status: "accepted",updatedOn: new Date()}
-          );
+        try{
+          if(!connection){
+            const newConnection = {
+              authorProfile: adminProfile,
+              profiles: [adminProfile, entity.id],
+              status: "accepted",
+              message: "Welcome to CoFoundersLab - We’d love to learn about what you’re building and how we can help the most! Please feel free to let us know a little more about you",
+              updatedOn: new Date(),
+            };
+            console.log("created new connection "+entity.id);
+            await strapi.services.connection.create(newConnection);
+          }else{
+            console.log("updated new connection "+entity.id)
+            await strapi.services.connection.update(
+              {id:connection.id},{status: "accepted",updatedOn: new Date()}
+            );
+          }
+        }catch(e){
+          console.log("error while processing connection ",e);
         }
         return sanitizeEntity(entity, { model: strapi.models.profile });
       });

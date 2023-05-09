@@ -342,7 +342,8 @@ module.exports = {
     query["_limit"] = 10;
     const profiles = await strapi.query("profile").find(query);
     if(!profiles){
-      return;
+      console.log(profiles);
+      return false;
     }
     if(profiles){
       profiles.map(async (entity) =>{

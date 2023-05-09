@@ -352,15 +352,17 @@ module.exports = {
         const connection = await strapi.query("connection").findOne(query);
         try{
           if(!connection){
-            const newConnection = {
-              authorProfile: adminProfile,
-              profiles: [adminProfile, entity.id],
-              status: "accepted",
-              message: "Welcome to CoFoundersLab - We’d love to learn about what you’re building and how we can help the most! Please feel free to let us know a little more about you",
-              updatedOn: new Date(),
-            };
-            console.log("created new connection "+entity.id);
-            await strapi.services.connection.create(newConnection);
+            if(adminProfile!==entity.id){
+              const newConnection = {
+                authorProfile: adminProfile,
+                profiles: [adminProfile, entity.id],
+                status: "accepted",
+                message: "Welcome to CoFoundersLab - We’d love to learn about what you’re building and how we can help the most! Please feel free to let us know a little more about you",
+                updatedOn: new Date(),
+              };
+              console.log("created new connection "+entity.id);
+              await strapi.services.connection.create(newConnection);
+            }
           }else{
             console.log("updated new connection "+entity.id)
             await strapi.services.connection.update(

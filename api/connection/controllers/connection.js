@@ -383,8 +383,8 @@ module.exports = {
 
   async joinAll(ctx){
     const { id } = ctx.params;
-    this.fetchNext({_start:id});
-    return "ok";
+    //this.fetchNext({_start:id});
+    return "ok "+id;
   },
 
   async markRead(ctx) {

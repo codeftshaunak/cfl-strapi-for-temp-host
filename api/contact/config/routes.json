@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/contacts/create-admin",
+      "handler": "contact.createAdmin",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/contacts/:id",
       "handler": "contact.findOne",
       "config": {

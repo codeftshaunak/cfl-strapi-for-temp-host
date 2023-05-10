@@ -254,7 +254,7 @@
         }
       }
     },
-    "/connections/join-all": {
+    "/connections/join-all/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -308,7 +308,18 @@
         "tags": [
           "Connection"
         ],
-        "parameters": []
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/connections/me": {

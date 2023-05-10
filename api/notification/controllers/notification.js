@@ -20,6 +20,7 @@ module.exports = {
           path: "profile",
         },
       })
+      .limit(100)
       .sort({ createdAt: "desc" })
       .lean();
   },

@@ -17,7 +17,7 @@
     "slugify": "^1.6.1",
     "strapi": "3.6.11",
     "strapi-admin": "3.6.11",
-    "strapi-connector-mongoose": "3.6.11",
+    "strapi-connector-mongoose": "3.6.9",
     "strapi-plugin-content-manager": "3.6.11",
     "strapi-plugin-content-type-builder": "3.6.11",
     "strapi-plugin-documentation": "^3.6.11",

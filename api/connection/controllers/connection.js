@@ -201,7 +201,11 @@ module.exports = {
     }
 
     const query = ctx.query;
-    
+
+    if(query._limit==-1){
+      query["_limit"] = 100;
+    }
+
     if (ctx.query?.authorProfile) {
       query["authorProfile"] = {
         $ne: ctx.query.authorProfile

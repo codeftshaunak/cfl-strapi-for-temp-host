@@ -793,6 +793,10 @@
           },
           "companyName": {
             "type": "string"
+          },
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -851,6 +855,10 @@
           },
           "companyName": {
             "type": "string"
+          },
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"

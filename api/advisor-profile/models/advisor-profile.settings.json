@@ -77,6 +77,9 @@
     },
     "companyName": {
       "type": "string"
+    },
+    "lastLogin": {
+      "type": "datetime"
     }
   }
 }

@@ -140,6 +140,14 @@ module.exports = {
               lastLogin: new Date(),
             }
           );
+          if(user?.advisor_profile){
+            strapi.query("advisor-profile").update(
+              { user: user.id },
+              {
+                lastLogin: new Date(),
+              }
+            );
+          }
           strapi.plugins["users-permissions"].services.user.updateCRM({
             ...user,
             lastLogin: new Date(),

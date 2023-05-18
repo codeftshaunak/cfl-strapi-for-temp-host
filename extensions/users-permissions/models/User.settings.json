@@ -116,11 +116,13 @@
     },
     "notificationsSent": {
       "via": "userSender",
-      "collection": "notification"
+      "collection": "notification",
+      "autoPopulate":false
     },
     "notificationsReceived": {
       "via": "userReceiver",
-      "collection": "notification"
+      "collection": "notification",
+      "autoPopulate":false
     },
     "report": {
       "via": "users_permissions_user",

@@ -86,7 +86,8 @@
     },
     "connections": {
       "via": "authorProfile",
-      "collection": "connection"
+      "collection": "connection",
+      "autoPopulate":false
     },
     "countryCode": {
       "type": "string"

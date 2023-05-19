@@ -102,11 +102,12 @@ module.exports = {
     }
 
     const tags = JSON.parse(params?.tags);
+    if(tags==null){return "ok";} // handling error for foreach of null
     tags.forEach(async (tag) => {
       let slug = tag.replace('@','');
       const profile = await strapi.services.profile.findOne({slug});
 
-      if(!profile.user.blocked){
+      if(!profile?.user?.blocked){
         try{
           strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
             {to:profile.user.email},

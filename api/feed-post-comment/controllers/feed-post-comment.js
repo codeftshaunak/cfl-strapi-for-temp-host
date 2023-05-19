@@ -107,7 +107,7 @@ module.exports = {
       let slug = tag.replace('@','');
       const profile = await strapi.services.profile.findOne({slug});
 
-      if(!profile.user.blocked){
+      if(!profile?.user?.blocked){
         try{
           strapi.plugins["email-designer"].services["email"].sendTemplatedEmail(
             {to:profile.user.email},

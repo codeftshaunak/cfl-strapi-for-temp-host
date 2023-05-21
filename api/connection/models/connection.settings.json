@@ -39,8 +39,7 @@
     },
     "messages": {
       "via": "connection",
-      "collection": "message",
-      "autoPopulate": false
+      "collection": "message"
     },
     "updatedOn": {
       "type": "datetime",

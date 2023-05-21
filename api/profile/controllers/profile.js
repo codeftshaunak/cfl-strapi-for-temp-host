@@ -149,21 +149,28 @@ module.exports = {
   async checkConnection(ctx) {
     const { slug } = ctx.params;
     const user = ctx.state.user;
+    if(!slug || slug=='undefined' || slug == 'null'){
+      return ctx.badRequest("slug undefined");
+    }
     if (!user) {
       return ctx.unauthorized("No authorization header was found.");
     }
     if (!user.profile) {
       return ctx.badRequest("Profile not found.");
     }
-    let connection = await strapi.services.connection.findOne({
-      //status: { $in: ["accepted", "pending", "message"]},
-      profiles: { $all: [user.profile, slug] },
-    });
-
-    if(!connection){
-      return {status:false, state:''}
+    try{
+      let connection = await strapi.services.connection.findOne({
+        //status: { $in: ["accepted", "pending", "message"]},
+        profiles: { $all: [user.profile, slug] },
+      });
+      if(!connection){
+        return {status:false, state:''}
+      }
+      return {status:true, state:connection.status}
+    }catch(e){
+      console.log("info for id : "+user?.profile?.email+" , "+e.message);
+      return {status:false, state:'Invalid Id'}
     }
-    return {status:true, state:connection.status}
 
     // let connections = await strapi.services.connection.find({
     //   profiles: ctx.state.user.profile,

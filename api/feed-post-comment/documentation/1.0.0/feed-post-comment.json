@@ -259,18 +259,21 @@
         }
       }
     },
-    "/feed-post-comments/delete-reply/{id}/{replyID}/": {
-      "delete": {
+    "/feed-post-comments/delete-reply": {
+      "post": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Create a new record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "integer",
-                  "format": "int64"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -310,28 +313,21 @@
         "tags": [
           "Feed-post-comment"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "replyID",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
-        ]
+        }
       }
     },
     "/feed-post-comments/count": {

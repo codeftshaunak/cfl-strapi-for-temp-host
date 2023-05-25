@@ -89,7 +89,7 @@ module.exports = {
   },
 
   async deleteReply(ctx) {
-    const {id,replyID} = ctx.params;
+    const {id,replyID} = ctx.request.body;
     const comment = await strapi.services["feed-post-comment"].findOne({id});
     const index = comment.replies.indexOf(replyID);
     let replies = comment.replies;
@@ -98,7 +98,7 @@ module.exports = {
       await strapi.query("feed-post-comment").model.updateOne({_id:id},{$set:{"replies":replies}});
     }
     await strapi.services["feed-post-comment"].delete({id:replyID});
-    return "ok";
+    return {status:"success",data:{id,replyID}};
   },
 
   async notifyTaggedUsers(ctx){

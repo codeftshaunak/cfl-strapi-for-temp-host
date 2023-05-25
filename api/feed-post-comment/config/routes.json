@@ -9,8 +9,8 @@
       }
     },
     {
-      "method": "DELETE",
-      "path": "/feed-post-comments/delete-reply/:id/:replyID/",
+      "method": "POST",
+      "path": "/feed-post-comments/delete-reply",
       "handler": "feed-post-comment.deleteReply",
       "config": {
         "policies": []

@@ -88,6 +88,19 @@ module.exports = {
     return sanitizeEntity(reply, {model: strapi.models["feed-post-comment"]});
   },
 
+  async deleteReply(ctx) {
+    const {id,replyID} = ctx.params;
+    const comment = await strapi.services["feed-post-comment"].findOne({id});
+    const index = comment.replies.indexOf(replyID);
+    let replies = comment.replies;
+    if (index > -1) { // only splice array when item is found
+      replies.splice(index, 1); // 2nd parameter means remove one item only
+      await strapi.query("feed-post-comment").model.updateOne({_id:id},{$set:{"replies":replies}});
+    }
+    await strapi.services["feed-post-comment"].delete({id:replyID});
+    return "ok";
+  },
+
   async notifyTaggedUsers(ctx){
     const params = ctx.request.body;
     const sender = ctx.state.user;
@@ -102,7 +115,7 @@ module.exports = {
     }
 
     const tags = JSON.parse(params?.tags);
-    if(tags==null){return "ok";} // handling error for foreach of null
+    if(tags==null || tags=='null'){return "ok";} // handling error for foreach of null
     tags.forEach(async (tag) => {
       let slug = tag.replace('@','');
       const profile = await strapi.services.profile.findOne({slug});

@@ -19,7 +19,7 @@ module.exports = {
       ]);
     }
     console.log('ip address ',ip.address());
-    console.log(ctx.request.socket.remoteAddress);
+    console.log(ctx.headers);
 
     try {
       strapi.query("user", "users-permissions").update(

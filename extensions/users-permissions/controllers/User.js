@@ -2,7 +2,6 @@
 
 const _ = require("lodash");
 const { sanitizeEntity } = require("strapi-utils");
-const ip = require("ip");
 
 const sanitizeUser = (user) =>
   sanitizeEntity(user, {
@@ -18,15 +17,13 @@ module.exports = {
         { messages: [{ id: "No authorization header was found" }] },
       ]);
     }
-    console.log('ip address ',ip.address());
-    console.log(ctx.headers);
 
     try {
       strapi.query("user", "users-permissions").update(
         { id: user.id },
         {
           lastLogin: new Date(),
-          ipAddress:ctx?.ip
+          ipAddress:ctx?.headers?.ip
         }
       );
 

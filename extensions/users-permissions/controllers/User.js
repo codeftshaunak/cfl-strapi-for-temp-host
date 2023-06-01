@@ -23,6 +23,7 @@ module.exports = {
         { id: user.id },
         {
           lastLogin: new Date(),
+          ipAddress:ctx?.headers?.ip
         }
       );
 

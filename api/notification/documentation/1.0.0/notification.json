@@ -975,6 +975,9 @@
               "report": {
                 "type": "string"
               },
+              "ipAddress": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -1081,6 +1084,9 @@
                 }
               },
               "report": {
+                "type": "string"
+              },
+              "ipAddress": {
                 "type": "string"
               },
               "created_by": {

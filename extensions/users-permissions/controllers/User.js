@@ -17,12 +17,14 @@ module.exports = {
         { messages: [{ id: "No authorization header was found" }] },
       ]);
     }
+    console.log(ctx.headers);
 
     try {
       strapi.query("user", "users-permissions").update(
         { id: user.id },
         {
           lastLogin: new Date(),
+          ipAddress:ctx?.ip
         }
       );
 

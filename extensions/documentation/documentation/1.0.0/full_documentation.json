@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/25/2023 8:45:31 PM"
+    "x-generation-date": "06/01/2023 9:49:52 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -18704,6 +18704,9 @@
               "report": {
                 "type": "string"
               },
+              "ipAddress": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -21578,6 +21581,9 @@
               "report": {
                 "type": "string"
               },
+              "ipAddress": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -21732,6 +21738,9 @@
               "report": {
                 "type": "string"
               },
+              "ipAddress": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -21874,6 +21883,9 @@
                   }
                 },
                 "report": {
+                  "type": "string"
+                },
+                "ipAddress": {
                   "type": "string"
                 },
                 "created_by": {
@@ -22192,6 +22204,9 @@
                   }
                 },
                 "report": {
+                  "type": "string"
+                },
+                "ipAddress": {
                   "type": "string"
                 },
                 "created_by": {
@@ -22687,6 +22702,9 @@
               "report": {
                 "type": "string"
               },
+              "ipAddress": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -22793,6 +22811,9 @@
                 }
               },
               "report": {
+                "type": "string"
+              },
+              "ipAddress": {
                 "type": "string"
               },
               "created_by": {
@@ -23184,6 +23205,9 @@
               "report": {
                 "type": "string"
               },
+              "ipAddress": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -23324,6 +23348,9 @@
                   }
                 },
                 "report": {
+                  "type": "string"
+                },
+                "ipAddress": {
                   "type": "string"
                 },
                 "created_by": {
@@ -23541,6 +23568,9 @@
                 }
               },
               "report": {
+                "type": "string"
+              },
+              "ipAddress": {
                 "type": "string"
               },
               "created_by": {
@@ -24228,6 +24258,9 @@
               "report": {
                 "type": "string"
               },
+              "ipAddress": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -24417,6 +24450,9 @@
                   }
                 },
                 "report": {
+                  "type": "string"
+                },
+                "ipAddress": {
                   "type": "string"
                 },
                 "created_by": {
@@ -25015,6 +25051,9 @@
                 "type": "string"
               }
             }
+          },
+          "ipAddress": {
+            "type": "string"
           }
         }
       },
@@ -25121,6 +25160,9 @@
             }
           },
           "report": {
+            "type": "string"
+          },
+          "ipAddress": {
             "type": "string"
           },
           "created_by": {

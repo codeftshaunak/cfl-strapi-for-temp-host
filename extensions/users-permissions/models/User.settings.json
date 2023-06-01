@@ -115,18 +115,21 @@
       "collection": "feed-post"
     },
     "notificationsSent": {
+      "autoPopulate": false,
       "via": "userSender",
-      "collection": "notification",
-      "autoPopulate":false
+      "collection": "notification"
     },
     "notificationsReceived": {
+      "autoPopulate": false,
       "via": "userReceiver",
-      "collection": "notification",
-      "autoPopulate":false
+      "collection": "notification"
     },
     "report": {
       "via": "users_permissions_user",
       "model": "report"
+    },
+    "ipAddress": {
+      "type": "string"
     }
   }
 }

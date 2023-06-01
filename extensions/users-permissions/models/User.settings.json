@@ -129,7 +129,8 @@
       "model": "report"
     },
     "ipAddress": {
-      "type": "string"
+      "type": "string",
+      "private": true
     }
   }
 }

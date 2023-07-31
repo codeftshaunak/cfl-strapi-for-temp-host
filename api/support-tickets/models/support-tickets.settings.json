@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "support_tickets",
+  "info": {
+    "name": "SupportTickets",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "issueType": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "message": {
+      "type": "richtext"
+    },
+    "media": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Created",
+        "UnderProcess",
+        "WaitingForReply",
+        "Fixed"
+      ]
+    }
+  }
+}

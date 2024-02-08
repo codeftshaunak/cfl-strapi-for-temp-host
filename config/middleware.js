@@ -10,7 +10,7 @@ module.exports = {
         "https://staging.cofounderslab.com",
         "https://api.cofounderslab.com",
         "https://api-cfl-staging.herokuapp.com",
-        "https://cfl-next-v2-dev.vercel.app",
+        "https://cfl-launch-chat-application.vercel.app",
       ],
     },
     parser: {

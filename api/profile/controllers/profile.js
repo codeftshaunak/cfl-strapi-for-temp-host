@@ -50,6 +50,23 @@ module.exports = {
     return sanitizeEntity(entity, { model: strapi.models.profile });
   },
 
+  async findOne(ctx) {
+    const { slug } = ctx.params;
+
+    const entity = await strapi.services.profile.findOne({ id: slug });
+    if (!entity) {
+      return ctx.badRequest("profile not found");
+    }
+    if (!entity?.public) {
+      return ctx.badRequest("profile is not public");
+    }
+    delete entity.user;
+    delete entity.discussions;
+    delete entity.discussion_replies;
+    delete entity.connections;
+    return sanitizeEntity(entity, { model: strapi.models.profile });
+  },
+
   async search(ctx) {
     let entities;
 

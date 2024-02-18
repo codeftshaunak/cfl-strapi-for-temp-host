@@ -14,6 +14,7 @@ module.exports = ({ env }) => ({
     },
   },
 email: {
+    config: {
       provider: 'strapi-provider-email-brevo',
       providerOptions: {
         apiKey: env('BREVO_API_KEY'),
@@ -21,6 +22,7 @@ email: {
       settings: {
         defaultFrom: 'noreply@cofounderslab.com',
         defaultReplyTo: 'noreply@cofounderslab.com',
-      }
+      },
+    },
   }
 });

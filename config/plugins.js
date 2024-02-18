@@ -20,7 +20,8 @@ email: {
         apiKey: env('BREVO_API_KEY'),
       },
       settings: {
-        defaultFrom: 'noreply@cofounderslab.com',
+        defaultSenderEmail: 'noreply@cofounderslab.com',
+                defaultSenderName: 'CoFoundersLab',
         defaultReplyTo: 'noreply@cofounderslab.com',
       },
     },
